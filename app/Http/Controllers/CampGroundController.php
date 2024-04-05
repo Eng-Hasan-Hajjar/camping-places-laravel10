@@ -13,7 +13,7 @@ class CampGroundController extends Controller
     {
         $campGrounts = CampGround::latest()->paginate(5);
 
-        return view('doctor.departements.index',compact('campGrounts'))
+        return view('backend.campGrounds.index',compact('campGrounts'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -22,7 +22,7 @@ class CampGroundController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.campGrounds.create');
     }
 
     /**
@@ -30,7 +30,15 @@ class CampGroundController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+
+        Departement::create($request->all());
+
+        return redirect()->route('departements.index')
+                        ->with('success','Departement created successfully.');
     }
 
     /**
@@ -38,7 +46,8 @@ class CampGroundController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('doctor.departements.show',compact('departement'));
+
     }
 
     /**
@@ -46,7 +55,7 @@ class CampGroundController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('doctor.departements.edit',compact('departement'));
     }
 
     /**
@@ -54,7 +63,16 @@ class CampGroundController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+
+        $departement->update($request->all());
+
+        return redirect()->route('departements.index')
+                        ->with('success','Departement updated successfully');
+
     }
 
     /**
@@ -62,6 +80,9 @@ class CampGroundController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $departement->delete();
+
+        return redirect()->route('departements.index')
+                        ->with('success','Departement deleted successfully');
     }
 }
