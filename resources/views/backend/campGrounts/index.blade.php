@@ -1,8 +1,5 @@
 @extends('admin.layouts.layout')
 
-
-
-
 @section('title')
    control of camping places
 @endsection
@@ -14,8 +11,6 @@
  {{Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}
 
 @endsection
-
-
 
 @section('content')
 

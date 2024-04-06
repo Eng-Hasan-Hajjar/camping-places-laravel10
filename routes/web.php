@@ -14,6 +14,8 @@ use App\Http\Controllers\CampGroundController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 #camping grounds
 //Route::get('/adminpanel/campGround/{id}/edit','CampGroundController@edit');
 Route::resource('/adminpanel/campGround','CampGroundController');
@@ -32,6 +34,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/campground', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('campground');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('campground', CampGroundController::class);
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -40,6 +50,4 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::middleware('auth')->group(function () {
-    Route::resource('campground', CampGroundController::class);
-});
+
