@@ -14,6 +14,12 @@ use App\Http\Controllers\CampGroundController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+#camping grounds
+//Route::get('/adminpanel/campGround/{id}/edit','CampGroundController@edit');
+Route::resource('/adminpanel/campGround','CampGroundController');
+//Route::get('/adminpanel/campGround/{id}/delete','CampGroundController@destroy');
+
+
 Route::get('/', function () {
     return view('frontend.index');
 });
