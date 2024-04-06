@@ -57,8 +57,8 @@
                   <th>country</th>
                   <th>city</th>
                   <th>region</th>
-                  <th>type</th>
-                  <th>season</th>
+                  <th>cm_type</th>
+                  <th>cm_season</th>
                   <th>campGround_image</th>
                   </tr>
                  </thead>
@@ -68,34 +68,40 @@
                  <tbody >
 
 
-        @foreach($data as $row)
+        @foreach($campGrounds as $row)
   <tr>
 
-   <td>{{ $row->es_name }}</td>
-   <td>{{ $row->es_price }}</td>
-   <td>@if($row->es_type== 0) "flat"
-     @elseif ($row->es_type== 1) "villa"
-    @else  "normal"
+   <td>{{ $campGrounds->name }}</td>
+   <td>{{ $campGrounds->description }}</td>
+   <td>{{ $campGrounds->country }}</td>
+   <td>{{ $campGrounds->city }}</td>
+   <td>{{ $campGrounds->region }}</td>
+   <!--    //  جبل-0 - بحر-1 -   -2 - غابة            -->
+
+   <td>{{ $campGrounds->cm_type }}</td>
+
+   <td>@if($campGrounds->cm_type== 0) "جبل"
+     @elseif ($campGrounds->cm_type== 1) "بحر"
+    @else  "غابة"
   @endif</td>
-  <td>@if($row->es_rent== 0) "for buy"
-     @elseif ($row->es_rent== 1) "for rent"
-    @elseif ($row->es_rent== 2)  "for mort"
+     <!--   spring 0 - summer  1 - fall 2 - winter 3         -->
+  <td>@if($campGrounds->cm_season== 0) "spring"
+     @elseif ($campGrounds->cm_season== 1) "summer"
+    @elseif ($campGrounds->cm_season== 2)  "fall"
+    @else  "winter"
   @endif</td>
-   <td> @if($row->es_status!=1) "active"
-        @else "non active"
-        @endif
-   </td>
-     <td><img src="{{ URL::to('/') }}/images/{{ $row->es_image }}" class="img-thumbnail" width="75" />
+
+     <td><img src="{{ URL::to('/') }}/images/{{ $campGrounds->campGround_image }}" class="img-thumbnail" width="75" />
      </td>
               <td>
-               <a href="{{route('es.show',$row->id)}}" class="btn btn-primary">Show</a>
-               <a href="{{route('es.edit',$row->id)}}" class="btn btn-warning">Edit</a>
+               <a href="{{route('campGrounds.show',$campGrounds->id)}}" class="btn btn-primary">Show</a>
+               <a href="{{route('campGrounds.edit',$campGrounds->id)}}" class="btn btn-warning">Edit</a>
               </td>
 
               <td>
 
                    <form method="post" class="delete_form" action="
-                                           {{action('EsController@destroy',$row->id)}}">
+                                           {{action('CampGroundController@destroy',$campGrounds->id)}}">
                         {{csrf_field()}}
                       <input type="hidden" name="_method" value="DELETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -110,7 +116,7 @@
 
 
               </table>
-              {!! $data->links() !!}
+              {!! $campGrounds->links() !!}
             </div>
             <!-- /.card-body -->
           </div>

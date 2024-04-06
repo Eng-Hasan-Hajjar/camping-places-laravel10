@@ -11,9 +11,9 @@ class CampGroundController extends Controller
      */
     public function index()
     {
-        $campGrounts = CampGround::latest()->paginate(5);
+        $campGrounds = CampGround::latest()->paginate(5);
 
-        return view('backend.campGrounds.index',compact('campGrounts'))
+        return view('backend.campGrounds.index',compact('campGrounds'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
