@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\CampGround;
 use Illuminate\Http\Request;
+use app\Models\User;
 
 class CampGroundController extends Controller
 {
@@ -30,15 +31,54 @@ class CampGroundController extends Controller
      */
     public function store(Request $request)
     {
+        $user=User::user();
+          $request->validate([
+            'name'=>'required|min:1|max:100',
+             'description'=>'required',
+             'country'=>'required',
+             'city'=>'required',
+             'region'=>'required',
+             'cm_type'=>'required|integer',
+             'cm_season'=>'required|integer',
+             'campGround_image'=>'required|image|max:2048',
+        ]);
+
+        $image = $request->file('es_image');
+
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $new_name);
+        $form_data = array(
+              'es_name'=>$request->es_name,
+              'es_price'=>$request->es_price,
+              'es_rent'=>$request->es_rent,
+              'es_sequar'=>$request->es_sequar,
+              'es_type'=>$request->es_type,
+              'es_small_dis'=>$request->es_small_dis,
+              'es_meta'=>$request->es_meta,
+              'es_langtuide'=>$request->es_langtuide,
+              'es_latitude'=>$request->es_latitude,
+              'es_larg_dis'=>$request->es_larg_dis,
+              'es_status'=>$request->es_status,
+              'user_id'=>$user->id,
+              'es_rooms'=>$request->es_rooms,
+              'es_place'=>  $request->es_place,
+              'es_image'     =>  $new_name
+        );
+
+        CampGround::create($form_data);
+
+        return redirect('/adminpanel/campgrounds')->with('success', 'Data Added successfully.');
+
+
         $request->validate([
             'name' => 'required',
 
         ]);
 
-        Departement::create($request->all());
+        CampGround::create($request->all());
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement created successfully.');
+        return redirect()->route('backend.campGrounds.index')
+                        ->with('success','backend.campGrounds. created successfully.');
     }
 
     /**
@@ -46,7 +86,7 @@ class CampGroundController extends Controller
      */
     public function show(string $id)
     {
-        return view('doctor.departements.show',compact('departement'));
+        return view('backend.campGrounds.show',compact('departement'));
 
     }
 
@@ -55,7 +95,7 @@ class CampGroundController extends Controller
      */
     public function edit(string $id)
     {
-        return view('doctor.departements.edit',compact('departement'));
+        return view('backend.campGrounds.edit',compact('departement'));
     }
 
     /**

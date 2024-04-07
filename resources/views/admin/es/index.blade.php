@@ -30,11 +30,11 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('/adminpannel')}}"> Home </a></li>
+              <li class="breadcrumb-item"><a href="{{url('/adminpanel')}}"> Home </a></li>
 
-           
-              <li class="breadcrumb-item active"><a href="{{url('/adminpannel/es')}}"> Control of estates </a></li>
-              <li class="breadcrumb-item active"><a href="{{url('/adminpannel/es/create')}}"> Add new estate </a></li>
+
+              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground')}}"> Control of estates </a></li>
+              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground/create')}}"> Add new estate </a></li>
 
             </ol>
           </div>
@@ -48,7 +48,7 @@
         <div class="col-24">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All estates</h3>
+              <h3 class="card-title">All camping ground</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -56,7 +56,7 @@
                 <thead>
 
                   <tr>
-                 
+
                   <th>name</th>
                   <th>price</th>
                   <th>type</th>
@@ -66,16 +66,16 @@
                   <th>control</th>
                   <th>delete</th>
                   </tr>
-                 </thead>   
+                 </thead>
 
 
 
                  <tbody >
-                 	
+
 
         @foreach($data as $row)
   <tr>
- 
+
    <td>{{ $row->es_name }}</td>
    <td>{{ $row->es_price }}</td>
    <td>@if($row->es_type== 0) "flat"
@@ -88,7 +88,7 @@
   @endif</td>
    <td> @if($row->es_status!=1) "active"
         @else "non active"
-        @endif 
+        @endif
    </td>
      <td><img src="{{ URL::to('/') }}/images/{{ $row->es_image }}" class="img-thumbnail" width="75" />
      </td>
@@ -100,7 +100,7 @@
               <td>
 
                    <form method="post" class="delete_form" action="
-                                           {{action('EsController@destroy',$row->id)}}">
+                                           {{action('CampGroundController@destroy',$row->id)}}">
                         {{csrf_field()}}
                       <input type="hidden" name="_method" value="DELETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>
@@ -112,14 +112,14 @@
 
 
                  </tbody>
-        
+
 
               </table>
               {!! $data->links() !!}
             </div>
             <!-- /.card-body -->
           </div>
-        
+
 
 
 
@@ -282,14 +282,14 @@
 
 
 
-{{--  
+{{--
 
 
 <!-- page script -->
 <script type="text/javascript">
-  
- 
- 
+
+
+
         var lastIdx = null;
 
         $('#data thead th').each( function () {
@@ -312,7 +312,7 @@
 
                   '</select>' );
             }
-           
+
 
         } );
 
@@ -320,7 +320,7 @@
            processing: true,
            serverSide: true,
           ajax: '{{ url('/adminpanel/es/data') }}',
-        
+
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},

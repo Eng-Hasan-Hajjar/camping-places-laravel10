@@ -7,11 +7,9 @@ use App\Http\Controllers\CampGroundController;
 
 
 
-#camping grounds
-//Route::get('/adminpanel/campGround/{id}/edit','CampGroundController@edit');
-Route::resource('/adminpanel/campGround','CampGroundController');
-//Route::get('/adminpanel/campGround/{id}/delete','CampGroundController@destroy');
+#-------------camping grounds
 
+Route::resource('/adminpanel/campground', CampGroundController::class);
 
 Route::get('/', function () {
     return view('frontend.index');

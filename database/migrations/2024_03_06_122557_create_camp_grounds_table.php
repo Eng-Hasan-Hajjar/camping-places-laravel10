@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('region');
-            $table->integer('cm_type')->default("0");//  جبل-0 - بحر-1 -   -2 - غابة
+            $table->integer('cm_type')->default("0");//  جبل-0 - صحراء-1 -   -2 - غابة
 
-            $table->integer('cm_season')->default("3");// spring 0 - summer  1 - fall 2 - winter 3
+            $table->integer('cm_season')->default("3");// spring 1 - summer  2 - fall 3 - winter 0
 
             $table->string('campGround_image',300)->default(0);
 

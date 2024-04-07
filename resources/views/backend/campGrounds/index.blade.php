@@ -26,11 +26,8 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{url('/adminpanel')}}"> Home </a></li>
-
-
-              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campGround')}}"> control of camping places </a></li>
-              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campGround/create')}}"> Add new camping place </a></li>
-
+              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground')}}"> control of camping places </a></li>
+              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground/create')}}"> Add new camping place </a></li>
             </ol>
           </div>
         </div>
@@ -60,6 +57,10 @@
                   <th>cm_type</th>
                   <th>cm_season</th>
                   <th>campGround_image</th>
+
+
+                  <th>control</th>
+                  <th>del</th>
                   </tr>
                  </thead>
 
@@ -71,37 +72,36 @@
         @foreach($campGrounds as $row)
   <tr>
 
-   <td>{{ $campGrounds->name }}</td>
-   <td>{{ $campGrounds->description }}</td>
-   <td>{{ $campGrounds->country }}</td>
-   <td>{{ $campGrounds->city }}</td>
-   <td>{{ $campGrounds->region }}</td>
-   <!--    //  جبل-0 - بحر-1 -   -2 - غابة            -->
+   <td>{{ $row->name }}</td>
+   <td>{{ $row->description }}</td>
+   <td>{{ $row->country }}</td>
+   <td>{{ $row->city }}</td>
+   <td>{{ $row->region }}</td>
+   <!--    $array=['wood','desire','island','mountain'];           -->
 
-   <td>{{ $campGrounds->cm_type }}</td>
 
-   <td>@if($campGrounds->cm_type== 0) "جبل"
-     @elseif ($campGrounds->cm_type== 1) "بحر"
+   <td>@if($row->cm_type== 0) "جبل"
+     @elseif ($row->cm_type== 1) "بحر"
     @else  "غابة"
   @endif</td>
-     <!--   spring 0 - summer  1 - fall 2 - winter 3         -->
-  <td>@if($campGrounds->cm_season== 0) "spring"
-     @elseif ($campGrounds->cm_season== 1) "summer"
-    @elseif ($campGrounds->cm_season== 2)  "fall"
-    @else  "winter"
+     <!--   $array=['wood','desire','island','mountain'];        -->
+  <td>@if($row->cm_season== 0) "winter"
+     @elseif ($row->cm_season== 1) "spring"
+    @elseif ($row->cm_season== 2)  "summer"
+    @else  "fall"
   @endif</td>
 
-     <td><img src="{{ URL::to('/') }}/images/{{ $campGrounds->campGround_image }}" class="img-thumbnail" width="75" />
+     <td><img src="{{ URL::to('/') }}/images/{{ $row->campGround_image }}" class="img-thumbnail" width="75" />
      </td>
               <td>
-               <a href="{{route('campGrounds.show',$campGrounds->id)}}" class="btn btn-primary">Show</a>
-               <a href="{{route('campGrounds.edit',$campGrounds->id)}}" class="btn btn-warning">Edit</a>
+               <a href="{{route('campGrounds.show',$row->id)}}" class="btn btn-primary">Show</a>
+               <a href="{{route('campGrounds.edit',$row->id)}}" class="btn btn-warning">Edit</a>
               </td>
 
               <td>
 
                    <form method="post" class="delete_form" action="
-                                           {{action('CampGroundController@destroy',$campGrounds->id)}}">
+                                           {{action('CampGroundController@destroy',$row->id)}}">
                         {{csrf_field()}}
                       <input type="hidden" name="_method" value="DELETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>
