@@ -31,7 +31,7 @@ class CampGroundController extends Controller
      */
     public function store(Request $request)
     {
-        $user=User::user();
+        //$user=User::user();
           $request->validate([
             'name'=>'required|min:1|max:100',
              'description'=>'required',
@@ -43,26 +43,20 @@ class CampGroundController extends Controller
              'campGround_image'=>'required|image|max:2048',
         ]);
 
-        $image = $request->file('es_image');
+        $image = $request->file('campGround_image');
 
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         $form_data = array(
-              'es_name'=>$request->es_name,
-              'es_price'=>$request->es_price,
-              'es_rent'=>$request->es_rent,
-              'es_sequar'=>$request->es_sequar,
-              'es_type'=>$request->es_type,
-              'es_small_dis'=>$request->es_small_dis,
-              'es_meta'=>$request->es_meta,
-              'es_langtuide'=>$request->es_langtuide,
-              'es_latitude'=>$request->es_latitude,
-              'es_larg_dis'=>$request->es_larg_dis,
-              'es_status'=>$request->es_status,
-              'user_id'=>$user->id,
-              'es_rooms'=>$request->es_rooms,
-              'es_place'=>  $request->es_place,
-              'es_image'     =>  $new_name
+              'name'=>$request->name,
+              'description'=>$request->description,
+              'country'=>$request->country,
+              'city'=>$request->city,
+              'region'=>$request->region,
+              'cm_type'=>$request->cm_type,
+              'cm_season'=>$request->cm_season,
+
+              'campGround_image'  =>  $new_name
         );
 
         CampGround::create($form_data);

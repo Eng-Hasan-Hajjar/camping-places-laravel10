@@ -1,7 +1,7 @@
 <?php
 
 
-function cm_seson_func(){
+function cm_season_func(){
 	$array=['winter','spring','summer','fall',];
 	return $array;
 }

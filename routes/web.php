@@ -7,9 +7,6 @@ use App\Http\Controllers\CampGroundController;
 
 
 
-#-------------camping grounds
-
-Route::resource('/adminpanel/campground', CampGroundController::class);
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -23,9 +20,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('campground', function () {
-    return view('');
-})->middleware(['auth', 'verified'])->name('campground');
+
 
 
 
@@ -43,8 +38,18 @@ require __DIR__.'/auth.php';
 /////////////////////////////////////---CampGround
 
 
+Route::get('/campground', function () {
+    return view('backend.campGround');
+})->middleware(['auth', 'verified'])->name('campground');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/campground', [CampgroundController::class, 'index'])->name('campground');
 
 });
+
+
+#-------------camping grounds
+
+Route::resource('/adminpanel/campground', CampGroundController::class);
+

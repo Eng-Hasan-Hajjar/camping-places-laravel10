@@ -20,7 +20,7 @@
                   <p>Other Settings</p>
                 </a>
               </li>
-          
+
             </ul>
           </li>
 
@@ -55,7 +55,7 @@
         <p>search</p>
       </a>
     </li>
-   
+
   </ul>
 </li>
 
@@ -85,7 +85,7 @@
                   <p>All users</p>
                 </a>
               </li>
-             
+
             </ul>
           </li>
 
@@ -116,7 +116,7 @@
                   <p>All estates</p>
                 </a>
               </li>
-             
+
             </ul>
           </li>
 
@@ -131,28 +131,28 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-circle text-danger"></i>
               <p>
-               {{Auth::user()->name}}
+             <!--  {Auth::user()->name}}-->
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                
+
                  <a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-           
+
  <form id="logout-form"  action="{{ route('logout') }}" method="POST" >
                                         @csrf
                                     </form>
 
-           
-                  
+
+
                 </a>
               </li>
-             
-             
+
+
             </ul>
           </li>
