@@ -79,9 +79,9 @@ class CampGroundController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CampGround $campground)
+    public function show(CampGround $data)
     {
-        return view('backend.campGrounds.show', compact('campground'));
+        return view('backend.campGrounds.show', compact('data'));
     }
 
     /**
