@@ -53,3 +53,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('/adminpanel/campground', CampGroundController::class);
 
+Route::resource('/campground', CampGroundController::class);

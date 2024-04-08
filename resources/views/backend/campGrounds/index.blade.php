@@ -94,14 +94,15 @@
      <td><img src="{{ URL::to('/') }}/images/{{ $row->campGround_image }}" class="img-thumbnail" width="75" />
      </td>
               <td>
-               <a href="{{route('campGrounds.show',$row->id)}}" class="btn btn-primary">Show</a>
-               <a href="{{route('campGrounds.edit',$row->id)}}" class="btn btn-warning">Edit</a>
+               <a href="{{route('campground.show',$row->id)}}" class="btn btn-primary">Show</a>
+               <a href="{{route('campground.edit',$row->id)}}" class="btn btn-warning">Edit</a>
               </td>
 
               <td>
 
-                   <form method="post" class="delete_form" action="
-                                           {{action('CampGroundController@destroy',$row->id)}}">
+                   <form method="post" class="delete_form"
+                   action="{{ route('campground.destroy',$row->id) }}"
+                   >
                         {{csrf_field()}}
                       <input type="hidden" name="_method" value="DELETE" />
                         <button type="submit" class="btn btn-danger">Delete</button>

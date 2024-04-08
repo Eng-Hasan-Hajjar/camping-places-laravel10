@@ -78,45 +78,46 @@ class CampGroundController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(CampGround $campground)
     {
-        return view('backend.campGrounds.show',compact('departement'));
+        return view('backend.campGrounds.show',compact('campground'));
 
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        return view('backend.campGrounds.edit',compact('departement'));
+        $data =CampGround::find($id);
+        return view('backend.campGrounds.edit',compact('data','id'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, CampGround $campground)
     {
         $request->validate([
             'name' => 'required',
 
         ]);
 
-        $departement->update($request->all());
+        $campground->update($request->all());
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement updated successfully');
+        return redirect()->route('campground.index')
+                        ->with('success','campground updated successfully');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CampGround $campground)
     {
-        $departement->delete();
+        $campground->delete();
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement deleted successfully');
+        return redirect()->route('campground.index')
+                        ->with('success','campground deleted successfully');
     }
 }
