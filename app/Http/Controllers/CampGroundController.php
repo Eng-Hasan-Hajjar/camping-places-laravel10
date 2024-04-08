@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\CampGround;
 use Illuminate\Http\Request;
 use app\Models\User;
@@ -14,8 +15,8 @@ class CampGroundController extends Controller
     {
         $campGrounds = CampGround::latest()->paginate(5);
 
-        return view('backend.campGrounds.index',compact('campGrounds'))
-                    ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('backend.campGrounds.index', compact('campGrounds'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -32,15 +33,15 @@ class CampGroundController extends Controller
     public function store(Request $request)
     {
         //$user=User::user();
-          $request->validate([
-            'name'=>'required|min:1|max:100',
-             'description'=>'required',
-             'country'=>'required',
-             'city'=>'required',
-             'region'=>'required',
-             'cm_type'=>'required|integer',
-             'cm_season'=>'required|integer',
-             'campGround_image'=>'required|image|max:2048',
+        $request->validate([
+            'name' => 'required|min:1|max:100',
+            'description' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'region' => 'required',
+            'cm_type' => 'required|integer',
+            'cm_season' => 'required|integer',
+            'campGround_image' => 'required|image|max:2048',
         ]);
 
         $image = $request->file('campGround_image');
@@ -48,15 +49,15 @@ class CampGroundController extends Controller
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         $form_data = array(
-              'name'=>$request->name,
-              'description'=>$request->description,
-              'country'=>$request->country,
-              'city'=>$request->city,
-              'region'=>$request->region,
-              'cm_type'=>$request->cm_type,
-              'cm_season'=>$request->cm_season,
+            'name' => $request->name,
+            'description' => $request->description,
+            'country' => $request->country,
+            'city' => $request->city,
+            'region' => $request->region,
+            'cm_type' => $request->cm_type,
+            'cm_season' => $request->cm_season,
 
-              'campGround_image'  =>  $new_name
+            'campGround_image'  =>  $new_name
         );
 
         CampGround::create($form_data);
@@ -72,7 +73,7 @@ class CampGroundController extends Controller
         CampGround::create($request->all());
 
         return redirect()->route('backend.campGrounds.index')
-                        ->with('success','backend.campGrounds. created successfully.');
+            ->with('success', 'backend.campGrounds. created successfully.');
     }
 
     /**
@@ -80,17 +81,16 @@ class CampGroundController extends Controller
      */
     public function show(CampGround $campground)
     {
-        return view('backend.campGrounds.show',compact('campground'));
-
+        return view('backend.campGrounds.show', compact('campground'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit( $id)
+    public function edit($id)
     {
-        $data =CampGround::find($id);
-        return view('backend.campGrounds.edit',compact('data','id'));
+        $data = CampGround::find($id);
+        return view('backend.campGrounds.edit', compact('data', 'id'));
     }
 
     /**
@@ -106,8 +106,7 @@ class CampGroundController extends Controller
         $campground->update($request->all());
 
         return redirect()->route('campground.index')
-                        ->with('success','campground updated successfully');
-
+            ->with('success', 'campground updated successfully');
     }
 
     /**
@@ -118,6 +117,6 @@ class CampGroundController extends Controller
         $campground->delete();
 
         return redirect()->route('campground.index')
-                        ->with('success','campground deleted successfully');
+            ->with('success', 'campground deleted successfully');
     }
 }
