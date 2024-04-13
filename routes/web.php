@@ -37,7 +37,7 @@ require __DIR__.'/auth.php';
 
 /////////////////////////////////////---CampGround
 
-
+/*
 Route::get('/campground', function () {
     return view('backend.campGround');
 })->middleware(['auth', 'verified'])->name('campground');
@@ -48,9 +48,16 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-
+*/
 #-------------camping grounds
 
-Route::resource('/adminpanel/campground', CampGroundController::class);
+Route::middleware(['auth'])->group(function () {
 
-Route::resource('/campground', CampGroundController::class);
+    Route::get('/campground1', [CampgroundController::class, 'index'])->name('campground1');
+
+    Route::resource('/adminpanel/campground', CampGroundController::class);
+
+    Route::resource('/campground', CampGroundController::class);
+
+});
+

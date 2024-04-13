@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('campground')" :active="request()->routeIs('campground')">
+                    <x-nav-link :href="route('campground1')" :active="request()->routeIs('campground1')">
                         {{ __('Camping grounds') }}
                     </x-nav-link>
                 </div>
