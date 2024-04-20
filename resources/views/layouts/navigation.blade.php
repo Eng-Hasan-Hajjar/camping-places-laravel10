@@ -17,8 +17,13 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('campground1')" :active="request()->routeIs('campground1')">
+                    <x-nav-link :href="route('campground.index')" :active="request()->routeIs('campground.index')">
                         {{ __('Camping grounds') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('arman.index')" :active="request()->routeIs('arman.index')">
+                        {{ __('Armenia') }}
                     </x-nav-link>
                 </div>
             </div>

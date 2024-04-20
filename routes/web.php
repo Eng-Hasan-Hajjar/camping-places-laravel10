@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampGroundController;
 
-
+use App\Http\Controllers\ArmanController;
 
 
 
@@ -53,11 +53,27 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/campground1', [CampgroundController::class, 'index'])->name('campground1');
+    //Route::get('/campground1', [CampgroundController::class, 'index'])->name('campground1');
 
     Route::resource('/adminpanel/campground', CampGroundController::class);
 
-    Route::resource('/campground', CampGroundController::class);
+   // Route::resource('/campground', CampGroundController::class);
 
 });
 
+
+
+
+
+
+#-------------Armenia module
+
+Route::middleware(['auth'])->group(function () {
+
+
+
+    Route::resource('/adminpanel/arman', ArmanController::class);
+
+
+
+});

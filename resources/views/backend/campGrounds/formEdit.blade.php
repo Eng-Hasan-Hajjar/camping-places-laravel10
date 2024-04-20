@@ -47,6 +47,6 @@
 <!-- Submit Button -->
 <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-        {!! Form::submit('Add Estate', ['class' => 'btn btn-primary  pull-right']) !!}
+        {!! Form::submit('edit', ['class' => 'btn btn-primary  pull-right']) !!}
     </div>
 </div>
