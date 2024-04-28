@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampGroundController;
+use App\Http\Controllers\ReservationController;
 
 use App\Http\Controllers\ArmanController;
 
@@ -75,5 +76,37 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/adminpanel/arman', ArmanController::class);
 
 
+
+});
+
+
+
+#-------------reservation routes
+
+Route::middleware(['auth'])->group(function () {
+
+
+
+
+// عرض النموذج لإنشاء حجز جديد
+Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+
+// حفظ الحجز الجديد في قاعدة البيانات
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+
+// عرض التفاصيل لحجز معين
+Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
+
+// عرض جميع الحجوزات
+Route::get('/reservations/all', [ReservationController::class, 'showAll'])->name('reservations.all');
+
+// عرض النموذج لتعديل حجز معين
+Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
+
+// تحديث بيانات الحجز في قاعدة البيانات
+Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
+
+// حذف حجز معين من قاعدة البيانات
+Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
 });
