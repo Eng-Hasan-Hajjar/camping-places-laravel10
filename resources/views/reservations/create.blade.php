@@ -20,17 +20,27 @@
                     <div class="card-header">إنشاء حجز جديد</div>
 
                     <div class="card-body">
+
+                        <div class="form-group">
+                            <label for="user_id">اسم المستخدم</label>
+                            <input type="text" name="user_name" class="form-control" id="user_name" value="{{ Auth::user()->name }}" disabled>
+                        </div>
+
                         <form method="POST" action="{{ route('reservations.store') }}">
                             @csrf
 
                             <div class="form-group">
                                 <label for="user_id">رقم المستخدم</label>
-                                <input type="text" name="user_id" class="form-control" id="user_id" value="{{ old('user_id') }}">
+                                <input type="text" name="user_id" class="form-control" id="user_id" value="{{ Auth::user()->id }}" disabled>
                             </div>
 
                             <div class="form-group">
-                                <label for="camp_ground_id">رقم المكان</label>
-                                <input type="text" name="camp_ground_id" class="form-control" id="camp_ground_id" value="{{ old('camp_ground_id') }}">
+                                <label for="camp_ground_id"> المكان</label>
+                                <select name="camp_ground_id" class="form-control" id="camp_ground_id">
+                                    @foreach($campgrounds as $campground)
+                                        <option value="{{ $campground->id }}">{{ $campground->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -51,8 +61,6 @@
         </div>
     </div>
 
-
-
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -60,7 +68,3 @@
     @endif
 
 @endsection
-
-
-
-

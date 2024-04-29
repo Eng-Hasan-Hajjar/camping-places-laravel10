@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('camp_ground_id');
+            $table->Integer('user_id');
+            $table->Integer('camp_ground_id');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
-       
+
 
             $table->timestamps();
         });

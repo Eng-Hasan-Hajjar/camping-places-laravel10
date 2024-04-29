@@ -62,7 +62,7 @@ class CampGroundController extends Controller
 
         CampGround::create($form_data);
 
-        return redirect('/adminpanel/campgrounds')->with('success', 'Data Added successfully.');
+        return redirect('/adminpanel/campground')->with('success', 'Data Added successfully.');
 
 
         $request->validate([

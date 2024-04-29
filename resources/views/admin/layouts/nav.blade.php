@@ -99,19 +99,19 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-               Control all campgrounds
+              Camping grounds
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/adminpannel/campground/create')}}" class="nav-link">
+                <a href="{{url('/adminpanel/campground/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add campground</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('/adminpannel/campground/')}}" class="nav-link">
+                <a href="{{url('/adminpanel/campground/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All campgrounds</p>
                 </a>
@@ -120,6 +120,35 @@
             </ul>
           </li>
 
+
+
+{{-- Reservations --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+        Reservations
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/reservations/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>Add Reservation</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/reservations/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>All Reservations</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
 
 
 

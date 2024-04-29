@@ -85,7 +85,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('/reservations', ReservationController::class);
+    Route::resource('/adminpanel/reservations', ReservationController::class);
 
 
 
