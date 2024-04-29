@@ -93,6 +93,7 @@ Route::get('/reservations/create', [ReservationController::class, 'create'])->na
 
 // حفظ الحجز الجديد في قاعدة البيانات
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+//Route::get('/reservations', [ReservationController::class, 'showAll'])->name('reservations.showAll');
 
 // عرض التفاصيل لحجز معين
 Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');

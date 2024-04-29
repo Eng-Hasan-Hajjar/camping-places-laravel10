@@ -19,6 +19,7 @@ class ReservationController extends Controller
      // حفظ الحجز الجديد في قاعدة البيانات
      public function store(Request $request)
      {
+        dd($request);
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'camp_ground_id' => 'required|exists:camp_grounds,id',

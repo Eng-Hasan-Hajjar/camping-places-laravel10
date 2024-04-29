@@ -1,6 +1,16 @@
 <!-- resources/views/reservations/update.blade.php -->
 
-@extends('layouts.app')
+@extends('admin.layouts.layout')
+
+@section('title')
+    control of camping places
+@endsection
+
+@section('header')
+    <!-- DataTables -->
+    {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
+    {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
+@endsection
 
 @section('content')
     <div class="container">
