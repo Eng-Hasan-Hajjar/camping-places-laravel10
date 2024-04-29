@@ -20,8 +20,8 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>رقم المستخدم</th>
-                            <th>رقم المكان</th>
+                            <th> المستخدم</th>
+                            <th> المكان</th>
                             <th>تاريخ البداية</th>
                             <th>تاريخ الانتهاء</th>
                             <th>التحكم</th>
@@ -30,8 +30,10 @@
                     <tbody>
                         @foreach ($reservations as $reservation)
                             <tr>
-                                <td>{{ $reservation->user_id }}</td>
-                                <td>{{ $reservation->camp_ground_id }}</td>
+                                <td>{{ $reservation->user->name }}</td>
+                                <td>{{ $reservation->campGround->name }}</td>
+
+                             {{--   <td>{{ $reservation->camp_ground_id }} {{ $campground->name }}</td> --}}
                                 <td>{{ $reservation->start_date }}</td>
                                 <td>{{ $reservation->end_date }}</td>
                                 <td>
@@ -42,6 +44,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">حذف</button>
+
                                         </form>
                                     </div>
                                 </td>

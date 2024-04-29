@@ -54,6 +54,11 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary">حفظ الحجز</button>
+
+
+                                <!-- زر الرجوع -->
+                                <a href="{{ url('/adminpanel/reservations') }}" class="btn btn-secondary" >  الحجوزات</a>
+
                         </form>
                     </div>
                 </div>

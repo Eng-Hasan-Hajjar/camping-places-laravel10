@@ -14,9 +14,9 @@ class ReservationController extends Controller
 
    // الوظيفة لعرض جميع الحجوزات
    public function index()
-   {
+   {   $campgrounds = CampGround::all();
        $reservations = Reservation::all();
-       return view('reservations.all', compact('reservations'));
+       return view('reservations.all', compact('reservations', 'campgrounds'));
    }
 
     // عرض النموذج لإنشاء حجز جديد
@@ -62,7 +62,8 @@ public function store(Request $request)
      // عرض النموذج لتعديل حجز معين
      public function edit(Reservation $reservation)
      {
-         return view('reservations.edit', compact('reservation'));
+        $campgrounds = CampGround::all();
+         return view('reservations.edit', compact('reservation','campgrounds'));
      }
 
      // تحديث بيانات الحجز في قاعدة البيانات

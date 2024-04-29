@@ -20,8 +20,8 @@
             <div class="card-body">
                 <!-- تفاصيل الحجز -->
 
-                <p><strong>رقم المستخدم:</strong> {{ $reservation->user_id }}</p>
-                <p><strong>رقم المكان:</strong> {{ $reservation->camp_ground_id }}</p>
+                <p><strong> المستخدم:</strong> {{ $reservation->user->name }}</p>
+                <p><strong> المكان:</strong> {{ $reservation->campGround->name}}</p>
                 <p><strong>تاريخ البداية:</strong> {{ $reservation->start_date }}</p>
                 <p><strong>تاريخ الانتهاء:</strong> {{ $reservation->end_date }}</p>
 
@@ -32,6 +32,9 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">حذف</button>
+                          <!-- زر الرجوع -->
+                          <a href="{{ url('/adminpanel/reservations') }}" class="btn btn-secondary">رجوع</a>
+
                     </form>
                 </div>
             </div>
