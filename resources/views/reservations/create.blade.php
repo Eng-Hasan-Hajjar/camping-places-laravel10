@@ -7,19 +7,28 @@
 @endsection
 
 @section('header')
+{{ Html::style('hdesign/hstyle.css') }}
     <!-- DataTables -->
     {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container helement">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">إنشاء حجز جديد</div>
-
-                    <div class="card-body">
+                <div class="card ">
+                    <div class="card-header ">إنشاء حجز جديد</div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                    </div>
+                    @endif
+                    <div class="card-body ">
 
                         <div class="form-group">
                             <label for="user_id">اسم المستخدم</label>
@@ -58,6 +67,10 @@
 
                                 <!-- زر الرجوع -->
                                 <a href="{{ url('/adminpanel/reservations') }}" class="btn btn-secondary" >  الحجوزات</a>
+
+
+
+
 
                         </form>
                     </div>

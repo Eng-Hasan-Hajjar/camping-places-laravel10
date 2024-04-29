@@ -7,13 +7,14 @@
 @endsection
 
 @section('header')
+{{ Html::style('hdesign/hstyle.css') }}
     <!-- DataTables -->
     {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-    <div class="container">
-        <div class="card">
+    <div class="container helementedit">
+        <div class="card ">
             <div class="card-header">تعديل الحجز</div>
 
             <div class="card-body">
@@ -47,7 +48,7 @@
 
                     <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
                      <!-- زر الرجوع -->
-                     <a href="{{ url()->previous() }}" class="btn btn-secondary">رجوع</a>
+                     <a href="{{ url('/adminpanel/reservations ') }}" class="btn btn-secondary">رجوع</a>
 
                 </form>
             </div>

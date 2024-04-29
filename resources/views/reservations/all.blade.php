@@ -3,7 +3,7 @@
 @extends('admin.layouts.layout')
 
 @section('title')
-    control of reservation
+    التحكم بالحجوزات
 @endsection
 
 @section('header')
@@ -12,10 +12,12 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-    <div class="container">
-        <div class="card">
-            <div class="card-header">جميع الحجوزات</div>
-
+    <div class="container hcontainer">
+        <div class="card hcard helement hcard-body">
+            <div class="card-header  "><p  class="float-right">جميع الحجوزات</p></div>
+            <div class="card-header">
+                <a href="{{ route('reservations.create') }}" class=" btn btn-success float-right">إنشاء حجز جديد</a>
+            </div>
             <div class="card-body">
                 <table class="table">
                     <thead>
@@ -43,7 +45,7 @@
                                         <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                            <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الحجز؟')">حذف</button>
 
                                         </form>
                                     </div>

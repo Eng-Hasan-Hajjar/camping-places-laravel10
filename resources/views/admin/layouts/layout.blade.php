@@ -56,11 +56,12 @@
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
+   <!--  Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
+       -->
       <li class="nav-item d-none d-sm-inline-block">
         <a href="index3.html" class="nav-link">Home</a>
       </li>
@@ -180,24 +181,25 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('/adminpanel')}}" class="brand-link">
+    <a href="{{url('/dashboard')}}" class="brand-link">
       <img src="{{Request::root()}}/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Control pannel</span>
+      <span class="brand-text font-weight-light">   ليلة مضيئة</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
+
+      <!-- Sidebar user panel (optional)
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="{{Request::root()}}/admin/dist/img/user3-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-         <!-- <a href="#" class="d-block">{Auth::user()->name}}</a> -->
+          <a href="#" class="d-block">{Auth::user()->name}</a>
         </div>
       </div>
-
+-->
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -270,7 +272,7 @@
 
 
 
-
+<!--
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
@@ -278,7 +280,7 @@
       <b>Version</b> 3.0.4
     </div>
   </footer>
-
+-->
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

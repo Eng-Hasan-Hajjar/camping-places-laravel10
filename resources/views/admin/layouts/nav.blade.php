@@ -1,28 +1,5 @@
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Settings
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/adminpannel/sitesitting" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Settings</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Other Settings</p>
-                </a>
-              </li>
 
-            </ul>
-          </li>
 
 
           {{-- website --}}
@@ -32,27 +9,27 @@
   <a href="#" class="nav-link">
     <i class="nav-icon fas fa-users"></i>
     <p>
-    pages of website
+    صفحات الموقع
       <i class="fas fa-angle-left right"></i>
     </p>
   </a>
   <ul class="nav nav-treeview">
   <li class="nav-item">
-      <a href="{{url('/home')}}" class="nav-link">
+      <a href="{{url('/')}}" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>home website</p>
+        <p>الصفحة الرئيسية</p>
       </a>
     </li>
     <li class="nav-item">
       <a href="{{url('/ShowAllBuilding')}}" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>all estates</p>
+        <p>كل الأماكن</p>
       </a>
     </li>
     <li class="nav-item">
       <a href="{{url('/search')}}" class="nav-link">
         <i class="far fa-circle nav-icon"></i>
-        <p>search</p>
+        <p>بحث</p>
       </a>
     </li>
 
@@ -68,7 +45,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-               Control all members
+               المستخدمين
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -76,13 +53,13 @@
               <li class="nav-item">
                 <a href="{{url('/adminpannel/users/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add user</p>
+                  <p>اضافة مستخدم</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('/adminpannel/users')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All users</p>
+                  <p>كل المستخدمين</p>
                 </a>
               </li>
 
@@ -99,7 +76,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
-              Camping grounds
+              أماكن التخييم
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -107,13 +84,13 @@
               <li class="nav-item">
                 <a href="{{url('/adminpanel/campground/create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add campground</p>
+                  <p>اضافة مخيم </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{url('/adminpanel/campground/')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>All campgrounds</p>
+                  <p>كل الأماكن</p>
                 </a>
               </li>
 
@@ -129,7 +106,7 @@
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
       <p>
-        Reservations
+        الحجوزات
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
@@ -137,13 +114,13 @@
       <li class="nav-item">
         <a href="{{url('/adminpanel/reservations/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>Add Reservation</p>
+          <p>إضافة حجز </p>
         </a>
       </li>
       <li class="nav-item">
         <a href="{{url('/adminpanel/reservations/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>All Reservations</p>
+          <p>كل الحجوزات</p>
         </a>
       </li>
 
@@ -152,6 +129,33 @@
 
 
 
+
+{{--   setting --}}
+
+  <li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-edit"></i>
+      <p>
+        إعدادات الموقع
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="/adminpannel/sitesitting" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>الإعدادات الرئيسية</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="pages/tables/data.html" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إعدادات أخرى</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
 
 
 

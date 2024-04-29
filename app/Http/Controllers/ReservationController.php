@@ -30,13 +30,25 @@ class ReservationController extends Controller
      // حفظ الحجز الجديد في قاعدة البيانات
 public function store(Request $request)
 {
+    $messages = [
+        'user_id.required' => 'حقل رقم المستخدم مطلوب',
+        'user_id.exists' => 'رقم المستخدم غير صالح',
+        'camp_ground_id.required' => 'حقل رقم المكان مطلوب',
+        'camp_ground_id.exists' => 'رقم المكان غير صالح',
+        'start_date.required' => 'حقل تاريخ البداية مطلوب',
+        'start_date.date' => 'تاريخ البداية غير صالح',
+        'end_date.required' => 'حقل تاريخ الانتهاء مطلوب',
+        'end_date.date' => 'تاريخ الانتهاء غير صالح',
+        'end_date.after_or_equal' => 'يجب أن يكون تاريخ الانتهاء بعد تاريخ البداية',
+    ];
    // dd($request->all());
     $request->validate([
 
         'camp_ground_id' => 'required|exists:camp_grounds,id',
         'start_date' => 'required|date',
         'end_date' => 'required|date|after_or_equal:start_date',
-    ]);
+    ], $messages);
+
 
     // إنشاء الحجز فقط في حالة صحة البيانات
     Reservation::create([
@@ -45,6 +57,7 @@ public function store(Request $request)
         'start_date' => $request->start_date,
         'end_date' => $request->end_date,
     ]);
+
     //Reservation::create($request->all());
 
     return redirect('/adminpanel/reservations')->with('success', 'Data Added successfully.');
@@ -69,13 +82,27 @@ public function store(Request $request)
      // تحديث بيانات الحجز في قاعدة البيانات
      public function update(Request $request, Reservation $reservation)
      {
+        $messages = [
+            'user_id.required' => 'حقل رقم المستخدم مطلوب',
+            'user_id.exists' => 'رقم المستخدم غير صالح',
+            'camp_ground_id.required' => 'حقل رقم المكان مطلوب',
+            'camp_ground_id.exists' => 'رقم المكان غير صالح',
+            'start_date.required' => 'حقل تاريخ البداية مطلوب',
+            'start_date.date' => 'تاريخ البداية غير صالح',
+            'end_date.required' => 'حقل تاريخ الانتهاء مطلوب',
+            'end_date.date' => 'تاريخ الانتهاء غير صالح',
+            'end_date.after_or_equal' => 'يجب أن يكون تاريخ الانتهاء بعد تاريخ البداية',
+        ];
 
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'camp_ground_id' => 'required|exists:camp_grounds,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-        ]);
+
+
+        ], $messages);
+
 
          $reservation->update([
              'user_id' => $request->user_id,
