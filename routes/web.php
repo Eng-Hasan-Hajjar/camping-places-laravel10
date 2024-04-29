@@ -85,15 +85,17 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::resource('/reservations', ReservationController::class);
 
 
 
+/*
 // عرض النموذج لإنشاء حجز جديد
 Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
 
 // حفظ الحجز الجديد في قاعدة البيانات
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-//Route::get('/reservations', [ReservationController::class, 'showAll'])->name('reservations.showAll');
+Route::get('/getreservations', [ReservationController::class, 'showAll'])->name('reservations.showAll');
 
 // عرض التفاصيل لحجز معين
 Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
@@ -109,5 +111,5 @@ Route::put('/reservations/{reservation}', [ReservationController::class, 'update
 
 // حذف حجز معين من قاعدة البيانات
 Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
-
+*/
 });

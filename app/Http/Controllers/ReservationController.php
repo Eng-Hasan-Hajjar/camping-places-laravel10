@@ -9,6 +9,13 @@ class ReservationController extends Controller
 {
 
 
+   // الوظيفة لعرض جميع الحجوزات
+   public function index()
+   {
+       $reservations = Reservation::all();
+       return view('reservations.all', compact('reservations'));
+
+   }
 
      // عرض النموذج لإنشاء حجز جديد
      public function create()
@@ -43,13 +50,7 @@ class ReservationController extends Controller
      {
          return view('reservations.show', compact('reservation'));
      }
-       // الوظيفة لعرض جميع الحجوزات
-    public function showAll()
-    {
-        $reservations = Reservation::all();
-        return view('reservations.all', compact('reservations'));
 
-    }
 
      // عرض النموذج لتعديل حجز معين
      public function edit(Reservation $reservation)
