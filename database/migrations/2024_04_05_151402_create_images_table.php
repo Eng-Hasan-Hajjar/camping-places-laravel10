@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('campGraound_id');
             $table->timestamps();
         });
+
     }
 
     /**

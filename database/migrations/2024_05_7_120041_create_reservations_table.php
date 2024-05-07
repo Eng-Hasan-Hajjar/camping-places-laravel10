@@ -14,19 +14,19 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
 
-            $table->Integer('user_id');
-            $table->Integer('camp_ground_id');
-            $table->Integer('doctor_id');
-            $table->Integer('guide_id');
+            $table->unsignedBiginteger('user_id');
+            $table->unsignedBiginteger('camp_ground_id');
+            $table->unsignedBiginteger('doctor_id');
+            $table->unsignedBiginteger('guide_id');
 
             $table->dateTime('start_date');
             $table->dateTime('end_date');
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
 
+            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->foreign('guide_id')->references('id')->on('guides');
+            $table->foreign('user_id')->references('id')->on('users');
 
 
             $table->timestamps();
