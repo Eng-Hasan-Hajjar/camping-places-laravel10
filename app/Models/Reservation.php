@@ -9,7 +9,7 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'camp_ground_id','doctor_id', 'start_date', 'end_date'];
+    protected $fillable = ['user_id', 'camp_ground_id','doctor_id','guide_id', 'start_date', 'end_date'];
 
     public function user()
     {
@@ -23,6 +23,10 @@ class Reservation extends Model
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
+    }
+    public function guide()
+    {
+        return $this->belongsTo(Guide::class);
     }
 
 }
