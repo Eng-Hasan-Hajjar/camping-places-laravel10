@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->id();
+
+            $table->string('name');
+            $table->Integer('phone');
+            $table->boolean('is_free');
+
             $table->timestamps();
         });
     }

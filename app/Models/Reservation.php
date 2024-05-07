@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['user_id', 'camp_ground_id', 'start_date', 'end_date'];
+
+    protected $fillable = ['user_id', 'camp_ground_id','doctor_id', 'start_date', 'end_date'];
 
     public function user()
     {
@@ -20,4 +20,9 @@ class Reservation extends Model
     {
         return $this->belongsTo(CampGround::class);
     }
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+
 }

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Guide extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name', 'phone','is_free',
+    ];
 }
