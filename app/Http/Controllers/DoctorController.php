@@ -13,8 +13,7 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::latest()->paginate(5);
-
-        return view('doctor.departements.index',compact('doctors'))
+        return view('backend.doctors.all',compact('doctors'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -23,7 +22,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        return view('doctor.departements.create');
+        return view('backend.doctors.create');
     }
 
     /**
@@ -33,55 +32,52 @@ class DoctorController extends Controller
     {
         $request->validate([
             'name' => 'required',
-
+            'phone'=>  'required',
+            'specialty'=> 'required',
         ]);
 
         Doctor::create($request->all());
-
-        return redirect()->route('departements.index')
-                        ->with('success','Departement created successfully.');
+        return redirect()->route('doctors.index')
+                        ->with('success','doctor created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Doctor $departement)
+    public function show(Doctor $doctor)
     {
-        return view('doctor.departements.show',compact('departement'));
+        return view('backend.doctors..show',compact('doctor'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Doctor $departement)
+    public function edit(Doctor $doctor)
     {
-        return view('doctor.departements.edit',compact('departement'));
+        return view('backend.doctors.edit',compact('doctor'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Doctor $departement)
+    public function update(Request $request, Doctor $doctor)
     {
         $request->validate([
             'name' => 'required',
 
         ]);
-
-        $departement->update($request->all());
-
-        return redirect()->route('departements.index')
-                        ->with('success','Departement updated successfully');
+        $doctor->update($request->all());
+        return redirect()->route('doctors.index')
+                        ->with('success','doctor updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Doctor $departement)
+    public function destroy(Doctor $doctor)
     {
-        $departement->delete();
-
-        return redirect()->route('departements.index')
-                        ->with('success','Departement deleted successfully');
+        $doctor->delete();
+        return redirect()->route('doctors.index')
+                        ->with('success','doctor deleted successfully');
     }
 }

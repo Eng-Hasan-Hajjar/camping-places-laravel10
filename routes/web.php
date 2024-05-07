@@ -6,8 +6,8 @@ use App\Http\Controllers\CampGroundController;
 use App\Http\Controllers\ReservationController;
 
 use App\Http\Controllers\ArmanController;
-
-
+use App\Http\Controllers\DoctorController;
+use App\Models\Doctor;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -113,3 +113,14 @@ Route::put('/reservations/{reservation}', [ReservationController::class, 'update
 Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 */
 });
+
+
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::resource('/adminpanel/doctors', DoctorController::class);
+
+
+});
+

@@ -99,6 +99,36 @@
 
 
 
+{{-- Doctors --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+        الأطباء
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/doctors/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إضافة طبيب </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/doctors/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل الأطباء</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+
+
 {{-- Reservations --}}
 
 
