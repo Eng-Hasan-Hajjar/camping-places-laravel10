@@ -30,12 +30,23 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'name.required' => 'حقل  الاسم مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'is_free.required' => 'حقل نوع الحالة مطلوب',
+
+            'required.required' => 'حقل الاختصاص  مطلوب',
+
+
+        ];
+
         $request->validate([
             'name' => 'required',
-            'phone'=>  'required',
+            'phone'=>  'required|numeric',
             'specialty'=> 'required',
             'is_free'=> 'required',
-        ]);
+        ], $messages);
 
         Doctor::create($request->all());
         return redirect()->route('doctors.index')
@@ -63,13 +74,22 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
+         $messages = [
+
+        'phone.required' => 'حقل رقم الهاتف مطلوب',
+        'phone.numeric' => 'رقم المستخدم غير صالح',
+        'is_free.required' => 'حقل نوع الحالة مطلوب',
+        'name.required' => 'حقل رقم الاسم مطلوب',
+        'required.required' => 'حقل الاختصاص  مطلوب',
+
+    ];
         $request->validate([
             'name' => 'required',
-            'phone'=>  'required',
+            'phone'=>  'required|numeric',
             'specialty'=> 'required',
             'is_free'=> 'required',
 
-        ]);
+        ], $messages);
         $doctor->update($request->all());
         return redirect()->route('doctors.index')
                         ->with('success','doctor updated successfully');

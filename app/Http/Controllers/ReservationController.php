@@ -47,6 +47,7 @@ public function store(Request $request)
         'camp_ground_id' => 'required|exists:camp_grounds,id',
         'start_date' => 'required|date',
         'end_date' => 'required|date|after_or_equal:start_date',
+
     ], $messages);
 
 
