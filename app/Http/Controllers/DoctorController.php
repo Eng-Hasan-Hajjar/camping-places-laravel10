@@ -65,6 +65,9 @@ class DoctorController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'phone'=>  'required',
+            'specialty'=> 'required',
+            'is_free'=> 'required',
 
         ]);
         $doctor->update($request->all());
