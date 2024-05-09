@@ -3,7 +3,7 @@
 @extends('admin.layouts.layout')
 
 @section('title')
-    
+
 @endsection
 
 @section('header')

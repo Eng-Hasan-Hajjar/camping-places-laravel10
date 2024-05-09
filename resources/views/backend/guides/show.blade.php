@@ -21,21 +21,20 @@
             <div class="card-body hcard-body">
                 <!-- تفاصيل الحجز -->
 
-                <p><strong> الاسم:</strong> {{ $doctor->name }}</p>
-                <p><strong> الهاتف:</strong> {{ $doctor->phone}}</p>
-                <p><strong> حالة الطبيب:</strong> @if($doctor->is_free == 1)  متفرغ  @else غير متفرغ  @endif</p>
-                <p><strong> الاختصاص:</strong> {{ $doctor->specialty }}</p>
+                <p><strong> الاسم:</strong> {{ $guide->name }}</p>
+                <p><strong> الهاتف:</strong> {{ $guide->phone}}</p>
+                <p><strong> حالة الدليل:</strong> @if($guide->is_free == 1)  متفرغ  @else غير متفرغ  @endif</p>
 
                 <!-- أزرار التحكم -->
                 <div class="btn-group">
-                    <a href="{{ route('doctors.edit', $doctor) }}" class="btn btn-primary">تعديل</a>
+                    <a href="{{ route('guides.edit', $guide) }}" class="btn btn-primary">تعديل</a>
 
-                    <form action="{{ route('doctors.destroy', $doctor) }}" method="POST">
+                    <form action="{{ route('guides.destroy', $guide) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الطبيب؟')">حذف</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الدليل')">حذف</button>
                     </form>
-                    <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary">رجوع</a>
+                    <a href="{{ url('/adminpanel/guides') }}" class="btn btn-secondary">رجوع</a>
 
                 </div>
             </div>

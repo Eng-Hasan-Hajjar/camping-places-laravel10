@@ -32,7 +32,7 @@
 
 
 
-                        <form method="POST" action="{{ route('doctors.store') }}">
+                        <form method="POST" action="{{ route('guides.store') }}">
                             @csrf
 
                             <div class="form-group">
@@ -44,16 +44,13 @@
                                 <input type="text" name="phone" class="form-control" id="phone" value="{{ old('phone') }}">
                             </div>
                             <div class="form-group">
-                                <label for="is_free"> حالة الطبيب</label>
+                                <label for="is_free"> حالة الدليل</label>
                                 <select name="is_free" class="form-control" id="is_free">
                                         <option value="1">متفرغ</option>
                                         <option value="0">غير متفرغ</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="specialty">الاختصاص  </label>
-                                <input type="text" name="specialty" class="form-control" id="specialty" value="{{ old('specialty') }}">
-                            </div>
+
 
 
 
@@ -61,7 +58,7 @@
 
 
                                 <!-- زر الرجوع -->
-                                <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary" >  الأطباء </a>
+                                <a href="{{ url('/adminpanel/guides') }}" class="btn btn-secondary" >  الأدلة السياحيين </a>
 
 
 

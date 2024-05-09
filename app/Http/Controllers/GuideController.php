@@ -14,7 +14,7 @@ class GuideController extends Controller
     {
         $guides = Guide::latest()->paginate(5);
 
-        return view('backend.guides.index',compact('guides'))
+        return view('backend.guides.all',compact('guides'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -31,6 +31,14 @@ class GuideController extends Controller
      */
     public function store(Request $request)
     {
+         $messages = [
+        'name.required' => 'حقل  الاسم مطلوب',
+        'phone.required' => 'حقل رقم الهاتف مطلوب',
+        'phone.numeric' => 'هاتف المستخدم غير صالح',
+        'is_free.required' => 'حقل نوع الحالة مطلوب',
+
+    ];
+
         $request->validate([
             'name' => 'required',
             'phone'=>  'required|numeric',

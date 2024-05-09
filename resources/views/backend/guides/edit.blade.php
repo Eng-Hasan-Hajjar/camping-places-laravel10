@@ -18,39 +18,36 @@
             <div class="card-header">تعديل </div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('doctors.update', $doctor) }}">
+                <form method="POST" action="{{ route('guides.update', $guide) }}">
                     @csrf
                     @method('PUT')
 
                     <div class="form-group">
                         {!! Form::label('name', ' الاسم :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-                        {!! Form::text('name', $doctor->name, ['class' => ' col-md-6']) !!}
+                        {!! Form::text('name', $guide->name, ['class' => ' col-md-6']) !!}
                     </div>
 
                     <div class="form-group">
                         {!! Form::label('phone', 'الهاتف :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-                        {!! Form::text('phone', $doctor->phone, ['class' => ' col-md-6']) !!}
+                        {!! Form::text('phone', $guide->phone, ['class' => ' col-md-6']) !!}
                     </div>
 
 
 
                     <div class="form-group">
-                        <label for="is_free"> حالة الطبيب</label>
+                        <label for="is_free"> حالة الدليل</label>
                         <select name="is_free" class="form-control" id="is_free">
                                 <option value="1">"متفرغ" </option>
                                 <option value="0">" غير متفرغ"</option>
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('specialty', 'حالة الطبيب :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-                        {!! Form::text('specialty', $doctor->specialty, ['class' => ' col-md-6']) !!}
-                    </div>
+
 
 
                     <button type="submit" class="btn btn-primary">حفظ </button>
                     <!-- زر الرجوع -->
-                    <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary" >  الأطباء </a>
+                    <a href="{{ url('/adminpanel/guides') }}" class="btn btn-secondary" >  الأدلة </a>
                 </form>
             </div>
         </div>
