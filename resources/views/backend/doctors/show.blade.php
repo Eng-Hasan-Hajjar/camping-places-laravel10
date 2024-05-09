@@ -3,7 +3,7 @@
 @extends('admin.layouts.layout')
 
 @section('title')
-    control of camping places
+    تفاصيل
 @endsection
 
 @section('header')
@@ -16,26 +16,26 @@
 @section('content')
     <div class="container hcontainer">
         <div class="card hcard">
-            <div class="card-header">تفاصيل الحجز</div>
+            <div class="card-header">التفاصيل </div>
 
             <div class="card-body hcard-body">
                 <!-- تفاصيل الحجز -->
 
-                <p><strong> المستخدم:</strong> {{ $reservation->user->name }}</p>
-                <p><strong> المكان:</strong> {{ $reservation->campGround->name}}</p>
-                <p><strong>تاريخ البداية:</strong> {{ $reservation->start_date }}</p>
-                <p><strong>تاريخ الانتهاء:</strong> {{ $reservation->end_date }}</p>
+                <p><strong> الاسم:</strong> {{ $doctor->name }}</p>
+                <p><strong> الهاتف:</strong> {{ $doctor->phone}}</p>
+                <p><strong> حالة الطبيب:</strong> @if($doctor->is_free == 1)  متفرغ  @else غير متفرغ  @endif</p>
+                <p><strong> الاختصاص:</strong> {{ $doctor->specialty }}</p>
 
                 <!-- أزرار التحكم -->
                 <div class="btn-group">
-                    <a href="{{ route('reservations.edit', $reservation) }}" class="btn btn-primary">تعديل</a>
-              
-                    <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
+                    <a href="{{ route('doctors.edit', $doctor) }}" class="btn btn-primary">تعديل</a>
+
+                    <form action="{{ route('doctors.destroy', $doctor) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الحجز؟')">حذف</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الطبيب؟')">حذف</button>
                     </form>
-                    <a href="{{ url('/adminpanel/reservations') }}" class="btn btn-secondary">رجوع</a>
+                    <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary">رجوع</a>
 
                 </div>
             </div>

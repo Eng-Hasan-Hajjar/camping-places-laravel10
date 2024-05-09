@@ -42,23 +42,21 @@
                                 <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
-                                <label for="specialty">الاختصاص  </label>
-                                <input type="text" name="specialty" class="form-control" id="specialty" value="{{ old('specialty') }}">
-                            </div>
-                            <div class="form-group">
                                 <label for="phone">الهاتف  </label>
                                 <input type="text" name="phone" class="form-control" id="phone" value="{{ old('phone') }}">
                             </div>
                             <div class="form-group">
-                                <label for="camp_ground_id"> المكان</label>
-                                <select name="camp_ground_id" class="form-control" id="camp_ground_id">
+                                <label for="is_free"> حالة الطبيب</label>
+                                <select name="is_free" class="form-control" id="is_free">
                                         <option value="1">متفرغ</option>
                                         <option value="0">غير متفرغ</option>
 
                                 </select>
                             </div>
-
-
+                            <div class="form-group">
+                                <label for="specialty">الاختصاص  </label>
+                                <input type="text" name="specialty" class="form-control" id="specialty" value="{{ old('specialty') }}">
+                            </div>
 
 
 

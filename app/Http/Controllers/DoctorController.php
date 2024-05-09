@@ -34,6 +34,7 @@ class DoctorController extends Controller
             'name' => 'required',
             'phone'=>  'required',
             'specialty'=> 'required',
+            'is_free'=> 'required',
         ]);
 
         Doctor::create($request->all());
@@ -46,7 +47,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        return view('backend.doctors..show',compact('doctor'));
+        return view('backend.doctors.show',compact('doctor'));
     }
 
     /**
