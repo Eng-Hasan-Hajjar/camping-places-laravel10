@@ -30,43 +30,43 @@
                     @endif
                     <div class="card-body ">
 
-                        <div class="form-group">
-                            <label for="user_id">اسم المستخدم</label>
-                            <input type="text" name="user_name" class="form-control" id="user_name" value="{{ Auth::user()->name }}" disabled>
-                        </div>
+
 
                         <form method="POST" action="{{ route('doctors.store') }}">
                             @csrf
 
-                            <div class="form-group">
-                                <label for="user_id">رقم المستخدم</label>
-                                <input type="text" name="user_id" class="form-control" id="user_id" value="{{ Auth::user()->id }}" disabled>
-                            </div>
 
+
+                            <div class="form-group">
+                                <label for="name">الاسم  </label>
+                                <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="specialty">الاختصاص  </label>
+                                <input type="text" name="specialty" class="form-control" id="specialty" value="{{ old('specialty') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">الهاتف  </label>
+                                <input type="text" name="phone" class="form-control" id="phone" value="{{ old('phone') }}">
+                            </div>
                             <div class="form-group">
                                 <label for="camp_ground_id"> المكان</label>
                                 <select name="camp_ground_id" class="form-control" id="camp_ground_id">
-                                        <option value="1">{{ $doctors->is_free }}</option>
-                                        <option value="0">{{ $doctors->is_free }}</option>
+                                        <option value="1">متفرغ</option>
+                                        <option value="0">غير متفرغ</option>
 
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="start_date">تاريخ البداية</label>
-                                <input type="date" name="start_date" class="form-control" id="start_date" value="{{ old('start_date') }}">
-                            </div>
 
-                            <div class="form-group">
-                                <label for="end_date">تاريخ الانتهاء</label>
-                                <input type="date" name="end_date" class="form-control" id="end_date" value="{{ old('end_date') }}">
-                            </div>
 
-                            <button type="submit" class="btn btn-primary">حفظ الحجز</button>
+
+
+                            <button type="submit" class="btn btn-primary">حفظ </button>
 
 
                                 <!-- زر الرجوع -->
-                                <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary" >  الحجوزات</a>
+                                <a href="{{ url('/adminpanel/doctors') }}" class="btn btn-secondary" >  الأطباء </a>
 
 
 
