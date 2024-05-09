@@ -12,9 +12,9 @@ class GuideController extends Controller
      */
     public function index()
     {
-        $departements = Guide::latest()->paginate(5);
+        $guides = Guide::latest()->paginate(5);
 
-        return view('doctor.departements.index',compact('departements'))
+        return view('backend.guides.index',compact('guides'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -23,7 +23,7 @@ class GuideController extends Controller
      */
     public function create()
     {
-        return view('doctor.departements.create');
+        return view('backend.guides.create');
     }
 
     /**
@@ -33,56 +33,70 @@ class GuideController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'phone'=>  'required|numeric',
 
-        ]);
+            'is_free'=> 'required',
+        ], $messages);
 
         Guide::create($request->all());
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement created successfully.');
+        return redirect()->route('guides.index')
+                        ->with('success','guide created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Guide $departement)
+    public function show(Guide $guide)
     {
-        return view('doctor.departements.show',compact('departement'));
+        return view('backend.guides.show',compact('guide'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Guide $departement)
+    public function edit(Guide $guide)
     {
-        return view('doctor.departements.edit',compact('departement'));
+        return view('backend.guides.edit',compact('guide'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Guide $departement)
+    public function update(Request $request, Guide $guide)
     {
+        $messages = [
+            'name.required' => 'حقل  الاسم مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'is_free.required' => 'حقل نوع الحالة مطلوب',
+
+
+
+
+        ];
         $request->validate([
             'name' => 'required',
+            'phone'=>  'required|numeric',
+            'is_free'=> 'required',
 
-        ]);
+        ], $messages);
 
-        $departement->update($request->all());
+        $guide->update($request->all());
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement updated successfully');
+        return redirect()->route('guides.index')
+                        ->with('success','guide updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Guide $departement)
+    public function destroy(Guide $guide)
     {
-        $departement->delete();
+        $guide->delete();
 
-        return redirect()->route('departements.index')
-                        ->with('success','Departement deleted successfully');
+        return redirect()->route('guides.index')
+                        ->with('success','guide deleted successfully');
     }
 
 }

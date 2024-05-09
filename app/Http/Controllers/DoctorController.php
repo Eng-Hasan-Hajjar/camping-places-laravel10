@@ -36,7 +36,7 @@ class DoctorController extends Controller
             'phone.numeric' => 'هاتف المستخدم غير صالح',
             'is_free.required' => 'حقل نوع الحالة مطلوب',
 
-            'required.required' => 'حقل الاختصاص  مطلوب',
+            'specialty.required' => 'حقل الاختصاص  مطلوب',
 
 
         ];
@@ -80,7 +80,7 @@ class DoctorController extends Controller
         'phone.numeric' => 'رقم المستخدم غير صالح',
         'is_free.required' => 'حقل نوع الحالة مطلوب',
         'name.required' => 'حقل رقم الاسم مطلوب',
-        'required.required' => 'حقل الاختصاص  مطلوب',
+        'specialty.required' => 'حقل الاختصاص  مطلوب',
 
     ];
         $request->validate([
