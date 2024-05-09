@@ -42,10 +42,22 @@ class VisitorController extends Controller
         ];
 
         $request->validate([
-            'name' => 'required',
-            'phone'=>  'required|numeric',
-            'specialty'=> 'required',
-            'is_free'=> 'required',
+            'user_id' => 'required',
+            'phone'=> 'required|numeric',
+            'work'=>  'required',
+            'hobby'=> 'required',
+            'nationality'=> 'required',
+            'current_location' => 'required',
+            'gender'=>  'required',
+            'is_phobia_dark'=> 'required',
+            'is_phobia_animals'=> 'required',
+            'is_phobia_fly' => 'required',
+            'is_phobia_see'=>  'required',
+            'is_phobia_open_space'=> 'required',
+            'is_phobia_hights'=> 'required',
+            'birthday'=> 'required',
+            'num_companion'=> 'required',
+
         ], $messages);
 
         Visitor::create($request->all());
@@ -74,22 +86,36 @@ class VisitorController extends Controller
      */
     public function update(Request $request, Visitor $visitor)
     {
-         $messages = [
+        $messages = [
+            'name.required' => 'حقل  الاسم مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'is_free.required' => 'حقل نوع الحالة مطلوب',
 
-        'phone.required' => 'حقل رقم الهاتف مطلوب',
-        'phone.numeric' => 'رقم المستخدم غير صالح',
-        'is_free.required' => 'حقل نوع الحالة مطلوب',
-        'name.required' => 'حقل رقم الاسم مطلوب',
-        'specialty.required' => 'حقل الاختصاص  مطلوب',
+            'specialty.required' => 'حقل الاختصاص  مطلوب',
 
-    ];
+
+        ];
+
         $request->validate([
-            'name' => 'required',
-            'phone'=>  'required|numeric',
-            'specialty'=> 'required',
-            'is_free'=> 'required',
+            'user_id' => 'required',
+            'phone'=> 'required|numeric',
+            'work'=>  'required',
+            'hobby'=> 'required',
+            'nationality'=> 'required',
+            'current_location' => 'required',
+            'gender'=>  'required',
+            'is_phobia_dark'=> 'required',
+            'is_phobia_animals'=> 'required',
+            'is_phobia_fly' => 'required',
+            'is_phobia_see'=>  'required',
+            'is_phobia_open_space'=> 'required',
+            'is_phobia_hights'=> 'required',
+            'birthday'=> 'required',
+            'num_companion'=> 'required',
 
         ], $messages);
+
         $visitor->update($request->all());
         return redirect()->route('visitors.index')
                         ->with('success','visitor updated successfully');

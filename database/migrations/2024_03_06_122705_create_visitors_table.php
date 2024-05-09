@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->Integer('phone');
             $table->string('work');
             $table->string('hobby');
             $table->string('nationality');
             $table->string('current_location');
-
             $table->boolean('gender')->default(false);
             $table->boolean('is_phobia_dark');
             $table->boolean('is_phobia_animals');
