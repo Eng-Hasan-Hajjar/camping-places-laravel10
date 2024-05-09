@@ -22,6 +22,9 @@ return new class extends Migration
             $table->integer('cm_season')->default("3");// spring 1 - summer  2 - fall 3 - winter 0
             $table->string('campGround_image',300)->default(0);
 
+            $table->string('google_image',300)->default(0);
+            $table->string('forecast',300)->default(0);
+
             $table->timestamps();
         });
     }

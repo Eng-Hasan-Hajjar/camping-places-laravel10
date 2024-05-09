@@ -10,7 +10,7 @@ class CampGround extends Model
     use HasFactory;
     protected $fillable = [
         'name', 'description', 'country','city',
-        'region', 'cm_type', 'cm_season','campGround_image',
+        'region', 'cm_type', 'cm_season','campGround_image','google_image','forecast',
 
     ];
 }
