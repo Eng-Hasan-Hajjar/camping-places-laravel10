@@ -96,6 +96,33 @@
 
             </ul>
           </li>
+{{-- Visitor --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+       الزائرين
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/visitors/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إضافة  زائر </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/visitors/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل  الزائرين</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
 
 
 

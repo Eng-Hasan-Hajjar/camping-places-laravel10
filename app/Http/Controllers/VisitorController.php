@@ -12,8 +12,8 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        $doctors = Visitor::latest()->paginate(5);
-        return view('backend.doctors.all',compact('doctors'))
+        $visitors = Visitor::latest()->paginate(5);
+        return view('backend.visitors.index',compact('visitors'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -22,7 +22,7 @@ class VisitorController extends Controller
      */
     public function create()
     {
-        return view('backend.doctors.create');
+        return view('backend.visitors.create');
     }
 
     /**
@@ -48,31 +48,31 @@ class VisitorController extends Controller
             'is_free'=> 'required',
         ], $messages);
 
-        Doctor::create($request->all());
-        return redirect()->route('doctors.index')
-                        ->with('success','doctor created successfully.');
+        Visitor::create($request->all());
+        return redirect()->route('visitors.index')
+                        ->with('success','visitor created successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Doctor $doctor)
+    public function show(Visitor $visitor)
     {
-        return view('backend.doctors.show',compact('doctor'));
+        return view('backend.visitors.show',compact('visitor'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Doctor $doctor)
+    public function edit(Visitor $visitor)
     {
-        return view('backend.doctors.edit',compact('doctor'));
+        return view('backend.visitors.edit',compact('visitor'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, Visitor $visitor)
     {
          $messages = [
 
@@ -90,18 +90,18 @@ class VisitorController extends Controller
             'is_free'=> 'required',
 
         ], $messages);
-        $doctor->update($request->all());
-        return redirect()->route('doctors.index')
-                        ->with('success','doctor updated successfully');
+        $visitor->update($request->all());
+        return redirect()->route('visitors.index')
+                        ->with('success','visitor updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Doctor $doctor)
+    public function destroy(Visitor $visitor)
     {
-        $doctor->delete();
-        return redirect()->route('doctors.index')
-                        ->with('success','doctor deleted successfully');
+        $visitor->delete();
+        return redirect()->route('visitors.index')
+                        ->with('success','visitor deleted successfully');
     }
 }

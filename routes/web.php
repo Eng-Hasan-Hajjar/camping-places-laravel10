@@ -124,5 +124,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/adminpanel/guides', GuideController::class);
 
+    Route::resource('/adminpanel/visitors', GuideController::class);
+
+
 });
 
