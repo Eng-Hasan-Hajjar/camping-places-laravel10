@@ -27,15 +27,13 @@ return new class extends Migration
             $table->boolean('is_phobia_see')->default(false);
             $table->boolean('is_phobia_open_space')->default(false);
             $table->boolean('is_phobia_hights')->default(false);
-
             $table->date('birthday');
 
 
             $table->timestamps();
-
-              // تعيين ترتيب الحقول
-              $table->index('user_id');
-              $table->foreign('user_id')->references('id')->on('users');
+            // تعيين ترتيب الحقول
+            $table->index('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

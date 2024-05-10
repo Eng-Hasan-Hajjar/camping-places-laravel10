@@ -48,7 +48,9 @@
                     <tbody>
                         @foreach ($visitors as $visitor)
                             <tr>
-                                <td>{{ $visitors->user->name }}</td>
+                                @foreach ($users as $user)
+                                     <td>@if($user->id == $visitor->user_id)  {{ $user->name }} @endif</td>
+                                @endforeach
                                 <td>{{ $visitor->phone }}</td>
                                 <td>{{ $visitor->work }}</td>
                                 <td>{{ $visitor->hobby }}</td>

@@ -57,7 +57,7 @@
                 <tbody>
                     <tr  style="background:#676767;">
                         <th scope="row">الاسم</th>
-                        <td>{{ $visitor->user->name }}</td>
+                        <td>{{ $user->name }}</td>
                     </tr>
                     <tr>
                         <th scope="row">العمر</th>

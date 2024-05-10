@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Visitor;
-
+use App\Models\User;
 class VisitorController extends Controller
 {
    /**
@@ -25,9 +25,10 @@ class VisitorController extends Controller
             return view('backend.visitors.show', compact('visitor'));
         }
 */
-$user = auth()->user();
+        $user = auth()->user();
         $visitors = Visitor::latest()->paginate(5);
-        return view('backend.visitors.index',compact('visitors'))
+        $users = User::latest()->paginate(5);
+        return view('backend.visitors.index',compact('visitors','users'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -48,9 +49,7 @@ $user = auth()->user();
             'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
-            'is_free.required' => 'حقل نوع الحالة مطلوب',
 
-            'specialty.required' => 'حقل الاختصاص  مطلوب',
 
 
         ];
@@ -91,7 +90,8 @@ $user = auth()->user();
      */
     public function show(Visitor $visitor)
     {
-        return view('backend.visitors.show',compact('visitor'));
+        $user = auth()->user();
+        return view('backend.visitors.show',compact('visitor','user'));
     }
 
     /**
