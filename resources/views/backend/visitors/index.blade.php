@@ -48,22 +48,46 @@
                     <tbody>
                         @foreach ($visitors as $visitor)
                             <tr>
-                                @foreach ($users as $user)
-                                     <td>@if($user->id == $visitor->user_id)  {{ $user->name }} @endif</td>
-                                @endforeach
+                                <td>
+                                    @foreach ($users as $user)
+                                        @if($user->id == $visitor->user_id)  {{ $user->name }} @endif
+                                    @endforeach
+                                </td>
                                 <td>{{ $visitor->phone }}</td>
                                 <td>{{ $visitor->work }}</td>
                                 <td>{{ $visitor->hobby }}</td>
                                 <td>{{ $visitor->nationality }}</td>
                                 <td>{{ $visitor->current_location }}</td>
-                                <td>{{ $visitor->gender }}</td>
+
+                                <td>
+                                    @if($visitor->gender == 0) ذكر @else أنثى @endif
+
+                                </td>
                                 <td>{{ $visitor->num_companion }}</td>
-                                <td>{{ $visitor->is_phobia_dark }}</td>
-                                <td>{{ $visitor->is_phobia_animals }}</td>
-                                <td>{{ $visitor->is_phobia_fly }}</td>
-                                <td>{{ $visitor->is_phobia_see }}</td>
-                                <td>{{ $visitor->is_phobia_open_space }}</td>
-                                <td>{{ $visitor->is_phobia_hights }}</td>
+                                <td>
+                                    @if($visitor->is_phobia_dark == 0) لايوجد @else يوجد @endif
+
+                                </td>
+                                <td>
+                                    @if($visitor->is_phobia_animals == 0) لايوجد @else يوجد @endif
+
+                                </td>
+                                <td>
+                                    @if($visitor->is_phobia_fly == 0) لايوجد @else يوجد @endif
+
+                                </td>
+                                <td>
+                                    @if($visitor->is_phobia_see == 0) لايوجد @else يوجد @endif
+
+                                </td>
+                                <td>
+                                    @if($visitor->is_phobia_open_space == 0) لايوجد @else يوجد @endif
+
+                                </td>
+                                <td>
+                                    @if($visitor->is_phobia_hights == 0) لايوجد @else يوجد @endif
+
+                                </td>
                                 <td>{{ $visitor->birthday }}</td>
 
                                 <td>

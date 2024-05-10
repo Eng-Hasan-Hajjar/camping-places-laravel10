@@ -91,7 +91,8 @@ class VisitorController extends Controller
     public function show(Visitor $visitor)
     {
         $user = auth()->user();
-        return view('backend.visitors.show',compact('visitor','user'));
+        $users = User::all();
+        return view('backend.visitors.show',compact('visitor','users'));
     }
 
     /**

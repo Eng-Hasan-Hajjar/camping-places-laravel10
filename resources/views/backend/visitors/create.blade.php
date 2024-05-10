@@ -37,10 +37,6 @@
 
 
                             <div class="form-group">
-                                <label for="name">الاسم  </label>
-                                <input type="text" name="name" class="form-control" id="name" value="{{ old('name') }}">
-                            </div>
-                            <div class="form-group">
                                 <label for="phone">الهاتف  </label>
                                 <input type="phone" name="phone" class="form-control" id="phone" value="{{ old('phone') }}">
                             </div>
