@@ -21,12 +21,12 @@ return new class extends Migration
             $table->string('current_location')->default('حلب');
             $table->boolean('gender')->default(false);
             $table->integer('num_companion');
-            $table->boolean('is_phobia_dark')->default('لايوجد');
-            $table->boolean('is_phobia_animals')->default('لايوجد');
-            $table->boolean('is_phobia_fly')->default('لايوجد');
-            $table->boolean('is_phobia_see')->default('لايوجد');
-            $table->boolean('is_phobia_open_space')->default('لايوجد');
-            $table->boolean('is_phobia_hights')->default('لايوجد');
+            $table->boolean('is_phobia_dark')->default(false);
+            $table->boolean('is_phobia_animals')->default(false);
+            $table->boolean('is_phobia_fly')->default(false);
+            $table->boolean('is_phobia_see')->default(false);
+            $table->boolean('is_phobia_open_space')->default(false);
+            $table->boolean('is_phobia_hights')->default(false);
 
             $table->date('birthday');
 
