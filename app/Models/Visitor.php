@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Visitor extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id','phone',
+    protected $fillable = [
+        'user_id',
+    'phone',
     'work',
     'hobby',
     'nationality',

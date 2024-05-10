@@ -17,20 +17,25 @@ return new class extends Migration
             $table->Integer('phone');
             $table->string('work');
             $table->string('hobby');
-            $table->string('nationality');
-            $table->string('current_location');
+            $table->string('nationality')->default('عربي سوري');
+            $table->string('current_location')->default('حلب');
             $table->boolean('gender')->default(false);
-            $table->boolean('is_phobia_dark');
-            $table->boolean('is_phobia_animals');
-            $table->boolean('is_phobia_fly');
-            $table->boolean('is_phobia_see');
-            $table->boolean('is_phobia_open_space');
-            $table->boolean('is_phobia_hights');
+            $table->integer('num_companion');
+            $table->boolean('is_phobia_dark')->default('لايوجد');
+            $table->boolean('is_phobia_animals')->default('لايوجد');
+            $table->boolean('is_phobia_fly')->default('لايوجد');
+            $table->boolean('is_phobia_see')->default('لايوجد');
+            $table->boolean('is_phobia_open_space')->default('لايوجد');
+            $table->boolean('is_phobia_hights')->default('لايوجد');
 
             $table->date('birthday');
-            $table->integer('num_companion');
+
 
             $table->timestamps();
+
+              // تعيين ترتيب الحقول
+              $table->index('user_id');
+              $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

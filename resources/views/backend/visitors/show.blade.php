@@ -43,7 +43,7 @@
         <div class="col-lg-12 margin-tb">
 
             <div class="pull-right"  style="margin:20px;text-align:center">
-                <a class="custom-btn btn-5" href="{{ route('patients.edit',$patient->id) }}"  > تعديل معلوماتي</a>
+                <a class="custom-btn btn-5" href="{{ route('visitors.edit',$visitor->id) }}"  > تعديل معلوماتي</a>
 
                 <a class="custom-btn btn-6" href="{{ route('dashboard') }}" > رجوع</a>
             </div>
@@ -57,39 +57,39 @@
                 <tbody>
                     <tr  style="background:#676767;">
                         <th scope="row">الاسم</th>
-                        <td>{{ $patient->user->name }}</td>
+                        <td>{{ $visitor->user->name }}</td>
                     </tr>
                     <tr>
                         <th scope="row">العمر</th>
-                        <td>{{ $patient->age }}</td>
+                        <td>{{ $visitor->phone }}</td>
                     </tr>
                     <tr>
                         <th scope="row">الجنس</th>
-                        <td>{{ $patient->gender }}</td>
+                        <td>{{ $visitor->work }}</td>
                     </tr>
                     <tr>
                         <th scope="row">فصيلة الدم</th>
-                        <td>{{ $patient->blood_type }}</td>
+                        <td>{{ $visitor->hobby }}</td>
                     </tr>
                     <tr>
                         <th scope="row">الأمراض الوراثية</th>
-                        <td>{{ $patient->genetic_disease ?? 'لا توجد' }}</td>
+                        <td>{{ $visitor->nationality ?? 'لا توجد' }}</td>
                     </tr>
                     <tr>
                         <th scope="row">الأمراض المزمنة</th>
-                        <td>{{ $patient->chronic_diseases ?? 'لا توجد' }}</td>
+                        <td>{{ $visitor->gender ?? 'لا توجد' }}</td>
                     </tr>
                     <tr>
                         <th scope="row">عمليات جراحية سابقة</th>
-                        <td>{{ $patient->previous_surgery ?? 'لا توجد' }}</td>
+                        <td>{{ $visitor->num_companion ?? 'لا توجد' }}</td>
                     </tr>
                     <tr>
                         <th scope="row">رقم </th>
-                        <td>{{ $patient->number }}</td>
+                        <td>{{ $visitor->is_phobia_animals }}</td>
                     </tr>
                     <tr>
                         <th scope="row">العنوان</th>
-                        <td>{{ $patient->address ?? 'لا توجد' }}</td>
+                        <td>{{ $visitor->is_phobia_fly ?? 'لا توجد' }}</td>
                     </tr>
                     <!-- يمكنك إضافة معلومات إضافية هنا -->
                 </tbody>

@@ -12,6 +12,20 @@ class VisitorController extends Controller
      */
     public function index()
     {
+/*
+        // الحصول على المستخدم المسجل حاليا
+        $user = auth()->user();
+
+        // التحقق من وجود المستخدم
+        if ($user) {
+            // الحصول على معلومات المريض للمستخدم الحالي
+            $visitor = $user->visitor;
+
+            // عرض معلومات المريض
+            return view('backend.visitors.show', compact('visitor'));
+        }
+*/
+$user = auth()->user();
         $visitors = Visitor::latest()->paginate(5);
         return view('backend.visitors.index',compact('visitors'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -42,7 +56,7 @@ class VisitorController extends Controller
         ];
 
         $request->validate([
-            'user_id' => 'required',
+
             'phone'=> 'required|numeric',
             'work'=>  'required',
             'hobby'=> 'required',
@@ -62,7 +76,12 @@ class VisitorController extends Controller
 
         ], $messages);
 
-        Visitor::create($request->all());
+          // الحصول على المستخدم المسجل
+        $user = auth()->user();
+        $visitor = new Visitor($request->all());
+        $user->visitor()->save($visitor);
+
+         //  Visitor::create($request->all());
         return redirect()->route('visitors.index')
                         ->with('success','visitor created successfully.');
     }
@@ -100,7 +119,7 @@ class VisitorController extends Controller
         ];
 
         $request->validate([
-            'user_id' => 'required',
+
             'phone'=> 'required|numeric',
             'work'=>  'required',
             'hobby'=> 'required',
