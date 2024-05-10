@@ -49,14 +49,16 @@ class VisitorController extends Controller
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
+            'num_companion'=> 'required',
+            'is_phobia_hights'=> 'required',
             'is_phobia_dark'=> 'required',
             'is_phobia_animals'=> 'required',
             'is_phobia_fly' => 'required',
             'is_phobia_see'=>  'required',
             'is_phobia_open_space'=> 'required',
-            'is_phobia_hights'=> 'required',
+
             'birthday'=> 'required',
-            'num_companion'=> 'required',
+
 
         ], $messages);
 
@@ -105,6 +107,7 @@ class VisitorController extends Controller
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
+            'num_companion'=> 'required',
             'is_phobia_dark'=> 'required',
             'is_phobia_animals'=> 'required',
             'is_phobia_fly' => 'required',
@@ -112,7 +115,7 @@ class VisitorController extends Controller
             'is_phobia_open_space'=> 'required',
             'is_phobia_hights'=> 'required',
             'birthday'=> 'required',
-            'num_companion'=> 'required',
+
 
         ], $messages);
 

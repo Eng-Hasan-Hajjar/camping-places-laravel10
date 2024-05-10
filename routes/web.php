@@ -8,7 +8,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\ArmanController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GuideController;
-
+use App\Http\Controllers\VisitorController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -124,7 +124,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/adminpanel/guides', GuideController::class);
 
-    Route::resource('/adminpanel/visitors', GuideController::class);
+    Route::resource('/adminpanel/visitors', VisitorController::class);
 
 
 });
