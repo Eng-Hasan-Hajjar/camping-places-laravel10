@@ -14,7 +14,7 @@
 @section('content')
     <div class="container hcontainer">
         <div class="card hcard helement hcard-body">
-            <div class="card-header  "><p  class="float-right">جميع الأدلة</p></div>
+            <div class="card-header  "><p  class="float-right">جميع الزائرين</p></div>
             <div class="card-header">
                 <a href="{{ route('visitors.create') }}" class=" btn btn-success float-right">إنشاء جديد</a>
             </div>
@@ -32,13 +32,7 @@
 
                             <th> الجنس</th>
                             <th> عدد المرافقين</th>
-                            <th>فوبيا الظلام</th>
-                            <th> فوبيا الحيوانات </th>
-                            <th> فوبيا الطيران </th>
 
-                            <th> فوبيا البحر </th>
-                            <th > فوبيا الأماكن المفتوحة </th>
-                            <th> فوبيا المرتفعات </th>
                             <th> الميلاد</th>
 
 
@@ -64,41 +58,22 @@
 
                                 </td>
                                 <td>{{ $visitor->num_companion }}</td>
-                                <td>
-                                    @if($visitor->is_phobia_dark == 0) لايوجد @else يوجد @endif
 
-                                </td>
-                                <td>
-                                    @if($visitor->is_phobia_animals == 0) لايوجد @else يوجد @endif
-
-                                </td>
-                                <td>
-                                    @if($visitor->is_phobia_fly == 0) لايوجد @else يوجد @endif
-
-                                </td>
-                                <td>
-                                    @if($visitor->is_phobia_see == 0) لايوجد @else يوجد @endif
-
-                                </td>
-                                <td>
-                                    @if($visitor->is_phobia_open_space == 0) لايوجد @else يوجد @endif
-
-                                </td>
-                                <td>
-                                    @if($visitor->is_phobia_hights == 0) لايوجد @else يوجد @endif
-
-                                </td>
                                 <td>{{ $visitor->birthday }}</td>
 
                                 <td>
-                                    <div class="btn-group">
-                                        <a href="{{ route('visitors.show', $visitor) }}" class="btn btn-info">عرض التفاصيل</a>
-                                        <a href="{{ route('visitors.edit', $visitor) }}" class="btn btn-primary">تعديل</a>
+                                    <div class="">
+                                        <a style="margin: 10px" href="{{ route('visitors.show', $visitor) }}" class="btn btn-info"> التفاصيل</a>
+                                        <br>
+                                        <a style="margin: 10px" href="{{ route('visitors.edit', $visitor) }}" class="btn btn-primary">تعديل</a>
+                                        <br>
+                                        <a style="margin-left: 30px">
                                         <form action="{{ route('visitors.destroy', $visitor) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الزائر؟ ')">حذف</button>
                                         </form>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
