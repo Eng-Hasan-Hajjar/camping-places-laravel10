@@ -1,7 +1,7 @@
 @extends('admin.layouts.layout')
 
 @section('title')
-    control of camping places
+التحكم
 @endsection
 
 @section('header')
@@ -11,35 +11,14 @@
 @endsection
 
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
-    <div class="jumbotron text-center">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-4">
-                        <h1>control of camping places</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/adminpanel') }}"> Home </a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('/adminpanel/campground') }}"> control of
-                                    camping places </a></li>
-                            <li class="breadcrumb-item active"><a href="{{ url('/adminpanel/campground/create') }}"> Add new
-                                    camping place </a></li>
-                        </ol>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
-        </section>
 
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-24">
-                    <div class="card">
+
+                <div class="container hcontainer">
+                    <div class="card hcard helement hcard-body">
+
+                        <div class="card-header  "><p  class="float-right">جميع الأماكن</p></div>
                         <div class="card-header">
-                            <h3 class="card-title">All camping places</h3>
+                            <a href="{{ route('campground.create') }}" class=" btn btn-success float-right">إنشاء جديد</a>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -136,12 +115,8 @@
 
                 </div>
                 <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+
+
 @endsection
 
 @section('footer')

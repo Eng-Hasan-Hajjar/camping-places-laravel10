@@ -30,11 +30,11 @@
 
                     <div class="form-group">
                         <label for="work">العمل  </label>
-                        <input type="text" name="work" class="form-control" id="work" value="{{ $visitor->work  }}">
+                        <input type="text" name="work" class="form-control" id="work" value="{{ $visitor->work }}">
                     </div>
                     <div class="form-group">
                         <label for="hobby">الهواية  </label>
-                        <input type="text" name="hobby" class="form-control" id="hobby" value="{{$visitor->hobby  }}">
+                        <input type="text" name="hobby" class="form-control" id="hobby" value="{{$visitor->hobby }}">
                     </div>
                     <div class="form-group">
                         <label for="nationality">الجنسية  </label>
