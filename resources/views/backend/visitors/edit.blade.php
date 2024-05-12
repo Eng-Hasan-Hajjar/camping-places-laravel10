@@ -30,19 +30,19 @@
 
                     <div class="form-group">
                         <label for="work">العمل  </label>
-                        <input type="text" name="work" class="form-control" id="work" value="{{ old('work') }}">
+                        <input type="text" name="work" class="form-control" id="work" value="{{ $visitor->work  }}">
                     </div>
                     <div class="form-group">
                         <label for="hobby">الهواية  </label>
-                        <input type="text" name="hobby" class="form-control" id="hobby" value="{{ old('hobby') }}">
+                        <input type="text" name="hobby" class="form-control" id="hobby" value="{{$visitor->hobby  }}">
                     </div>
                     <div class="form-group">
                         <label for="nationality">الجنسية  </label>
-                        <input type="text" name="nationality" class="form-control" id="nationality" value="{{ old('nationality') }}">
+                        <input type="text" name="nationality" class="form-control" id="nationality" value="{{$visitor->nationality  }}">
                     </div>
                     <div class="form-group">
                         <label for="current_location">الموقع الحالي  </label>
-                        <input type="text" name="current_location" class="form-control" id="current_location" value="{{ old('current_location') }}">
+                        <input type="text" name="current_location" class="form-control" id="current_location" value="{{$visitor->current_location }}">
                     </div>
 
                     <div class="form-group">
@@ -114,7 +114,7 @@
 
                     <div class="form-group">
                         <label for="birthday">الميلاد  </label>
-                        <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}">
+                        <input type="date" name="birthday" class="form-control" id="birthday" value="{{$visitor->birthday  }}">
                     </div>
 
 
