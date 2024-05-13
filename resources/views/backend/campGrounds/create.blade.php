@@ -1,75 +1,80 @@
+<!-- resources/views/reservations/create.blade.php -->
+
 @extends('admin.layouts.layout')
 
-
-
-
 @section('title')
-       Add camping ground
+التحكم
 @endsection
 
-  @section('header')
+@section('header')
 
-
-  {!! Html::style('cus/css/select2.css') !!}
-
-
-  @endsection
-
-
+{!! Html::style('cus/css/select2.css') !!}
+{{ Html::style('hdesign/hstyle.css') }}
+    <!-- DataTables -->
+    {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
+    {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
+@endsection
 
 @section('content')
+    <div class="container helement">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card ">
+                    <div class="card-header ">إنشاء جديد</div>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                    </div>
+                    @endif
+                    <div class="card-body ">
 
- <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Add camping ground</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{url('/adminpanel')}}"> Home </a></li>
 
-              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground')}}"> Control of camping ground </a></li>
-              <li class="breadcrumb-item active"><a href="{{url('/adminpanel/campground/create')}}"> Add new camping ground </a></li>
+                        {!! Form::open(['url' => '/adminpanel/campground', 'class' => 'form-horizontal', 'method' => 'post','files'=> true]) !!}
 
-            </ol>
-          </div>
+                        @include('backend.campGrounds.formAdd')
+
+                      {!! Form::close()  !!}
+
+
+                      
+                        <form method="POST" action="{{ route('visitors.store') }}">
+                            @csrf
+
+
+
+
+
+                            <button type="submit" class="btn btn-primary">حفظ </button>
+
+
+                                <!-- زر الرجوع -->
+                                <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين  </a>
+
+
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div><!-- /.container-fluid -->
-    </section>
+    </div>
 
-
-
-       <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header" style="margin: 10px">
-              <h3 class="card-title">
-
-                add new camping ground
-              </h3>
-            </div>
-
-
-
-
-        {!! Form::open(['url' => '/adminpanel/campground', 'class' => 'form-horizontal', 'method' => 'post','files'=> true]) !!}
-
-          @include('backend.campGrounds.formAdd')
-
-        {!! Form::close()  !!}
-
-
-
-            </div>
-            </div>
-            </div>
-    </section>
-
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
 @endsection
+
+
+
 
 
 

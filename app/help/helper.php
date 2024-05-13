@@ -2,11 +2,11 @@
 
 
 function cm_season_func(){
-	$array=['winter','spring','summer','fall',];
+	$array=['الشتاء','الربيع','الصيف','الخريف',];
 	return $array;
 }
 function cm_type_func(){
-	$array=['wood','desire','island','mountain'];
+	$array=['غابة','صحراء','جزيرة','جبال'];
 	return $array;
 }
 function test(){
@@ -20,7 +20,7 @@ function getSetting($settingname ='sitename'){
 function contact()
 {
 
-     $array[0] ='';
+    $array[0] ='';
     $array[1] ='Like';
     $array[2] ='Problem';
     $array[3] ='Suggestion';
