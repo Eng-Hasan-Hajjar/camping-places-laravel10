@@ -1,52 +1,115 @@
-<div class="form-group">
-    {!! Form::label('name', ' camp name :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::text('name', $data->name, ['class' => ' col-md-6']) !!}
-</div>
+
+
 
 <div class="form-group">
-    {!! Form::label('description', 'description :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::text('description', $data->description, ['class' => ' col-md-6']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('country', 'country :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::text('country', $data->country, ['class' => ' col-md-6']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('city', 'city :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::text('city', $data->city, ['class' => ' col-md-6']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('region', 'region :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::text('region', $data->region, ['class' => ' col-md-6']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('cm_type', 'Type:', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::select('cm_type', cm_type_func(), null, ['class' => 'col-md-6']) !!}
-</div>
-
-<div class="form-group">
-    {!! Form::label('cm_season', 'Season:', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::select('cm_season', cm_season_func(), null, ['class' => 'col-md-6']) !!}
+    <label for="name"> الاسم  </label>
+    <input type="text" name="name" class="form-control" id="name" value="{{$data->name}}">
 </div>
 
 
 
 <div class="form-group">
-    {!! Form::label('es_image', 'Image for Estate:', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
-    {!! Form::file('es_image', null, ['class' => 'col-md-6']) !!}
+    <label for="description"> الوصف  </label>
+    <input type="text" name="description" class="form-control" id="description"value="{{$data->description}}">
 </div>
 
 
+
+<div class="form-group">
+    <label for="country"> البلد  </label>
+    <input type="text" name="country" class="form-control" id="country" value="{{$data->name}}">
+</div>
+
+
+
+
+
+<div class="form-group">
+    <label for="city">المدينة   </label>
+    <input type="text" name="city" class="form-control" id="city" value="{{$data->city}}">
+</div>
+
+
+<div class="form-group">
+    <label for="region"> المنطقة  </label>
+    <input type="text" name="region" class="form-control" id="region"value="{{$data->region}}" >
+</div>
+
+<div class="form-group">
+
+    {!! Form::label('cm_type', 'نوع الرحلة', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
+    {!! Form::select('cm_type', cm_type_func(), null, ['class' => 'col-md-12']) !!}
+</div>
+
+<div class="form-group">
+
+    {!! Form::label('cm_season', 'الفصل ', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
+    {!! Form::select('cm_season', cm_season_func(), null, ['class' => 'col-md-12']) !!}
+
+</div>
+
+
+
+
+<div class="form-group">
+    <label for="image" class="col-md-4 col-form-label text-md-right"> الصورة </label>
+    <div class="col-md-6">
+        <div style="">
+            @if (isset($campGround))
+                @if ($campGround->campGround_image != '')
+                    <img src="{{ Request::root() . '/website/campgroundimages/' . $campGround->campGround_image }}"
+                         />
+                    <br>
+                @endif
+            @endif
+            {!! Form::file('campGround_image', null, ['class' => 'form-control', 'style' => '']) !!}
+
+            @error('campGround_image')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="image" class="col-md-4 col-form-label text-md-right"> صورة غوغل للموقع </label>
+    <div class="col-md-6">
+        <div style="">
+            @if (isset($campGround))
+                @if ($campGround->google_image != '')
+                    <img src="{{ Request::root() . '/website/campgroundgoogleimages/' . $campGround->google_image }}"
+                         />
+                    <br>
+                @endif
+            @endif
+            {!! Form::file('google_image', null, ['class' => 'form-control', 'style' => '']) !!}
+
+            @error('google_image')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label for="forecast"> حالة الطقس  </label>
+    <input type="text" name="forecast" class="form-control" id="forecast" value="{{$data->forecast}}" >
+</div>
 
 
 
 <!-- Submit Button -->
 <div class="form-group">
     <div class="col-lg-10 col-lg-offset-2">
-        {!! Form::submit('edit', ['class' => 'btn btn-primary  pull-right']) !!}
+        {!! Form::submit('حفظ', ['class' => 'btn btn-primary  pull-right']) !!}
+        <a href="{{ url('/adminpanel/campground') }}" class="btn btn-secondary" >  أماكن التخييم  </a>
     </div>
 </div>
