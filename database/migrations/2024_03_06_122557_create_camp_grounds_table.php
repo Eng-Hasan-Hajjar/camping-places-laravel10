@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('region');
             $table->integer('cm_type')->default("0");//  جبل-0 - صحراء-1 -   -2 - غابة
             $table->integer('cm_season')->default("3");// spring 1 - summer  2 - fall 3 - winter 0
-            $table->string('campGround_image',300)->default(0);
+            $table->string('campGround_image',300)->default(" ");
 
-            $table->string('google_image',300)->default(0);
-            $table->string('forecast',300)->default(0);
+            $table->string('google_image',300)->default(" ");
+            $table->string('forecast',300)->default("غائم جزئي");
 
             $table->timestamps();
         });

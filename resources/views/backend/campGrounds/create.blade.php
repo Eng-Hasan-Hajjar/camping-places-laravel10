@@ -31,34 +31,9 @@
                     </div>
                     @endif
                     <div class="card-body ">
-
-
                         {!! Form::open(['url' => '/adminpanel/campground', 'class' => 'form-horizontal', 'method' => 'post','files'=> true]) !!}
-
-                        @include('backend.campGrounds.formAdd')
-
-                      {!! Form::close()  !!}
-
-
-                      
-                        <form method="POST" action="{{ route('visitors.store') }}">
-                            @csrf
-
-
-
-
-
-                            <button type="submit" class="btn btn-primary">حفظ </button>
-
-
-                                <!-- زر الرجوع -->
-                                <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين  </a>
-
-
-
-
-
-                        </form>
+                           @include('backend.campGrounds.formAdd')
+                        {!! Form::close()  !!}
                     </div>
                 </div>
             </div>

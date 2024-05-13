@@ -42,12 +42,19 @@ class CampGroundController extends Controller
             'cm_type' => 'required|integer',
             'cm_season' => 'required|integer',
             'campGround_image' => 'required|image|max:2048',
+            'google_image' => 'required|image|max:2048',
+            'forecast' => 'required',
         ]);
 
         $image = $request->file('campGround_image');
 
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
+
+        $imagegoogle = $request->file('google_image');
+        $new_name_google = rand() . '.' . $imagegoogle->getClientOriginalExtension();
+        $imagegoogle->move(public_path('imagesgoogle'), $new_name_google);
+
         $form_data = array(
             'name' => $request->name,
             'description' => $request->description,
@@ -57,7 +64,11 @@ class CampGroundController extends Controller
             'cm_type' => $request->cm_type,
             'cm_season' => $request->cm_season,
 
-            'campGround_image'  =>  $new_name
+            'campGround_image'  =>  $new_name,
+
+            'google_image'  =>  $new_name_google,
+            'forecast' => $request->forecast,
+
         );
 
         CampGround::create($form_data);
