@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
 use App\Models\User;
+// This will work and generate everything properly.
+use App\Models\Post;
 class VisitorController extends Controller
 {
    /**

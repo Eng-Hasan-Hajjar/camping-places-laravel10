@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\CampGround;
+// This will work and generate everything properly.
+use App\Models\Post;
 
 
 class ReservationController extends Controller

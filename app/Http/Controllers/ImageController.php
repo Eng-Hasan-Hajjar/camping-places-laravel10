@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+// This will work and generate everything properly.
+use App\Models\Post;
 
 class ImageController extends Controller
 {

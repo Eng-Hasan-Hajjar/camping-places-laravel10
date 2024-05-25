@@ -16,6 +16,7 @@
         "nwidart/laravel-modules": "^10.0"
     },
     "require-dev": {
+        "andyabih/laravel-to-uml": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.29",
         "laravel/pint": "^1.0",

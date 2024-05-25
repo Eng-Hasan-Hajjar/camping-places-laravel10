@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\CampGround;
 use Illuminate\Http\Request;
 use app\Models\User;
+// This will work and generate everything properly.
+use App\Models\Post;
 
 class CampGroundController extends Controller
 {
+   
     /**
      * Display a listing of the resource.
      */

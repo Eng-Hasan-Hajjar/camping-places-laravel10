@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Guide;
-
+// This will work and generate everything properly.
+use App\Models\Post;
 class GuideController extends Controller
 {
     /**

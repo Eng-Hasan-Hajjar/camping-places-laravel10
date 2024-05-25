@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+// This will work and generate everything properly.
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
