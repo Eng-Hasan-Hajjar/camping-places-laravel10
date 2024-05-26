@@ -17,11 +17,11 @@
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white animated slideInDown">Destination</h1>
+                        <h1 class="display-3 text-white animated slideInDown">Threater</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
                                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">Destination</li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Threater</li>
                             </ol>
                         </nav>
                     </div>
@@ -41,7 +41,7 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="churches">
+                            <a class="position-relative d-block overflow-hidden" href="">
                                 <img class="img-fluid" src="frontendAsset/img/Ethchmiazin church2.jpeg" alt="">
                                 <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Churches</div>
                             </a>
