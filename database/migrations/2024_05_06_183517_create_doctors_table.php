@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->Integer('phone');
             $table->boolean('is_free');
-
             $table->string('specialty');
 
             $table->timestamps();

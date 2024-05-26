@@ -39,6 +39,20 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+
+         <div class="form-group row">
+                <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                <div class="col-md-6">
+                    <select id="role" class="form-control" name="role" required>
+                        <option value="employee">Employee</option>
+                        <option value="visitor">Visitor</option>
+                    </select>
+                </div>
+         </div>
+
+
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}

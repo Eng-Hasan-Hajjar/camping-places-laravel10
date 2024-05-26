@@ -34,18 +34,23 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'role' => ['required', 'string'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+      //  return redirect(RouteServiceProvider::HOME);
+      if( $user->role== 'employee')return redirect(RouteServiceProvider::HOME);
+      else return redirect()->route('backend.visitors.input');
+         // تحديث هذا الجزء لتوجيه المستخدم إلى واجهة إدخال بيانات الزائر بعد تسجيل الدخول
     }
 }

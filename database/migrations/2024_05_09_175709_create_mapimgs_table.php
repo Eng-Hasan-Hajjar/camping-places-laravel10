@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('mapimgs', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->integer('campGraound_id');
+            $table->unsignedBiginteger('camp_ground_id');
             $table->timestamps();
+
+            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
+
         });
     }
 

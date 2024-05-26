@@ -32,6 +32,16 @@
                     </x-nav-link>
                 </div>
 
+
+                @can('isVisitor')
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('patients.index')" :active="request()->routeIs('patients.index')">
+                            {{ __(' معلوماتي ') }}
+                        </x-nav-link>
+                    </div>
+                @endcan
+
+
             </div>
 
             <!-- Settings Dropdown -->

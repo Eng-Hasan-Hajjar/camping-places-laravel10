@@ -15,20 +15,15 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBiginteger('user_id');
-            $table->unsignedBiginteger('camp_ground_id');
-            $table->unsignedBiginteger('doctor_id');
-            $table->unsignedBiginteger('guide_id');
+            $table->unsignedBiginteger('camp_doctor_guid_id');
 
             $table->dateTime('start_date');
             $table->dateTime('end_date');
 
 
-            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->foreign('guide_id')->references('id')->on('guides');
             $table->foreign('user_id')->references('id')->on('users');
 
-
+            $table->foreign('camp_doctor_guid_id')->references('id')->on('camp_doctor_guid');
             $table->timestamps();
         });
     }
