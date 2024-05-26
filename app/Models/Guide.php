@@ -11,4 +11,8 @@ class Guide extends Model
     protected $fillable = [
         'name', 'phone','is_free',
     ];
+    public function campgrounds()
+    {
+        return $this->belongsToMany(CampGround::class);
+    }
 }

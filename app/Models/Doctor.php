@@ -12,5 +12,9 @@ class Doctor extends Model
         'name', 'specialty', 'phone',
         'is_free',
     ];
+    public function campgrounds()
+    {
+        return $this->belongsToMany(CampGround::class);
+    }
 
 }

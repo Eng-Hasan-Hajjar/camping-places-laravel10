@@ -13,4 +13,8 @@ class CampGround extends Model
         'region', 'cm_type', 'cm_season','campGround_image','google_image','forecast',
 
     ];
+    public function guids()
+    {
+        return $this->belongsToMany(Guide::class);
+    }
 }
