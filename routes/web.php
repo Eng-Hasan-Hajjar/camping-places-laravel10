@@ -14,6 +14,13 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+
+use App\Http\Controllers\RatingController;
+
+Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
+Route::get('/camp-grounds/{camp_ground_id}/ratings', [RatingController::class, 'show'])->name('ratings.show');
+
+
 Route::get('/n', function () {
     return view('welcome');
 });
