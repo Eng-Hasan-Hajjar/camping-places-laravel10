@@ -10,7 +10,7 @@ use App\Models\Post;
 
 class CampGroundController extends Controller
 {
-   
+
     /**
      * Display a listing of the resource.
      */
@@ -93,7 +93,12 @@ class CampGroundController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(CampGround $data)
+    public function show($id)
+    {
+        $data = CampGround::find($id);
+        return view('backend.campGrounds.show', compact('data'));
+    }
+    public function show333(CampGround $data)
     {
         return view('backend.campGrounds.show', compact('data'));
     }
@@ -133,4 +138,13 @@ class CampGroundController extends Controller
         return redirect()->route('campground.index')
             ->with('success', 'campground deleted successfully');
     }
+
+    public function showRatings($id)
+    {
+        $campground = Campground::with('ratings.user')->findOrFail($id);
+        return view('campground.ratings', compact('campground'));
+    }
+
+
+
 }

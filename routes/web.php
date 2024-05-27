@@ -19,6 +19,7 @@ use App\Http\Controllers\RatingController;
 
 Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
 Route::get('/camp-grounds/{camp_ground_id}/ratings', [RatingController::class, 'show'])->name('ratings.show');
+Route::get('/campgrounds/{id}/ratings', [CampgroundController::class, 'showRatings'])->name('campground.ratings');
 
 
 Route::get('/n', function () {

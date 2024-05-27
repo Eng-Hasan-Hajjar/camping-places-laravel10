@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Visitor::class);
     }
+    // app/Models/User.php
+public function ratings()
+{
+    return $this->hasMany(Rating::class);
+}
 }
