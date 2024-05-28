@@ -21,16 +21,29 @@ Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store
 Route::get('/camp-grounds/{camp_ground_id}/ratings', [RatingController::class, 'show'])->name('ratings.show');
 Route::get('/campgrounds/{id}/ratings', [CampgroundController::class, 'showRatings'])->name('campground.ratings');
 
+// routes/web.php
+
+use App\Http\Controllers\AdminDashboardController;
+
+Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+
 
 Route::get('/n', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+});
+
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
+*/
 
 
 
