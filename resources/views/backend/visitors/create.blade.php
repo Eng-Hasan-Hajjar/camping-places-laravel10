@@ -137,8 +137,12 @@
 
 
                                 <!-- زر الرجوع -->
-                                <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين  </a>
+                                @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
+                                        <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين </a>
+                                @else
+
+                                @endif
 
 
 

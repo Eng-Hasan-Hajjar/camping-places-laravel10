@@ -55,9 +55,9 @@
 
 </head>
 
-<body class="">
+<body class="hold-transition sidebar-mini layout-fixed" style="padding:30px">
 
-        <div class="">
+        <div class="wrapper">
 
 
 

@@ -1,4 +1,4 @@
-@extends('admin.layouts.layout')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 
 @section('title')
        edit camp

@@ -1,4 +1,4 @@
-@extends('admin.layouts.layout')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 
 @section('title')
 التحكم
@@ -18,6 +18,9 @@
 
                         <div class="card-header  "><p  class="float-right">جميع الأماكن</p></div>
                         <div class="card-header">
+                            @if(Auth::user()->can('isVisitor') )
+                                 <a href="{{ route('dashboard') }}" class=" btn btn-success float-left">لوحة التحكم  </a>
+                            @endif
                             <a href="{{ route('campground.create') }}" class=" btn btn-success float-right">إنشاء جديد</a>
                         </div>
                         <!-- /.card-header -->
@@ -32,13 +35,15 @@
                                         <th>country</th>
                                         <th>city</th>
                                         <th>region</th>
-                                        <th>cm_type</th>
-                                        <th>cm_season</th>
+
                                         <th>campGround_image</th>
 
 
                                         <th>control</th>
-                                        <th>del</th>
+                                        @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+
+                                          <th>del</th>
+                                        @endif
                                     </tr>
                                 </thead>
 
@@ -58,27 +63,7 @@
                                             <!--    $array=['wood','desire','island','mountain'];           -->
 
 
-                                            <td>
-                                                @if ($row->cm_type == 0)
-                                                    "جبل"
-                                                @elseif ($row->cm_type == 1)
-                                                    "بحر"
-                                                @else
-                                                    "غابة"
-                                                @endif
-                                            </td>
-                                            <!--   $array=['wood','desire','island','mountain'];        -->
-                                            <td>
-                                                @if ($row->cm_season == 0)
-                                                    "winter"
-                                                @elseif ($row->cm_season == 1)
-                                                    "spring"
-                                                @elseif ($row->cm_season == 2)
-                                                    "summer"
-                                                @else
-                                                    "fall"
-                                                @endif
-                                            </td>
+
 
                                             <td><img src="{{ URL::to('/') }}/images/{{ $row->campGround_image }}"
                                                     class="img-thumbnail" width="75" />
@@ -86,20 +71,24 @@
                                             <td>
                                                 <a href="{{ route('campground.show', $row->id) }}"
                                                     class="btn btn-primary">Show</a>
-                                                <a href="{{ route('campground.edit', $row->id) }}"
-                                                    class="btn btn-warning">Edit</a>
+                                                @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+
+                                                        <a href="{{ route('campground.edit', $row->id) }}"
+                                                            class="btn btn-warning">Edit</a>
+                                                @endif
+
                                             </td>
 
-                                            <td>
-
-                                                <form method="post" class="delete_form"
-                                                    action="{{ route('campground.destroy', $row->id) }}">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="_method" value="DELETE" />
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
-                                            </td>
-
+                                            @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+                                                <td>
+                                                    <form method="post" class="delete_form"
+                                                        action="{{ route('campground.destroy', $row->id) }}">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="_method" value="DELETE" />
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
+                                                </td>
+                                            @endif
                                         </tr>
                                     @endforeach
 

@@ -16,6 +16,9 @@
         <div class="card hcard helement hcard-body">
             <div class="card-header  "><p  class="float-right">جميع الحجوزات</p></div>
             <div class="card-header">
+                @if(Auth::user()->can('isVisitor') )
+                    <a href="{{ route('dashboard') }}" class=" btn btn-success float-left">لوحة التحكم  </a>
+                @endif
                 <a href="{{ route('reservations.create') }}" class=" btn btn-success float-right">إنشاء حجز جديد</a>
             </div>
             <div class="card-body">

@@ -39,7 +39,11 @@
                         </x-nav-link>
                     </div>
                 @endcan
-
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="url('/')" >
+                        {{ __(' الموقع الرئيسي ') }}
+                    </x-nav-link>
+                </div>
 
             </div>
 
