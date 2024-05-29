@@ -23,22 +23,26 @@
 
     <div class="">
 
+        @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
-        <div class="row mb-3">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <a href="{{url('/adminpanel/reservations/create')}}" class="btn btn-success">إضافة حجز  جديد</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/adminpanel/doctors/create')}}" class="btn btn-danger">إضافة طبيب جديد</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/adminpanel/guides/create')}}" class="btn btn-warning">إضافة دليل جديد</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{url('/adminpanel/campground/create')}}" class="btn btn-info">إضافة مكان تخييم جديد</a>
+                </div>
+            </div>
+        @else
+          
 
-            <div class="col-md-3">
-                <a href="{{url('/adminpanel/reservations/create')}}" class="btn btn-success">إضافة حجز  جديد</a>
-            </div>
-            <div class="col-md-3">
-                <a href="{{url('/adminpanel/doctors/create')}}" class="btn btn-danger">إضافة طبيب جديد</a>
-            </div>
-            <div class="col-md-3">
-                <a href="{{url('/adminpanel/guides/create')}}" class="btn btn-warning">إضافة دليل جديد</a>
-            </div>
-            <div class="col-md-3">
-                <a href="{{url('/adminpanel/campground/create')}}" class="btn btn-info">إضافة مكان تخييم جديد</a>
-            </div>
-        </div>
+        @endif
 
     </div>
 
@@ -98,7 +102,7 @@
             </div>
         </div>
 
-      
+
 
         <div class="col-md-3 mb-4">
             <div class="card text-white bg-success">

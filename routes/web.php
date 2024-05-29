@@ -24,6 +24,7 @@ Route::get('/campgrounds/{id}/ratings', [CampgroundController::class, 'showRatin
 // routes/web.php
 
 use App\Http\Controllers\AdminDashboardController;
+use Symfony\Component\Console\Input\Input;
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
@@ -147,6 +148,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/adminpanel/visitors', VisitorController::class);
 
+    Route::post('/adminpanel/visitor', [VisitorController::class, 'input'])->name('visitors.input');
 
+    Route::get('/adminpanel/visitor', [VisitorController::class, 'input'])->name('visitors.input');
+
+
+    Route::get('/visitors/user/{userId}', [VisitorController::class, 'showVisitorByUserId'])->name('visitors.showByUserId');
 });
 

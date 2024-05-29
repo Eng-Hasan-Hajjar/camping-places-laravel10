@@ -1,6 +1,6 @@
 <!-- resources/views/reservations/show.blade.php -->
 
-@extends('admin.layouts.layout')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 
 @section('title')
     control of camping places
@@ -29,7 +29,7 @@
                 <!-- أزرار التحكم -->
                 <div class="btn-group">
                     <a href="{{ route('reservations.edit', $reservation) }}" class="btn btn-primary">تعديل</a>
-              
+
                     <form action="{{ route('reservations.destroy', $reservation) }}" method="POST">
                         @csrf
                         @method('DELETE')

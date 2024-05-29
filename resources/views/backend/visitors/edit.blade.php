@@ -1,7 +1,7 @@
 
 <!-- resources/views/reservations/edit.blade.php -->
 
-@extends('admin.layouts.layout')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 
 @section('title')
    التعديل
@@ -121,7 +121,14 @@
 
                     <button type="submit" class="btn btn-primary">حفظ </button>
                     <!-- زر الرجوع -->
-                    <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين </a>
+                    @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+
+                          <a href="{{ url('/adminpanel/visitors') }}" class="btn btn-secondary" >  الزائرين </a>
+                    @else
+                         <a href="{{ url('/dashboard') }}" class="btn btn-secondary" >  رجوع </a>
+
+                    @endif
+
                 </form>
             </div>
         </div>

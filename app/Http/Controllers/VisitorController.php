@@ -7,6 +7,7 @@ use App\Models\Visitor;
 use App\Models\User;
 // This will work and generate everything properly.
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 class VisitorController extends Controller
 {
    /**
@@ -81,6 +82,15 @@ class VisitorController extends Controller
         $user = auth()->user();
         $visitor = new Visitor($request->all());
         $user->visitor()->save($visitor);
+          // التحقق من وجود المستخدم
+        if ($user) {
+            $visitor = $user->visitor;
+
+            return view('backend.visitors.showyou', compact('visitor','user'));
+        }
+
+        dd($visitor);
+
 
          //  Visitor::create($request->all());
         return redirect()->route('visitors.index')
@@ -97,6 +107,14 @@ class VisitorController extends Controller
         return view('backend.visitors.show',compact('visitor','users'));
     }
 
+    public function showVisitorByUserId($userId)
+    {
+        //     Visitor مرتبط بنموذج User
+        $visitor = Visitor::where('user_id', $userId)->firstOrFail();
+
+        return view('backend.visitors.showyou', compact('visitor'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -104,7 +122,10 @@ class VisitorController extends Controller
     {
         return view('backend.visitors.edit',compact('visitor'));
     }
-
+    public function edityou(Visitor $visitor)
+    {
+        return view('backend.visitors.edityou',compact('visitor'));
+    }
     /**
      * Update the specified resource in storage.
      */
@@ -117,6 +138,21 @@ class VisitorController extends Controller
             'is_free.required' => 'حقل نوع الحالة مطلوب',
 
             'specialty.required' => 'حقل الاختصاص  مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'work.required' => 'حقل العمل مطلوب',
+            'hobby.required' => 'حقل الهواية مطلوب',
+            'nationality.required' => 'حقل الجنسية مطلوب',
+            'current_location.required' => 'حقل الموقع الحالي مطلوب',
+            'gender.required' => 'حقل الجنس مطلوب',
+            'num_companion.required' => 'حقل عدد المرافقين مطلوب',
+            'is_phobia_dark.required' => 'حقل فوبيا الظلام مطلوب',
+            'is_phobia_animals.required' => 'حقل فوبيا الحيوانات مطلوب',
+            'is_phobia_fly.required' => 'حقل فوبيا الطيران مطلوب',
+            'is_phobia_see.required' => 'حقل فوبيا الرؤية مطلوب',
+            'is_phobia_open_space.required' => 'حقل فوبيا الأماكن المفتوحة مطلوب',
+            'is_phobia_hights.required' => 'حقل فوبيا المرتفعات مطلوب',
+            'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
 
 
         ];
@@ -142,9 +178,20 @@ class VisitorController extends Controller
         ], $messages);
 
         $visitor->update($request->all());
+
+        if (Auth::user()->role === 'visitor') {
+            return redirect()->route('dashboard')
+                             ->with('success', 'تم تحديث معلوماتك  بنجاح');
+        }
+
+
         return redirect()->route('visitors.index')
                         ->with('success','visitor updated successfully');
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -155,4 +202,60 @@ class VisitorController extends Controller
         return redirect()->route('visitors.index')
                         ->with('success','visitor deleted successfully');
     }
+
+    public function input()
+    {
+        // يمكنك إضافة كود لإعداد واجهة إدخال بيانات المريض هنا
+        return view('backend.visitors.input');
+    }
+
+
+      /*
+    public function input(Request $request)
+    {
+
+
+      $messages = [
+            'name.required' => 'حقل  الاسم مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+
+
+
+        ];
+
+        $request->validate([
+
+            'phone'=> 'required|numeric',
+            'work'=>  'required',
+            'hobby'=> 'required',
+            'nationality'=> 'required',
+            'current_location' => 'required',
+            'gender'=>  'required',
+            'num_companion'=> 'required',
+            'is_phobia_hights'=> 'required',
+            'is_phobia_dark'=> 'required',
+            'is_phobia_animals'=> 'required',
+            'is_phobia_fly' => 'required',
+            'is_phobia_see'=>  'required',
+            'is_phobia_open_space'=> 'required',
+
+            'birthday'=> 'required',
+
+
+        ], $messages);
+
+          // الحصول على المستخدم المسجل
+        $user = auth()->user();
+        $visitor = new Visitor($request->all());
+        $user->visitor()->save($visitor);
+
+         //  Visitor::create($request->all());
+        return redirect()->route('visitors.index')
+                        ->with('success','visitor created successfully.');
+
+    }
+
+ */
+
 }
