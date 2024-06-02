@@ -13,15 +13,8 @@
         <div class="navbar-nav {{ App::getLocale() == 'ar' ? 'me-auto' : 'ms-auto' }} py-0">
             <a href="/" class="nav-item nav-link active">{{ __('Home') }}</a>
             <a href="regions" class="nav-item nav-link">{{ __('Campgrounds') }}</a>
-            <a href="destination" class="nav-item nav-link">{{ __('Destination') }}</a>
-            <a href="about" class="nav-item nav-link">{{ __('About') }}</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ __('Your destination') }}</a>
-                <div class="dropdown-menu m-0">
-                    <a href="castles" class="dropdown-item">{{ __('Castles') }}</a>
-                    <a href="caves" class="dropdown-item">{{ __('Caves') }}</a>
-                </div>
-            </div>
+
+         
             <a href="contact" class="nav-item nav-link">{{ __('Contact') }}</a>
         </div>
 

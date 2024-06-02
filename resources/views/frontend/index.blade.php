@@ -43,18 +43,18 @@
 
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" style="direction: rtl;">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Services</h6>
-                <h1 class="mb-5">Our Services</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">الخدمات</h6>
+                <h1 class="mb-5">خدماتنا </h1>
             </div>
             <div class="row g-4">
                 <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
-                            <h5>WorldWide Tours</h5>
+                            <h5>جولات حول العالم  </h5>
                             <p></p>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-hotel text-primary mb-4"></i>
-                            <h5>Hotel Reservation</h5>
+                            <h5>الحجوزات الفندقية  </h5>
                             <p></p>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-user text-primary mb-4"></i>
-                            <h5>Travel Guides</h5>
+                            <h5>أدلة سياحيين </h5>
                             <p></p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                     <div class="service-item rounded pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-cog text-primary mb-4"></i>
-                            <h5>Event Management</h5>
+                            <h5>أحداث </h5>
                             <p></p>
                         </div>
                     </div>
@@ -94,11 +94,11 @@
 
 
     <!-- Destination Start -->
-    <div class="container-xxl py-5 destination">
+    <div class="container-xxl py-5 destination" style="direction: rtl;">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Places</h6>
-                <h1 class="mb-5">Popular Places</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">أماكن</h6>
+                <h1 class="mb-5">أماكن عامة   </h1>
             </div>
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
@@ -138,57 +138,56 @@
 
 
     <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="direction: rtl;">
         <div class="container">
             <div class="booking p-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">Booking</h6>
-                        <h1 class="text-white mb-4">Online Booking</h1>
-                        <p class="mb-4">What are you waiting for? </p>
-                        <p class="mb-4">Dive into the charm of Armenia with accommodations as unique as your journey - book now for an unforgettable stay!</p>
-                        <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                        <h6 class="text-white text-uppercase">الحجز</h6>
+                        <h1 class="text-white mb-4">الحجز اون لاين </h1>
+                        <p class="mb-4">ماذا تنتظر؟ </p>
                     </div>
                     <div class="col-md-6">
-                        <h1 class="text-white mb-4">Book A Tour</h1>
+                        <h1 class="text-white mb-4">احجز جولة</h1>
                         <form>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
+                                        <label for="name">اسمك</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
+                                        <label for="email">بريدك الالكتروني</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating date" id="date3" data-target-input="nearest">
                                         <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Date & Time</label>
+                                        <label for="datetime">التاريخ والوقت</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <select class="form-select bg-transparent" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
+
+                                            <option value="1">غابة</option>
+                                            <option value="2">جبل</option>
+                                            <option value="3">صحراء</option>
                                         </select>
-                                        <label for="select1">Destination</label>
+                                        <label for="select1">الوجهة</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
                                         <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
+                                        <label for="message">طلب خاص</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">Book Now</button>
+                                    <button class="btn btn-outline-light w-100 py-3" type="submit">حجز الآن</button>
                                 </div>
                             </div>
                         </form>
@@ -201,11 +200,11 @@
 
 
     <!-- Process Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" style="direction: rtl;">
         <div class="container">
             <div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Process</h6>
-                <h1 class="mb-5">3 Easy Steps</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">العملية</h6>
+                <h1 class="mb-5">  ثلاث خطوات بسيطة </h1>
             </div>
             <div class="row gy-5 gx-4 justify-content-center">
                 <div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -213,7 +212,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
                             <i class="fa fa-globe fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Choose A Destination</h5>
+                        <h5 class="mt-4">حدد وجهتك</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
                         <p class="mb-0"></p>
@@ -224,7 +223,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
                             <i class="fa fa-dollar-sign fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Pay Online</h5>
+                        <h5 class="mt-4">الدفع اون لاين</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
                         <p class="mb-0"></p>
@@ -235,7 +234,7 @@
                         <div class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow" style="width: 100px; height: 100px;">
                             <i class="fa fa-plane fa-3x text-white"></i>
                         </div>
-                        <h5 class="mt-4">Fly Today</h5>
+                        <h5 class="mt-4">طيران اليوم</h5>
                         <hr class="w-25 mx-auto bg-primary mb-1">
                         <hr class="w-50 mx-auto bg-primary mt-0">
                         <p class="mb-0"></p>

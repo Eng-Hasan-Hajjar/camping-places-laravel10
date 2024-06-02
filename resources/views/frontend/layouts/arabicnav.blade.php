@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="direction: rtl;">
     <a href="" class="navbar-brand p-0">
-        <h3 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i> ليلة مضيئة         </h3>
+        <h3 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>  الليل المضيء         </h3>
         <!-- <img src="img/logo.png" alt="Logo"> -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -16,12 +16,12 @@
 
             <a href="destination" class="nav-item nav-link">الوجهة </a>
             <a href="about" class="nav-item nav-link">حول </a>
-            <div class="nav-item dropdown">
+            <div class="nav-item dropdown" style="direction: rtl;">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> وجهتك </a>
-                <div class="dropdown-menu m-0">
-                    <a href="castles" class="dropdown-item">castles</a>
-                    <a href="caves" class="dropdown-item">caves</a>
-
+                <div class="dropdown-menu m-0" style="direction: rtl;">
+                    <a href="castles" class="dropdown-item">غابة</a>
+                    <a href="caves" class="dropdown-item">صحراء</a>
+                    <a href="caves" class="dropdown-item">جبل</a>
 
                 </div>
             </div>
