@@ -89,7 +89,7 @@ class VisitorController extends Controller
             return view('backend.visitors.showyou', compact('visitor','user'));
         }
 
-        dd($visitor);
+     //   dd($visitor);
 
 
          //  Visitor::create($request->all());

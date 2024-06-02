@@ -19,7 +19,6 @@
 
 
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">لوحة التحكم</h1>
 
     <div class="">
 
@@ -40,7 +39,7 @@
                 </div>
             </div>
         @else
-          
+
 
         @endif
 

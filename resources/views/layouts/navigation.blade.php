@@ -1,82 +1,11 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100"  style=" direction: rtl;text-align:right">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
 
-                @can('isVisitor')
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                 <!-- Navigation Links -->
+                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('لوحة التحكم') }}
                     </x-nav-link>
@@ -91,7 +20,6 @@
                         {{ __('الحجوزات') }}
                     </x-nav-link>
                 </div>
-                @endcan
 
                 @if (Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
@@ -110,20 +38,26 @@
                         {{ __('الزائرين') }}
                     </x-nav-link>
                 </div>
-                @endcan
-
-                @can('isVisitor')
+                @else
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('visitors.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('visitors.showByUserId', ['userId' => Auth::user()->id])">
                             {{ __(' معلوماتي ') }}
                         </x-nav-link>
                     </div>
                 @endcan
+
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="url('/')" >
                         {{ __(' الموقع الرئيسي ') }}
                     </x-nav-link>
                 </div>
+
+
+
+                @if (Auth::user()->can('isVisitor') )
+
+                @endcan
+
 
             </div>
 

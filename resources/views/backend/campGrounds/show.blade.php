@@ -102,7 +102,7 @@
 
 
 @section('content')
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center"  style=" direction: rtl;">
         <div align="right" style="width: 335px; margin-left: 335px ;margin-bottom: 20px">
             <a href="{{ route('campground.index') }}" class="btn btn-default">  رجوع </a>
         </div>
@@ -124,39 +124,89 @@
 
     @endif
 
+    <table class="table table-striped">
+        <tr>
+            <th>الاسم</th>
+            <td>{{ $data->name }}</td>
+        </tr>
+        <tr>
+            <th>الوصف</th>
+            <td>{{ $data->description }}</td>
+        </tr>
+        <tr>
+            <th>البلد</th>
+            <td>{{ $data->country }}</td>
+        </tr>
+        <tr>
+            <th>المدينة</th>
+            <td>{{ $data->city }}</td>
+        </tr>
+        <tr>
+            <th>المنطقة</th>
+            <td>{{ $data->region }}</td>
+        </tr>
+        <tr>
+            <th>النوع</th>
+            @if ($data->cm_type == 0)
+                <td>{{ cm_type_func()[0] }}</td>
+            @elseif ($data->cm_type == 1)   <td>{{ cm_type_func()[1] }}</td>
+            @else   <td>{{ cm_type_func()[2] }}</td>
+            @endif
 
-        <h3>Name - {{ $data->name }} </h3>
-        <h3>description - {{ $data->description }}</h3>
-        <h3>country - {{ $data->country }}</h3>
-        <h3>city - {{ $data->city }} </h3>
-        <h3>region - {{ $data->region }}</h3>
-
-        @if ($data->cm_type == 0)
-        <h3>Type - {{ cm_type_func()[0] }}</h3>
-        @elseif ($data->cm_type == 1)   <h3>Type - {{ cm_type_func()[1] }}</h3>
-        @else   <h3>Type - {{ cm_type_func()[2] }}</h3>
-        @endif
-
-        @if ($data->cm_season == 0)
-            <h3>season - {{ cm_season_func()[0] }}</h3>
-        @elseif ($data->cm_season == 1)
-            <h3>season - {{ cm_season_func()[1] }}</h3>
-        @elseif ($data->cm_season == 2)
-            <h3>season - {{ cm_season_func()[2] }}</h3>
-        @else
-            <h3>Type - {{ cm_type_func()[4] }}</h3>
-        @endif
-
-
-        <img src="{{ URL::to('/') }}/images/{{ $data->campGround_image }}" class="img-thumbnail" />
+        </tr>
+        <tr>
+            <th>الفصل </th>
+            @if ($data->cm_season == 0)
+                <td>{{ cm_type_func()[0] }}</td>
+            @elseif ($data->cm_season == 1)
+                <td>{{ cm_type_func()[1] }}</td>
+            @elseif ($data->cm_season == 2)
+                <td>{{ cm_type_func()[2] }}</td>
+            @else
+                <td>{{ cm_type_func()[3] }}</td>
+            @endif
 
 
 
+        </tr>
 
-        <div class="container">
-            <div class="row">
+        <tr>
+            <th>الصورة</th>
+            <td>
+                <img src="{{ URL::to('/') }}/images/{{ $data->campGround_image }}" class="img-thumbnail" style="width: 300px; height: auto;" />
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <th>الفصل</th>
+            <td>{{ $data->date }}</td>
+        </tr>
+        <tr>
+            <th> صورة غوغل ماب </th>
+            <td>
+                <img src="{{ URL::to('/') }}/imagesgoogle/{{ $data->google_image }}" class="img-thumbnail" style="width: 300px; height: auto;" />
+            </td>
+        </tr>
+        <tr>
+            <th> حالة الطقس </th>
+            <td>{{ $data->forecast }}</td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+
+        <div class="container" style=" direction: rtl;" >
+            <div class="row" style=" direction: rtl;">
                <div class="col mt-4">
-                  <form class="py-2 px-4" action="{{route('ratings.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off">
+                  <form class="py-2 px-4" action="{{route('ratings.store')}}" style="box-shadow: 0 0 10px 0 #ddd;" method="POST" autocomplete="off" style=" direction: rtl;">
                      @csrf
                      <p class="font-weight-bold ">التقييم </p>
                      <div class="form-group row">
@@ -178,7 +228,7 @@
                      </div>
                      <div class="form-group row mt-4">
                         <div class="col">
-                           <textarea class="form-control" name="comment" rows="6 " placeholder="Comment" maxlength="200"></textarea>
+                           <textarea class="form-control" name="comment" rows="6 " placeholder="تعليق" maxlength="200"></textarea>
                         </div>
                      </div>
                      <div class="mt-3 text-right">

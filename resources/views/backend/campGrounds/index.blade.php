@@ -13,7 +13,7 @@
 @section('content')
 
 
-                <div class="container hcontainer">
+                <div class="container hcontainer" style=" direction: rtl;text-align:right">
                     <div class="card hcard helement hcard-body">
 
                         <div class="card-header  "><p  class="float-right">جميع الأماكن</p></div>
@@ -70,11 +70,11 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('campground.show', $row->id) }}"
-                                                    class="btn btn-primary">Show</a>
+                                                    class="btn btn-primary">إظهار التفاصيل  </a>
                                                 @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
                                                         <a href="{{ route('campground.edit', $row->id) }}"
-                                                            class="btn btn-warning">Edit</a>
+                                                            class="btn btn-warning">تعديل </a>
                                                 @endif
 
                                             </td>
@@ -85,7 +85,7 @@
                                                         action="{{ route('campground.destroy', $row->id) }}">
                                                         {{ csrf_field() }}
                                                         <input type="hidden" name="_method" value="DELETE" />
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من عملية الحذف؟');" >حذف </button>
                                                     </form>
                                                 </td>
                                             @endif
