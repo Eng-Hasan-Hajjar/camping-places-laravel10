@@ -9,6 +9,19 @@ use App\Http\Controllers\ArmanController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\VisitorController;
+use Illuminate\Support\Facades\App;
+
+
+Route::get('locale/{locale}', function ($locale) {
+    if (! in_array($locale, ['en', 'ar'])) {
+        abort(400);
+    }
+    session(['locale' => $locale]);
+    App::setLocale($locale);
+    return redirect()->back();
+})->name('locale.change');
+
+
 
 Route::get('/', function () {
     return view('frontend.index');

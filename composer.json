@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravelcollective/html": "^6.4",
+        "mcamara/laravel-localization": "^2.0",
         "nwidart/laravel-modules": "^10.0"
     },
     "require-dev": {

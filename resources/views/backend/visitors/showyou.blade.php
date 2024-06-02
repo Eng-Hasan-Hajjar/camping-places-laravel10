@@ -19,24 +19,102 @@
             <div class="card-header">التفاصيل </div>
 
             <div class="card-body hcard-body">
-                <!-- تفاصيل  -->
-                <p><strong> الاسم:</strong>
-                    {{ Auth::user()->name }}
-               </p>
-                <p><strong> الهاتف:</strong> {{ $visitor->phone}}</p>
-                <p><strong> العمل:</strong> {{  $visitor->work}}</p>
+                <table>
+                    <tr>
+                        <td>
+                            <p><strong> الاسم:</strong>
+                                {{ Auth::user()->name }}
+                           </p>
+                    </td>
+                        <td>
+                            <p><strong> الهاتف:</strong> {{ $visitor->phone}}</p>
+                    </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+
+                             <p><strong> العمل:</strong> {{  $visitor->work}}</p>
+                    </td>
+                        <td>
+
                 <p><strong> الهواية:</strong> {{ $visitor->hobby}}</p>
-                <p><strong> الجنسية:</strong> {{ $visitor->nationality}}</p>
+                    </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong> الجنسية:</strong> {{ $visitor->nationality}}</p>
+                    </td>
+                        <td>
+
                 <p><strong> الموقع الحالي:</strong> {{ $visitor->current_location}}</p>
-                <p><strong> الجنس:</strong>   @if($visitor->gender == 0) ذكر @else أنثى @endif</p>
-                <p><strong> عدد المرافقين:</strong> {{ $visitor->num_companion}}</p>
-                <p><strong> فوبيا الظلام:</strong> @if($visitor->is_phobia_dark == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الحيوانات:</strong>  @if($visitor->is_phobia_animals == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الطيران:</strong>   @if($visitor->is_phobia_fly == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا البحر:</strong>  @if($visitor->is_phobia_see == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الأماكن المفتوحة:</strong> @if($visitor->is_phobia_open_space == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا المرتفعات:</strong>  @if($visitor->is_phobia_hights == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> تاريخ الميلاد:</strong> {{ $visitor->birthday }}</p>
+                    </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong> الجنس:</strong>   @if($visitor->gender == 0) ذكر @else أنثى @endif</p>
+                    </td>
+                        <td>
+                            <p><strong> عدد المرافقين:</strong> {{ $visitor->num_companion}}</p>
+                    </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong> فوبيا الظلام:</strong> @if($visitor->is_phobia_dark == 0) لايوجد @else يوجد @endif</p>
+
+                    </td>
+                        <td>
+                            <p><strong> فوبيا الحيوانات:</strong>  @if($visitor->is_phobia_animals == 0) لايوجد @else يوجد @endif</p>
+
+                    </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <p><strong> فوبيا الطيران:</strong>   @if($visitor->is_phobia_fly == 0) لايوجد @else يوجد @endif</p>
+
+                    </td>
+                        <td>
+                            <p><strong> فوبيا البحر:</strong>  @if($visitor->is_phobia_see == 0) لايوجد @else يوجد @endif</p>
+
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong> فوبيا الأماكن المفتوحة:</strong> @if($visitor->is_phobia_open_space == 0) لايوجد @else يوجد @endif</p>
+
+                    </td>
+                        <td>
+                            <p><strong> فوبيا المرتفعات:</strong>  @if($visitor->is_phobia_hights == 0) لايوجد @else يوجد @endif</p>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>
+
+                        </td>
+                        <td>
+                            <p><strong> تاريخ الميلاد:</strong> {{ $visitor->birthday }}</p>
+
+                        </td>
+
+                    </tr>
+
+                  </table>
+
+                <!-- تفاصيل  -->
+
+
+
+
+
 
                 <div class="btn-group">
                     <a href="{{ route('visitors.edit', $visitor) }}" class="btn btn-primary">تعديل</a>

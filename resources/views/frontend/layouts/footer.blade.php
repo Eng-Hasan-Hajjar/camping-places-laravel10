@@ -4,7 +4,7 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Armenia Tourism</h4>
+                    <h4 class="text-white mb-3">Camping Tourism</h4>
                     <a class="btn btn-link" href="">About Us</a>
                     <a class="btn btn-link" href="">Contact Us</a>
                     <a class="btn btn-link" href="">Privacy Policy</a>
@@ -55,9 +55,9 @@
             <div class="copyright">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Armenia Tourism</a>, All Right Reserved.
+                        &copy; <a class="border-bottom" href="#">Camping Tourism</a>, All Right Reserved.
 
-                        Designed By <a class="border-bottom" href="">Hrag</a>
+                        Designed By <a class="border-bottom" href="">Our Team</a>
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
