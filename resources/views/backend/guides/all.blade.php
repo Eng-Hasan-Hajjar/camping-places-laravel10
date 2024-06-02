@@ -12,7 +12,7 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-    <div class="container hcontainer">
+    <div class="container hcontainer" style="direction: rtl;">
         <div class="card hcard helement hcard-body">
             <div class="card-header  "><p  class="float-right">جميع الأدلة</p></div>
             <div class="card-header">

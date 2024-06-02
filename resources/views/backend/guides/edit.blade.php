@@ -35,10 +35,12 @@
 
 
                     <div class="form-group">
-                        <label for="is_free"> حالة الدليل</label>
-                        <select name="is_free" class="form-control" id="is_free">
-                                <option value="1">"متفرغ" </option>
-                                <option value="0">" غير متفرغ"</option>
+
+
+                        <label for="is_free" class="col-md-4 form-group"  > حالة الدليل</label>
+                        <select name="is_free" class="col-md-6 form-group" id="is_free">
+                                <option value="1">متفرغ  </option>
+                                <option value="0"> غير متفرغ</option>
                         </select>
                     </div>
 

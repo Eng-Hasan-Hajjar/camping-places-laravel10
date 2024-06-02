@@ -35,15 +35,17 @@
 
 
                     <div class="form-group">
-                        <label for="is_free"> حالة الطبيب</label>
-                        <select name="is_free" class="form-control" id="is_free">
-                                <option value="1">"متفرغ" </option>
-                                <option value="0">" غير متفرغ"</option>
+
+
+                        <label for="is_free" class="col-md-4 form-group"  > حالة الطبيب</label>
+                        <select name="is_free" class="col-md-6 form-group" id="is_free">
+                                <option value="1">متفرغ  </option>
+                                <option value="0"> غير متفرغ</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('specialty', 'حالة الطبيب :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
+                        {!! Form::label('specialty', 'اختصاص الطبيب :', ['class' => ' col-md-4 col-form-label text-md-right ']) !!}
                         {!! Form::text('specialty', $doctor->specialty, ['class' => ' col-md-6']) !!}
                     </div>
 

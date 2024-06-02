@@ -12,7 +12,7 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-    <div class="container hcontainer">
+    <div class="container hcontainer" style="direction: rtl;">
         <div class="card hcard helement hcard-body">
             <div class="card-header  "><p  class="float-right">جميع الأطباء</p></div>
             <div class="card-header">
@@ -35,7 +35,12 @@
                                 <td>{{ $doctor->name }}</td>
                                 <td>{{ $doctor->phone }}</td>
                                 <td>{{ $doctor->specialty }}</td>
-                                <td>{{ $doctor->is_free }}</td>
+                                @if( $doctor->is_free==1)
+                                    <td>متفرغ </td>
+                                @else
+                                    <td>غير متفرغ </td>
+                                @endif
+
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('doctors.show', $doctor) }}" class="btn btn-info">عرض التفاصيل</a>

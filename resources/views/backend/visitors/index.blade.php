@@ -12,7 +12,7 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-    <div class="container hcontainer">
+    <div class="container hcontainer" style="direction: rtl;">
         <div class="card hcard helement hcard-body">
             <div class="card-header  "><p  class="float-right">جميع الزائرين</p></div>
             <div class="card-header">
@@ -26,14 +26,14 @@
                             <th> الهاتف</th>
 
                             <th> العمل</th>
-                            <th>الهواية</th>
-                            <th> الجنسية</th>
+
+
                             <th> الموقع الحالي</th>
 
-                            <th> الجنس</th>
+
                             <th> عدد المرافقين</th>
 
-                            <th> الميلاد</th>
+
 
 
                             <th>التحكم</th>
@@ -49,31 +49,28 @@
                                 </td>
                                 <td>{{ $visitor->phone }}</td>
                                 <td>{{ $visitor->work }}</td>
-                                <td>{{ $visitor->hobby }}</td>
-                                <td>{{ $visitor->nationality }}</td>
+
+
                                 <td>{{ $visitor->current_location }}</td>
 
-                                <td>
-                                    @if($visitor->gender == 0) ذكر @else أنثى @endif
 
-                                </td>
                                 <td>{{ $visitor->num_companion }}</td>
 
-                                <td>{{ $visitor->birthday }}</td>
+
 
                                 <td>
-                                    <div class="">
-                                        <a style="margin: 10px" href="{{ route('visitors.show', $visitor) }}" class="btn btn-info"> التفاصيل</a>
-                                        <br>
-                                        <a style="margin: 10px" href="{{ route('visitors.edit', $visitor) }}" class="btn btn-primary">تعديل</a>
-                                        <br>
-                                        <a style="margin-left: 30px">
+                                    <div class="btn-group">
+                                        <a style="" href="{{ route('visitors.show', $visitor) }}" class="btn btn-info"> التفاصيل</a>
+
+                                        <a style="" href="{{ route('visitors.edit', $visitor) }}" class="btn btn-primary">تعديل</a>
+
+
                                         <form action="{{ route('visitors.destroy', $visitor) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الزائر؟ ')">حذف</button>
                                         </form>
-                                        </a>
+
                                     </div>
                                 </td>
                             </tr>
