@@ -16,10 +16,8 @@ class CampGroundController extends Controller
      */
     public function index()
     {
-        $campGrounds = CampGround::latest()->paginate(5);
-
-        return view('backend.campGrounds.index', compact('campGrounds'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $campGrounds = CampGround::all();
+        return view('backend.campGrounds.index', compact('campGrounds'));
     }
 
     /**
@@ -44,8 +42,8 @@ class CampGroundController extends Controller
             'region' => 'required',
             'cm_type' => 'required|integer',
             'cm_season' => 'required|integer',
-            'campGround_image' => 'required|image|max:2048',
-            'google_image' => 'required|image|max:2048',
+            'campGround_image' => 'required|image',
+            'google_image' => 'required|image',
             'forecast' => 'required',
         ]);
 
@@ -121,8 +119,33 @@ class CampGroundController extends Controller
             'name' => 'required',
 
         ]);
+        $image = $request->file('campGround_image');
 
-        $campground->update($request->all());
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $new_name);
+
+        $imagegoogle = $request->file('google_image');
+        $new_name_google = rand() . '.' . $imagegoogle->getClientOriginalExtension();
+        $imagegoogle->move(public_path('imagesgoogle'), $new_name_google);
+
+        $form_data = array(
+            'name' => $request->name,
+            'description' => $request->description,
+            'country' => $request->country,
+            'city' => $request->city,
+            'region' => $request->region,
+            'cm_type' => $request->cm_type,
+            'cm_season' => $request->cm_season,
+
+            'campGround_image'  =>  $new_name,
+
+            'google_image'  =>  $new_name_google,
+            'forecast' => $request->forecast,
+
+        );
+
+
+        $campground->update($form_data);
 
         return redirect()->route('campground.index')
             ->with('success', 'campground updated successfully');

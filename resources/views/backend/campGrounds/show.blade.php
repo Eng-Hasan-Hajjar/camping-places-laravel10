@@ -134,8 +134,7 @@
         @if ($data->cm_type == 0)
         <h3>Type - {{ cm_type_func()[0] }}</h3>
         @elseif ($data->cm_type == 1)   <h3>Type - {{ cm_type_func()[1] }}</h3>
-        @elseif ($data->cm_type == 2)   <h3>Type - {{ cm_type_func()[2] }}</h3>
-        @else   <h3>Type - {{ cm_type_func()[4] }}</h3>
+        @else   <h3>Type - {{ cm_type_func()[2] }}</h3>
         @endif
 
         @if ($data->cm_season == 0)

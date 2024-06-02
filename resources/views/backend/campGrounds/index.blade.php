@@ -30,19 +30,19 @@
 
                                     <tr>
 
-                                        <th>name</th>
-                                        <th>description</th>
-                                        <th>country</th>
-                                        <th>city</th>
-                                        <th>region</th>
+                                        <th>الاسم </th>
 
-                                        <th>campGround_image</th>
+                                        <th>البلد</th>
+                                        <th>المدينة</th>
 
 
-                                        <th>control</th>
+                                        <th>الصورة</th>
+
+
+                                        <th>التحكم</th>
                                         @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
-                                          <th>del</th>
+                                          <th>الحذف</th>
                                         @endif
                                     </tr>
                                 </thead>
@@ -56,17 +56,17 @@
                                         <tr>
 
                                             <td>{{ $row->name }}</td>
-                                            <td>{{ $row->description }}</td>
+
                                             <td>{{ $row->country }}</td>
                                             <td>{{ $row->city }}</td>
-                                            <td>{{ $row->region }}</td>
+
                                             <!--    $array=['wood','desire','island','mountain'];           -->
 
 
 
 
-                                            <td><img src="{{ URL::to('/') }}/images/{{ $row->campGround_image }}"
-                                                    class="img-thumbnail" width="75" />
+                                            <td style="position:flex"><img  style="height: 40px;position:center;float:center" src="{{ URL::to('/') }}/images/{{ $row->campGround_image }}"
+                                                    class="img-thumbnail" width="60" height="20px" />
                                             </td>
                                             <td>
                                                 <a href="{{ route('campground.show', $row->id) }}"
@@ -97,7 +97,7 @@
 
 
                             </table>
-                            {!! $campGrounds->links() !!}
+
                         </div>
                         <!-- /.card-body -->
                     </div>

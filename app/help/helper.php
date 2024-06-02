@@ -6,7 +6,7 @@ function cm_season_func(){
 	return $array;
 }
 function cm_type_func(){
-	$array=['غابة','صحراء','جزيرة','جبال'];
+	$array=['غابة','صحراء','جبال'];
 	return $array;
 }
 function test(){

@@ -100,6 +100,16 @@
                         {{ __('الأطباء') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')">
+                        {{ __('الأدلة') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('visitors.index')" :active="request()->routeIs('visitors.index')">
+                        {{ __('الزائرين') }}
+                    </x-nav-link>
+                </div>
                 @endcan
 
                 @can('isVisitor')
