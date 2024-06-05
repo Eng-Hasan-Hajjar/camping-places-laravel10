@@ -44,6 +44,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="camp_doctor_guid_id">مجموعة المكان والطبيب والدليل</label>
+                                <select name="camp_doctor_guid_id" class="form-control" id="camp_doctor_guid_id">
+                                    @foreach($campDoctorGuid as $cdg)
+                                        <option value="{{ $cdg->id }}">{{ $cdg->display_name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="camp_ground_id"> المكان</label>
                                 <select name="camp_ground_id" class="form-control" id="camp_ground_id">
                                     @foreach($campgrounds as $campground)
