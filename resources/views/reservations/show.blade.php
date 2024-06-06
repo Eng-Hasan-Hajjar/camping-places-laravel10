@@ -22,7 +22,7 @@
                 <!-- تفاصيل الحجز -->
 
                 <p><strong> المستخدم:</strong> {{ $reservation->user->name }}</p>
-                <p><strong> المكان:</strong> {{ $reservation->campGround->name}}</p>
+                <p><strong> الحزمة:</strong> {{ $reservation->campDoctorGuid->name}}</p>
                 <p><strong>تاريخ البداية:</strong> {{ $reservation->start_date }}</p>
                 <p><strong>تاريخ الانتهاء:</strong> {{ $reservation->end_date }}</p>
 

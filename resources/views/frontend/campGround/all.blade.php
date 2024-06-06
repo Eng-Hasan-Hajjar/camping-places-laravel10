@@ -1,15 +1,15 @@
 @extends('layouts.app')
 @section('title')
-All Estates
+
 @endsection
 @section('header')
  {!! Html::style('cus/esall.css') !!}
- 
+
  <style type="text/css">
     hr{
         margin-top: 10px;
         margin-bottom: 10px;
-    } 
+    }
     .container-fluid{
       margin-top:20px; background-color:#1a5996 ;padding:20px;
     }
@@ -17,7 +17,7 @@ All Estates
         padding-top: 10px;
         padding-bottom: 10px;
         margin-bottom: 10px;
-    } 
+    }
     .formcontrol{
         height:1200px;
     }
@@ -28,18 +28,18 @@ All Estates
         padding-right: : 10px;
         margin-bottom: 10px;
         background-color: #1a5996;
-    } 
+    }
       .itemsearch{
         font-weight:800px;
         margin-bottom: 8px;
         background-color: #1a5996;
         width: 100%;
         height: 60px;
-     
-    } 
+
+    }
       .breadcrumb{
       background-color: #000; border: 5px solid #eeff00;
-      
+
     }
   .breadcrumb-item2{
       color: #fff;
@@ -52,7 +52,7 @@ All Estates
     @include('website.es.pages')
 
  <div class="container-fluid col-md-12"  >
-    <div class="container dis col-md-12" >  
+    <div class="container dis col-md-12" >
       <div class="row profile"  >
                 @include('website.es.advanceSearch')
         <div class="col-md-8">
@@ -69,7 +69,7 @@ All Estates
                             @else {{$value}}
                             @endif
                          </a></li>
-                    @endforeach 
+                    @endforeach
                   @endif
                @endif
             </ol>

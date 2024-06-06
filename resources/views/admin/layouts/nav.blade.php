@@ -1,5 +1,32 @@
 
 
+{{-- camp uides doctor package --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+    مجموعة الرحلة
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/camp_doctor_guid/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>اضافة مجموعة </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/camp_doctor_guid/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل المجموعات</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
 
 
           {{-- website --}}

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('camp_doctor_guid', function (Blueprint $table) {
+        Schema::create('camp_doctor_guids', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBiginteger('camp_ground_id');
-            $table->unsignedBiginteger('doctor_id');
-            $table->unsignedBiginteger('guide_id');
+            $table->unsignedBiginteger('camp_ground_id')->constrained()->onDelete('cascade');;
+            $table->unsignedBiginteger('doctor_id')->constrained()->onDelete('cascade');;
+            $table->unsignedBiginteger('guide_id')->constrained()->onDelete('cascade');;
             $table->string('name');
             $table->string('display_name');
             $table->timestamps();
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('camp_doctor_guid');
+        Schema::dropIfExists('camp_doctor_guids');
     }
 };

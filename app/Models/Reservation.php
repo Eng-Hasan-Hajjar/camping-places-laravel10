@@ -16,6 +16,10 @@ class Reservation extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function campDoctorGuid()
+    {
+        return $this->belongsTo(CampDoctorGuid::class);
+    }
     public function campGround()
     {
         return $this->belongsTo(CampGround::class);

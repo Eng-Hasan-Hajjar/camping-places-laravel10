@@ -27,6 +27,11 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+use App\Http\Controllers\CampDoctorGuidController;
+
+// روابط CRUD الخاصة بـ CampDoctorGuid
+Route::resource('adminpanel/camp_doctor_guid', CampDoctorGuidController::class);
+
 
 use App\Http\Controllers\RatingController;
 

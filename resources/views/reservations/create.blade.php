@@ -52,14 +52,6 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="camp_ground_id"> المكان</label>
-                                <select name="camp_ground_id" class="form-control" id="camp_ground_id">
-                                    @foreach($campgrounds as $campground)
-                                        <option value="{{ $campground->id }}">{{ $campground->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
 
                             <div class="form-group">
                                 <label for="start_date">تاريخ البداية</label>

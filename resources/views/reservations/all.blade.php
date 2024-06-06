@@ -26,7 +26,7 @@
                     <thead>
                         <tr>
                             <th> المستخدم</th>
-                            <th> المكان</th>
+                            <th> الحزمة</th>
                             <th>تاريخ البداية</th>
                             <th>تاريخ الانتهاء</th>
                             <th>التحكم</th>
@@ -36,8 +36,8 @@
                         @foreach ($reservations as $reservation)
                             <tr>
                                 <td>{{ $reservation->user->name }}</td>
-                                <td>{{ $reservation->campGround->name }}</td>
 
+                                <td>{{ optional($reservation->campDoctorGuid)->display_name }}</td>
                              {{--   <td>{{ $reservation->camp_ground_id }} {{ $campground->name }}</td> --}}
                                 <td>{{ $reservation->start_date }}</td>
                                 <td>{{ $reservation->end_date }}</td>

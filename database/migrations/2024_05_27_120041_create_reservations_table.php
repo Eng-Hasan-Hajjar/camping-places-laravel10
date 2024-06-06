@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBiginteger('user_id');
-            $table->unsignedBiginteger('camp_doctor_guid_id');
+            $table->unsignedBiginteger('camp_doctor_guid_id')->constrained()->onDelete('cascade');;
 
             $table->dateTime('start_date');
             $table->dateTime('end_date');
@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
 
-            $table->foreign('camp_doctor_guid_id')->references('id')->on('camp_doctor_guid');
+            $table->foreign('camp_doctor_guid_id')->references('id')->on('camp_doctor_guids');
             $table->timestamps();
         });
     }
