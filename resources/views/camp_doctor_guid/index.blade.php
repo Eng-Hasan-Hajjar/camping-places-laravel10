@@ -10,9 +10,8 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
-<div class="container">
-    <h1>المجموعات</h1>
-    <a href="{{ route('camp_doctor_guid.create') }}" class="btn btn-primary">إضافة مجموعة جديدة</a>
+<div class="container"style="direction: rtl;padding:10px">
+    <a href="{{ route('camp_doctor_guid.create') }}" class="btn btn-primary float-right">إضافة مجموعة جديدة</a>
     <table class="table">
         <thead>
             <tr>
@@ -34,10 +33,10 @@
                 <td>{{ $campDoctorGuid->guide->name }}</td>
                 <td>
                     <a href="{{ route('camp_doctor_guid.edit', $campDoctorGuid->id) }}" class="btn btn-warning">تعديل</a>
-                    <form action="{{ route('camp_doctor_guid.destroy', $campDoctorGuid->id) }}" method="POST" style="display:inline-block;">
+                    <form action="{{ route('camp_doctor_guid.destroy', $doctor) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">حذف</button>
+                        <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من رغبتك في حذف هذا الطبيب؟ ')">حذف</button>
                     </form>
                 </td>
             </tr>

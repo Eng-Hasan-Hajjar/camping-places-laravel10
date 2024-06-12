@@ -22,9 +22,9 @@ return new class extends Migration
             $table->timestamps();
 
 
-            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds');
-            $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->foreign('guide_id')->references('id')->on('guides');
+            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreign('guide_id')->references('id')->on('guides')->onDelete('cascade');
 
 
         });
