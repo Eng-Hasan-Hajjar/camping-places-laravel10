@@ -60,6 +60,9 @@
                         <input type="text" name="display_name" id="display_name" class="form-control" value="{{ $campDoctorGuid->display_name }}">
                     </div>
                     <button type="submit" class="btn btn-primary">تحديث</button>
+                     <!-- زر الرجوع -->
+  <a href="{{ url('/adminpanel/camp_doctor_guid') }}" class="btn btn-secondary" >  المجموعات </a>
+
                 </form>
             </div>
         </div>

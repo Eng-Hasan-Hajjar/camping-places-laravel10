@@ -68,6 +68,10 @@
                                     <input type="text" name="display_name" id="display_name" class="form-control">
                                 </div>
                                 <button type="submit" class="btn btn-primary">إضافة</button>
+  <!-- زر الرجوع -->
+  <a href="{{ url('/adminpanel/camp_doctor_guid') }}" class="btn btn-secondary" >  المجموعات </a>
+
+
                             </form>
 
 
