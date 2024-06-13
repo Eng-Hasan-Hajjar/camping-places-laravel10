@@ -38,44 +38,44 @@ class DatabaseSeeder extends Seeder
 
           \App\Models\Doctor::create([
             'name' => 'Test Doctor ',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'0',
             'specialty'=>'قلبية',
           ]);
           \App\Models\Doctor::create([
             'name' => 'Test Doctor 2',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
             'specialty'=>'داخلية',
           ]);
 
           \App\Models\Doctor::create([
             'name' => 'Test Doctor 3',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
             'specialty'=>'جراحة عامة',
           ]);
           \App\Models\Doctor::create([
             'name' => 'Test Doctor 4',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
             'specialty'=>'داخلية',
           ]);
           \App\Models\Guide::create([
             'name' => 'Test Guid 1',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
 
           ]);
           \App\Models\Guide::create([
             'name' => 'Test Guid 2',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
 
           ]);
           \App\Models\Guide::create([
             'name' => 'Test Guid 3',
-            'phon' => '0933912076',
+            'phone' => '0933912076',
             'is_free'=>'1',
 
           ]);
@@ -87,7 +87,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'تدمر',
             'region' => 'البادية',
             'cm_type'=>'1',
-            'cm_season' => '',
+            'cm_season' => '1',
             'campGround_image' => '',
             'google_image'=>'',
             'forecast' => 'غائم جزئي',
@@ -100,7 +100,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'سيناء',
             'region' => 'العريش',
             'cm_type'=>'1',
-            'cm_season' => '',
+            'cm_season' => '1',
             'campGround_image' => '',
             'google_image'=>'',
             'forecast' => 'غائم جزئي',
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
             'city' => 'سامباولو',
             'region' => 'سامبو',
             'cm_type'=>'2',
-            'cm_season' => '',
+            'cm_season' => '1',
             'campGround_image' => '',
             'google_image'=>'',
             'forecast' => 'غائم جزئي',
