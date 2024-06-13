@@ -1,35 +1,4 @@
-
-
-{{-- camp uides doctor package --}}
-
-
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
-      <p>
-    مجموعة الرحلة
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/camp_doctor_guid/create')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>اضافة مجموعة </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/camp_doctor_guid/')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>كل المجموعات</p>
-        </a>
-      </li>
-
-    </ul>
-  </li>
-
-
-          {{-- website --}}
+{{-- website --}}
 
 
 <li class="nav-item has-treeview">
@@ -47,53 +16,41 @@
         <p>الصفحة الرئيسية</p>
       </a>
     </li>
-    <li class="nav-item">
-      <a href="{{url('/ShowAllBuilding')}}" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>كل الأماكن</p>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="{{url('/search')}}" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>بحث</p>
-      </a>
-    </li>
+
 
   </ul>
 </li>
 
 
 
-{{-- users --}}
+
+{{-- Visitor --}}
 
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-               المستخدمين
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/adminpannel/users/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>اضافة مستخدم</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/adminpannel/users')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>كل المستخدمين</p>
-                </a>
-              </li>
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+       الزائرين
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/visitors/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إضافة  زائر </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/visitors/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل  الزائرين</p>
+        </a>
+      </li>
 
-            </ul>
-          </li>
-
-
+    </ul>
+  </li>
 
 
 {{-- campground --}}
@@ -123,33 +80,6 @@
 
             </ul>
           </li>
-{{-- Visitor --}}
-
-
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
-      <p>
-       الزائرين
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/visitors/create')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>إضافة  زائر </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/visitors/')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>كل  الزائرين</p>
-        </a>
-      </li>
-
-    </ul>
-  </li>
 
 
 
@@ -203,6 +133,34 @@
         <a href="{{url('/adminpanel/doctors/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>كل الأطباء</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
+{{-- camp uides doctor package --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+    مجموعة الرحلة
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/camp_doctor_guid/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>اضافة مجموعة </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/camp_doctor_guid/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل المجموعات</p>
         </a>
       </li>
 
