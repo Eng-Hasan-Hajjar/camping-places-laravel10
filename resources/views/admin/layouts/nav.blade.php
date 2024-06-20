@@ -200,33 +200,6 @@
 
 
 
-{{--   setting --}}
-
-  <li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-edit"></i>
-      <p>
-        إعدادات الموقع
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="/adminpannel/sitesitting" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>الإعدادات الرئيسية</p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="pages/tables/data.html" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>إعدادات أخرى</p>
-        </a>
-      </li>
-
-    </ul>
-  </li>
-
 
 
 
