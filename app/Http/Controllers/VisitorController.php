@@ -111,8 +111,14 @@ class VisitorController extends Controller
     {
        // dd($userId);
         //     Visitor مرتبط بنموذج User
-        $visitor = Visitor::where('user_id', $userId)->firstOrFail();
+        $visitor = Visitor::where('user_id', $userId)->first();
        // dd($visitor);
+          // إذا لم يتم العثور على معلومات الزائر
+    if (!$visitor) {
+        // يمكنك إعادة توجيه المستخدم إلى صفحة أخرى لاستكمال البيانات أو عرض رسالة خطأ
+        // هنا نعيد توجيه المستخدم إلى صفحة استكمال البيانات
+        return redirect()->route('visitors.input')->with('error', 'لم يتم العثور على معلومات الزائر، يرجى استكمال البيانات.');
+    }
         return view('backend.visitors.showyou', compact('visitor'));
     }
 

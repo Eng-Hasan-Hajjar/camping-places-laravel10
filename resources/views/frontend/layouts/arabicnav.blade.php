@@ -12,7 +12,7 @@
         <div class="navbar-nav ms-auto py-0">
             <a href="/" class="nav-item nav-link active">             </a>
             <a href="/" class="nav-item nav-link active">      الرئيسية       </a>
-            <a href="regions" class="nav-item nav-link">أماكن التخييم </a>
+            <a href="showallcamp" class="nav-item nav-link">أماكن التخييم </a>
 
             <a href="destination" class="nav-item nav-link">الوجهة </a>
             <a href="about" class="nav-item nav-link">حول </a>

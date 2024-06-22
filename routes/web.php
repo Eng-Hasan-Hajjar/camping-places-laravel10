@@ -21,6 +21,7 @@ Route::get('locale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('locale.change');
 
+Route::get('showallcamp', [CampGroundController::class, 'showAllCamp'])->name('showallcamp.showAllCamp');
 
 
 Route::get('/', function () {

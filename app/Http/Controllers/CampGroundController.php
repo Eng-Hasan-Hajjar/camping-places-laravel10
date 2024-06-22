@@ -168,6 +168,12 @@ class CampGroundController extends Controller
         return view('campground.ratings', compact('campground'));
     }
 
+    public function showAllCamp()
+    {
+        $campgrounds = Campground::all();
+        return view('frontend.campground.all', compact('campgrounds'));
+    }
+
 
 
 }
