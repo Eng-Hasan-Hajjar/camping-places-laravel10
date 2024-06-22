@@ -109,9 +109,10 @@ class VisitorController extends Controller
 
     public function showVisitorByUserId($userId)
     {
+       // dd($userId);
         //     Visitor مرتبط بنموذج User
         $visitor = Visitor::where('user_id', $userId)->firstOrFail();
-
+       // dd($visitor);
         return view('backend.visitors.showyou', compact('visitor'));
     }
 
