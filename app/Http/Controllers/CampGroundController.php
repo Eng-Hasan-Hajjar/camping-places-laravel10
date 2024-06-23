@@ -176,17 +176,14 @@ class CampGroundController extends Controller
         return view('frontend.campground.all', compact('campgrounds'));
     }
     public function showSingle($id){
-        $es=Campground::find($id);
+       
 
         $campinfo=Campground::findOrFail($id);
-        $same_rent=$es->where('es_rent',$esinfo->es_rent)->orderBy(DB::raw('RAND()'))->take(1)->get();
-        $same_type=$es->where('es_type',$esinfo->es_type)->orderBy(DB::raw('RAND()'))->take(1)->get();
+
+        $images = Image::where('camp_ground_id' , $id)->get();
 
 
-        $images = Image::where('es_id' , $id)->get();
-
-
-          return view('frontend.campground.campinfo',compact('campinfo','images','same_rent','same_type'));
+          return view('frontend.campground.campinfo',compact('campinfo','images'));
       }
 
 

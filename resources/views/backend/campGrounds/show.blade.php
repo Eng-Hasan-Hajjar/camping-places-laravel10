@@ -157,13 +157,13 @@
         <tr>
             <th>الفصل </th>
             @if ($data->cm_season == 0)
-                <td>{{ cm_type_func()[0] }}</td>
+                <td>{{ cm_season_func()[0] }}</td>
             @elseif ($data->cm_season == 1)
-                <td>{{ cm_type_func()[1] }}</td>
+                <td>{{ cm_season_func()[1] }}</td>
             @elseif ($data->cm_season == 2)
-                <td>{{ cm_type_func()[2] }}</td>
+                <td>{{ cm_season_func()[2] }}</td>
             @else
-                <td>{{ cm_type_func()[3] }}</td>
+                <td>{{ cm_season_func()[3] }}</td>
             @endif
 
 
