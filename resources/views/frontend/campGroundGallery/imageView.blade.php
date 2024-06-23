@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-     EState Gallery
+      Gallery
 @endsection
 @section('header')
 
@@ -27,7 +27,7 @@
         <div class="row ref">
             <div class="col-lg-12 col-sm-12 col-11 main-section">
 
-                <h1 class="text-center text-info">Multiple Upload Images For EState</h1>
+                <h1 class="text-center text-info">Multiple Upload Images For Campground</h1>
                 <br>
                 <br>
                 <br>
@@ -44,7 +44,7 @@
                                 <input type="file" name="file[]" id="file" accept="image/*" multiple/>
                             </div>
                             <div class="col-md-3" >
-                            <a href="{{url('SingelBuilding/'.$id)}}" class="btn btn-info" >Back</a>
+                            <a href="{{url('SingelCampground/'.$id)}}" class="btn btn-info" >Back</a>
 
                             <input type="submit" name="upload" value="Upload" class="btn btn-success">
                             </div>

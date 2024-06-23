@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\CampGround;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use app\Models\User;
 // This will work and generate everything properly.
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class CampGroundController extends Controller
 {
@@ -173,6 +175,21 @@ class CampGroundController extends Controller
         $campgrounds = Campground::all();
         return view('frontend.campground.all', compact('campgrounds'));
     }
+    public function showSingle($id){
+        $es=Campground::find($id);
+
+        $campinfo=Campground::findOrFail($id);
+        $same_rent=$es->where('es_rent',$esinfo->es_rent)->orderBy(DB::raw('RAND()'))->take(1)->get();
+        $same_type=$es->where('es_type',$esinfo->es_type)->orderBy(DB::raw('RAND()'))->take(1)->get();
+
+
+        $images = Image::where('es_id' , $id)->get();
+
+
+          return view('frontend.campground.campinfo',compact('campinfo','images','same_rent','same_type'));
+      }
+
+
 
 
 

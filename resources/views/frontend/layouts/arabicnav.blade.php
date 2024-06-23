@@ -14,8 +14,7 @@
             <a href="/" class="nav-item nav-link active">      الرئيسية       </a>
             <a href="showallcamp" class="nav-item nav-link">أماكن التخييم </a>
 
-            <a href="destination" class="nav-item nav-link">الوجهة </a>
-            <a href="about" class="nav-item nav-link">حول </a>
+
             <div class="nav-item dropdown" style="direction: rtl;">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> وجهتك </a>
                 <div class="dropdown-menu m-0" style="direction: rtl;">
@@ -25,7 +24,7 @@
 
                 </div>
             </div>
-            <a href="contact" class="nav-item nav-link">التواصل </a>
+           
         </div>
 
         @if (Route::has('login'))

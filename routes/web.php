@@ -22,7 +22,7 @@ Route::get('locale/{locale}', function ($locale) {
 })->name('locale.change');
 
 Route::get('showallcamp', [CampGroundController::class, 'showAllCamp'])->name('showallcamp.showAllCamp');
-
+Route::get('singelcamp/{id}',[CampGroundController::class, 'showSingle'])->name('singelcamp.showSingle');
 
 Route::get('/', function () {
     return view('frontend.index');

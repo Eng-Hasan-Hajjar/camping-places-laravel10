@@ -5,8 +5,10 @@
 
 
 
+
     <div class="row" style="margin-top:20px" >
 @foreach( $campgrounds  as $key => $e)
+
  	@if($key % 3 == 0 && $key != 0)
  		<div class="clearfix"></div>
  	@endif
