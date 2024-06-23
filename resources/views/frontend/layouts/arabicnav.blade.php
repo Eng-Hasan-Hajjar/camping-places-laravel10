@@ -12,19 +12,22 @@
         <div class="navbar-nav ms-auto py-0">
             <a href="/" class="nav-item nav-link active">             </a>
             <a href="/" class="nav-item nav-link active">      الرئيسية       </a>
-            <a href="showallcamp" class="nav-item nav-link">أماكن التخييم </a>
+            <a href="/showallcamp" class="nav-item nav-link">أماكن التخييم </a>
 
 
             <div class="nav-item dropdown" style="direction: rtl;">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> وجهتك </a>
-                <div class="dropdown-menu m-0" style="direction: rtl;">
-                    <a href="castles" class="dropdown-item">غابة</a>
-                    <a href="caves" class="dropdown-item">صحراء</a>
-                    <a href="caves" class="dropdown-item">جبل</a>
 
+                <div class="dropdown-menu m-0" style="direction: rtl;">
+                    <center>
+                    <a href="forest" class="dropdown-item">غابة</a>
+                    <a href="desert" class="dropdown-item">صحراء</a>
+                    <a href="mountain" class="dropdown-item">جبل</a>
+                </center>
                 </div>
+
             </div>
-           
+
         </div>
 
         @if (Route::has('login'))

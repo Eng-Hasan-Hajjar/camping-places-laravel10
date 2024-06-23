@@ -176,7 +176,7 @@ class CampGroundController extends Controller
         return view('frontend.campground.all', compact('campgrounds'));
     }
     public function showSingle($id){
-       
+
 
         $campinfo=Campground::findOrFail($id);
 
@@ -186,6 +186,24 @@ class CampGroundController extends Controller
           return view('frontend.campground.campinfo',compact('campinfo','images'));
       }
 
+      public function forest(){
+        $campgrounds = Campground::where('cm_type', '0')->get();
+
+        return view('frontend.campground.all', compact('campgrounds'));
+
+      }
+      public function desert(){
+            $campgrounds = Campground::where('cm_type', '1')->get();
+
+            return view('frontend.campground.all', compact('campgrounds'));
+
+          }
+          public function mountain(){
+                $campgrounds = Campground::where('cm_type', '2')->get();
+
+                return view('frontend.campground.all', compact('campgrounds'));
+
+              }
 
 
 

@@ -23,6 +23,10 @@ Route::get('locale/{locale}', function ($locale) {
 
 Route::get('showallcamp', [CampGroundController::class, 'showAllCamp'])->name('showallcamp.showAllCamp');
 Route::get('singelcamp/{id}',[CampGroundController::class, 'showSingle'])->name('singelcamp.showSingle');
+Route::get('forest',[CampGroundController::class, 'forest'])->name('camp.forest');
+Route::get('desert',[CampGroundController::class, 'desert'])->name('camp.desert');
+Route::get('mountain',[CampGroundController::class, 'mountain'])->name('camp.mountain');
+
 
 Route::get('/', function () {
     return view('frontend.index');
