@@ -31,8 +31,8 @@
                                 <hr>
 
 
-                                <p  style="font-weight: bolder;color:#86b817">النوع :@if($e->cm_type== 0) "صحراء"
-                                                    @elseif ($e->cm_type== 1) "غابة"
+                                <p  style="font-weight: bolder;color:#86b817">النوع :@if($e->cm_type== 0) "غابة"
+                                                    @elseif ($e->cm_type== 1) "صحراء"
                                                     @elseif ($e->cm_type== 2)  "جبال"
                                                     @endif </p>
                                  <hr>
@@ -43,7 +43,7 @@
                                                 @endif</p>
 
 <hr>
-                              <a href="{{url('/SingelCamp'.$e->id)}}" class="btn btn-block bg-gradient-info btn-xs  colorHasan"
+                              <a href="{{url('/singelcamp',$e->id)}}" class="btn btn-block bg-gradient-info btn-xs  colorHasan"
                                role="button"
                               style="background-color:#86b817; color:#fff;margin-bottom:10px">أظهر التفاصيل
                               <span class="fa fa-arrow-circle-o-left" style="..."></span> </a>

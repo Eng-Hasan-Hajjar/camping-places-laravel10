@@ -1,20 +1,20 @@
 
 
 
-                     <div class="row mt-5 ref"style="border: 5px solid #eeff00;">
+                     <div class="row mt-5 ref"style="border: 5px solid ;">
                             <div class="col-12">
-                                <h2 class="h4 text-black mb-3"style="margin-buttom:100px;color:blue">EState Gallery</h2>
+                                <h2 class="h4 text-black mb-3"style="margin-buttom:100px;color:blue"> معرض الصور</h2>
                             </div>
                                   @foreach($images as $image)
                                         <div class="col-sm-6 col-md-4 col-lg-3 mb-6 ref">
                                             <a href="{{asset($image->image)}}" class="image-popup gal-item">
-                                                <img style="width:400px; height:200px; border: 5px solid #eeff00;" src="{{asset($image->image)}}"
+                                                <img style="width:400px; height:200px; border: 5px solid #1a8804;" src="{{asset($image->image)}}"
                                                     alt="Image" class="img-fluid"></a>
                                         </div>
                                     @endforeach
-                            <div class="col-11"style="margin:20px;background-color:black">
-                                <h2 style="margin:5px;color:blue">if you want to add gallery to the estate click bellow
-                                <a href="{{url('/imageview/'.$esinfo->id)}}" class="btn btn-info" style="margin:20px;background-color:#000;color:blue;border: 5px solid #eeff00;">Add EState Gallery</a>
+                            <div class="col-11"style="margin:20px;">
+                                <h2 style="margin:5px;color:rgb(24, 117, 30)"> اذا أردت أنشئ معرض للصور من أجل هذا المكان
+                                <a href="{{url('/imageview/'.$campinfo->id)}}" class="btn btn-info" style="margin:20px;background-color:#ffffff;color:blue;border: 5px solid #278207;">اضافة معرض للصور </a>
                                 </h2>
                             </div>
 
