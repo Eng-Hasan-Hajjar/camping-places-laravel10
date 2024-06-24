@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+    public function index()
+    {
+        $ratings = Rating::with(['user', 'campground'])->get();
+        return view('frontend.ratings.index', compact('ratings'));
+    }
+
+
     public function store(Request $request)
     {
       // dd($request->camp_ground_id);

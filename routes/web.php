@@ -10,7 +10,11 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\App;
+use App\Http\Controllers\CampDoctorGuidController;
+use App\Http\Controllers\RatingController;
 
+use App\Http\Controllers\AdminDashboardController;
+use Symfony\Component\Console\Input\Input;
 
 Route::get('locale/{locale}', function ($locale) {
     if (! in_array($locale, ['en', 'ar'])) {
@@ -26,19 +30,18 @@ Route::get('singelcamp/{id}',[CampGroundController::class, 'showSingle'])->name(
 Route::get('forest',[CampGroundController::class, 'forest'])->name('camp.forest');
 Route::get('desert',[CampGroundController::class, 'desert'])->name('camp.desert');
 Route::get('mountain',[CampGroundController::class, 'mountain'])->name('camp.mountain');
-
+Route::get('ratings', [RatingController::class, 'index'])->name('ratings.index');
 
 Route::get('/', function () {
     return view('frontend.index');
 });
 
-use App\Http\Controllers\CampDoctorGuidController;
+
 
 // روابط CRUD الخاصة بـ CampDoctorGuid
 Route::resource('adminpanel/camp_doctor_guid', CampDoctorGuidController::class);
 
 
-use App\Http\Controllers\RatingController;
 
 Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
 Route::get('/camp-grounds/{camp_ground_id}/ratings', [RatingController::class, 'show'])->name('ratings.show');
@@ -46,8 +49,6 @@ Route::get('/campgrounds/{id}/ratings', [CampgroundController::class, 'showRatin
 
 // routes/web.php
 
-use App\Http\Controllers\AdminDashboardController;
-use Symfony\Component\Console\Input\Input;
 
 Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
