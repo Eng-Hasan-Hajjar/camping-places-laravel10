@@ -13,13 +13,13 @@
 @endsection
 @section('content')
     <div class="container hcontainer" style="direction: rtl;">
-        <div class="card hcard helement hcard-body">
+        <div class="card hcard helement hcard-body"style="position:center;text-align:center">
             <div class="card-header  "><p  class="float-right">جميع الأدلة</p></div>
             <div class="card-header">
                 <a href="{{ route('guides.create') }}" class=" btn btn-success float-right">إنشاء جديد</a>
             </div>
-            <div class="card-body">
-                <table class="table">
+            <div class="card-body"style="position:center;text-align:center">
+                <table class="table"style="position:center;text-align:center">
                     <thead>
                         <tr>
                             <th> الاسم</th>

@@ -16,7 +16,7 @@
 @section('content')
     <div class="container hcontainer">
         <div class="card hcard">
-            <div class="card-header">التفاصيل </div>
+            <div class="card-header"style="position:center;text-align:center">التفاصيل </div>
 
             <div class="card-body hcard-body">
                 <!-- تفاصيل الحجز -->

@@ -13,6 +13,7 @@
             <a href="/" class="nav-item nav-link active">             </a>
             <a href="/" class="nav-item nav-link active">      الرئيسية       </a>
             <a href="/showallcamp" class="nav-item nav-link">أماكن التخييم </a>
+            <a href="ratings" class="nav-item nav-link"> التقييمات </a>
 
 
             <div class="nav-item dropdown" style="direction: rtl;">
