@@ -15,19 +15,7 @@ class VisitorController extends Controller
      */
     public function index()
     {
-/*
-        // الحصول على المستخدم المسجل حاليا
-        $user = auth()->user();
 
-        // التحقق من وجود المستخدم
-        if ($user) {
-            // الحصول على معلومات المريض للمستخدم الحالي
-            $visitor = $user->visitor;
-
-            // عرض معلومات المريض
-            return view('backend.visitors.show', compact('visitor'));
-        }
-*/
         $user = auth()->user();
         $visitors = Visitor::latest()->paginate(5);
         $users = User::latest()->paginate(5);
@@ -38,8 +26,13 @@ class VisitorController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+          // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
+        if (auth()->user()->role === 'admin' && !$request->has('user_id')) {
+            return redirect()->route('register')
+                            ->with('info', 'يرجى إنشاء حساب مستخدم جديد أولاً.');
+        }
         return view('backend.visitors.create');
     }
 
@@ -52,13 +45,21 @@ class VisitorController extends Controller
             'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
-
-
-
+            'work.required' => 'حقل العمل مطلوب',
+            'hobby.required' => 'حقل الهواية مطلوب',
+            'nationality.required' => 'حقل الجنسية مطلوب',
+            'current_location.required' => 'حقل الموقع الحالي مطلوب',
+            'gender.required' => 'حقل الجنس مطلوب',
+            'num_companion.required' => 'حقل عدد المرافقين مطلوب',
+            'is_phobia_hights.required' => 'حقل فوبيا المرتفعات مطلوب',
+            'is_phobia_dark.required' => 'حقل فوبيا الظلام مطلوب',
+            'is_phobia_animals.required' => 'حقل فوبيا الحيوانات مطلوب',
+            'is_phobia_fly.required' => 'حقل فوبيا الطيران مطلوب',
+            'is_phobia_see.required' => 'حقل فوبيا الرؤية مطلوب',
+            'is_phobia_open_space.required' => 'حقل فوبيا الأماكن المفتوحة مطلوب',
+            'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
         ];
-
         $request->validate([
-
             'phone'=> 'required|numeric',
             'work'=>  'required',
             'hobby'=> 'required',
@@ -72,27 +73,45 @@ class VisitorController extends Controller
             'is_phobia_fly' => 'required',
             'is_phobia_see'=>  'required',
             'is_phobia_open_space'=> 'required',
-
             'birthday'=> 'required',
-
-
         ], $messages);
 
+            // الحصول على المستخدم المسجل
+        $user = auth()->user();
+
+        // التحقق من وجود المستخدم
+        if ($user) {
+            // التحقق إذا كان المستخدم زائر ولديه بالفعل معلومات زائر
+            if ($user->role === 'visitor' && $user->visitor) {
+                return redirect()->route('dashboard')->with('error', 'لا يمكن للزائر إضافة معلومات زائر جديد.');
+            }
+
+            // إنشاء معلومات الزائر
+            $visitor = new Visitor($request->all());
+            $user->visitor()->save($visitor);
+
+            // إعادة التوجيه بناءً على دور المستخدم
+            if ($user->role === 'visitor') {
+                return redirect()->route('dashboard')->with('success', 'تم إضافة معلوماتك بنجاح.');
+            } else {
+                return redirect()->route('visitors.index')->with('success', 'تم إضافة الزائر بنجاح.');
+            }
+        }
+
+
+/*
           // الحصول على المستخدم المسجل
         $user = auth()->user();
         $visitor = new Visitor($request->all());
         $user->visitor()->save($visitor);
           // التحقق من وجود المستخدم
         if ($user) {
+
             $visitor = $user->visitor;
 
             return view('backend.visitors.showyou', compact('visitor','user'));
         }
-
-     //   dd($visitor);
-
-
-         //  Visitor::create($request->all());
+            */
         return redirect()->route('visitors.index')
                         ->with('success','visitor created successfully.');
     }

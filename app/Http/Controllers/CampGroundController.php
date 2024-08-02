@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use app\Models\User;
 // This will work and generate everything properly.
 use App\Models\Post;
+use App\Models\Visitor;
 use Illuminate\Support\Facades\DB;
 
 class CampGroundController extends Controller
@@ -170,20 +171,40 @@ class CampGroundController extends Controller
         return view('campground.ratings', compact('campground'));
     }
 
-    public function showAllCamp()
+    public function showAllCamp(Request $request)
     {
+    // الحصول على المستخدم المسجل حالياً
+      $user = auth()->user();
+
+    // التحقق من وجود المستخدم والزائر
+    if ($user && $user->visitor) {
+        // الحصول على معلومات الزائر
+        $visitor = $user->visitor;
+
+        // البدء باستعلام الأماكن
+        $campgrounds = CampGround::query();
+
+        // تصفية الأماكن بناءً على فوبيا الزائر
+        $campgrounds = $campgrounds->withoutMountain($visitor->is_phobia_hights)
+                                ->withoutForest($visitor->is_phobia_dark)
+                                ->withoutDesert($visitor->is_phobia_open_space);
+
+        $campgrounds = $campgrounds->get();
+
+    // عرض النتائج
+    return view('frontend.campground.all', compact('campgrounds'));
+}
+
+// في حال عدم وجود المستخدم أو الزائر، إعادة توجيه أو عرض رسالة مناسبة
+return redirect()->route('home')->with('error', 'لم يتم العثور على معلومات الزائر.');/*
         $campgrounds = Campground::all();
         return view('frontend.campground.all', compact('campgrounds'));
+        */
     }
     public function showSingle($id){
-
-
         $campinfo=Campground::findOrFail($id);
-
         $images = Image::where('camp_ground_id' , $id)->get();
-
-
-          return view('frontend.campground.campinfo',compact('campinfo','images'));
+        return view('frontend.campground.campinfo',compact('campinfo','images'));
       }
 
       public function forest(){
