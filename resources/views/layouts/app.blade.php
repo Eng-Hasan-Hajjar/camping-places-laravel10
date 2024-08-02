@@ -4,16 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <style>
         #backgroundColorPicker {
             width: 100px;
@@ -42,12 +38,12 @@
             @include('backend.home.dashboardinfo')
         </main>
 
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
+        <div class="col-md-2" style="position:right;float:left">
+            <div class="card" style="position:center;float:center" >
+                <div class="card-body"style="position:center;float:center">
 
-                        <h5 class="card-title">تغيير لون الخلفية</h5>
-                        <input type="color" id="backgroundColorPicker" class="form-control" value="#ffffff">
+                        <h6 class="card-title"style="position:center;float:center"> لون الخلفية</h6>
+                        <input type="color" id="backgroundColorPicker" class="form-control" value="#ffffff" hidden>
 
                         <button id="whiteButton" class="btn btn-primary">أبيض</button>
                         <button id="blackButton" class="btn btn-primary">أسود</button>
@@ -57,6 +53,10 @@
 
             </div>
         </div>
+
+
+
+
         <div class="col-md-12">
             <div class="card">
 

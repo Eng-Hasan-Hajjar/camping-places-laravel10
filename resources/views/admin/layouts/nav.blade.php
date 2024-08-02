@@ -1,6 +1,4 @@
 {{-- website --}}
-
-
 <li class="nav-item has-treeview">
   <a href="#" class="nav-link">
     <i class="nav-icon fas fa-users"></i>
@@ -16,17 +14,9 @@
         <p>الصفحة الرئيسية</p>
       </a>
     </li>
-
-
   </ul>
 </li>
-
-
-
-
 {{-- Visitor --}}
-
-
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
@@ -51,11 +41,7 @@
 
     </ul>
   </li>
-
-
 {{-- campground --}}
-
-
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -80,12 +66,7 @@
 
             </ul>
           </li>
-
-
-
 {{-- Guides --}}
-
-
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>

@@ -1,13 +1,5 @@
  @extends('admin.layouts.layout')
-
- 
-
-
-
  @section('content')
-
-
-
  {{--<div style="min-height: 185px;">--}}
     <!-- Content Header (Page header) -->
     <div class="content-header">

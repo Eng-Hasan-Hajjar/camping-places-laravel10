@@ -28,11 +28,15 @@ class VisitorController extends Controller
      */
     public function create(Request $request)
     {
-          // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
-        if (auth()->user()->role === 'admin' && !$request->has('user_id')) {
-            return redirect()->route('register')
-                            ->with('info', 'يرجى إنشاء حساب مستخدم جديد أولاً.');
-        }
+         // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
+    if (auth()->user()->role === 'admin' && !$request->has('user_id')) {
+        Auth::logout(); // تسجيل خروج المدير
+        return redirect()->route('register')
+                         ->with('info', 'يرجى إنشاء حساب مستخدم جديد أولاً.');
+    }
+    //return view('backend.visitors.create', ['user_id' => $request->user_id]);
+
+
         return view('backend.visitors.create');
     }
 
