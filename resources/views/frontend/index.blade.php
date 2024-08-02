@@ -91,112 +91,68 @@
         </div>
     </div>
     <!-- Service End -->
-
-
-    <!-- Destination Start -->
-    <div class="container-xxl py-5 destination" style="direction: rtl;">
-        <div class="container">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">أماكن</h6>
-                <h1 class="mb-5">أماكن عامة   </h1>
-            </div>
-            <div class="row g-3">
-                <div class="col-lg-7 col-md-6">
-                    <div class="row g-3">
-                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="frontendAsset/img/lesly-derksen.jpg" alt="">
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">lesly-derksen</div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="frontendAsset/img/lance-anderson.jpg" alt="">
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">lance-anderson</div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
-                                <img class="img-fluid" src="frontendAsset/img/kevin-schmid.jpg" alt="">
-                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">kevin-schmid</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
-                        <img class="img-fluid position-absolute w-100 h-100" src="frontendAsset/img/roadpass.jpg" alt="" style="object-fit: cover;">
-                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">roadpass</div>
-                    </a>
-                </div>
-            </div>
+<!-- Campgrounds Start -->
+<div class="container-xxl py-5 destination" style="direction: rtl;">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title bg-white text-center text-primary px-3">مواقع التخييم</h6>
+            <h1 class="mb-5">استكشف مواقع التخييم</h1>
         </div>
-    </div>
-    <!-- Destination Start -->
-
-
-
-
-    <!-- Booking Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="direction: rtl;">
-        <div class="container">
-            <div class="booking p-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-md-6 text-white">
-                        <h6 class="text-white text-uppercase">الحجز</h6>
-                        <h1 class="text-white mb-4">الحجز اون لاين </h1>
-                        <p class="mb-4">ماذا تنتظر؟ </p>
-                    </div>
-                    <div class="col-md-6">
-                        <h1 class="text-white mb-4">احجز جولة</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control bg-transparent" id="name" placeholder="Your Name">
-                                        <label for="name">اسمك</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control bg-transparent" id="email" placeholder="Your Email">
-                                        <label for="email">بريدك الالكتروني</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">التاريخ والوقت</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <select class="form-select bg-transparent" id="select1">
-
-                                            <option value="1">غابة</option>
-                                            <option value="2">جبل</option>
-                                            <option value="3">صحراء</option>
-                                        </select>
-                                        <label for="select1">الوجهة</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control bg-transparent" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">طلب خاص</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-outline-light w-100 py-3" type="submit">حجز الآن</button>
-                                </div>
+        <div class="row g-3">
+            @if(count((array)$campgrounds) > 0)
+                @foreach($campgrounds as $key => $e)
+                    <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s" style="margin-top:20px;">
+                        <div class="card" style="border: solid; border-color: #86b817;">
+                            <div class="card-img-container" style="height: 200px; overflow: hidden;">
+                                <img src="{{ URL::to('/') }}/images/{{ $e->campGround_image }}" class="card-img-top img-fluid" style="height: 100%; object-fit: cover;" alt="{{ $e->name }}">
                             </div>
-                        </form>
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-weight: bolder; color: #86b817;">{{$e->name}}</h5>
+                                <p class="card-text" style="font-weight: bolder; color: #86b817;">المدينة: {{$e->city}}</p>
+                                <p class="card-text" style="font-weight: bolder; color: #86b817;">المنطقة: {{$e->region}}</p>
+                                <p class="card-text" style="font-weight: bolder; color: #86b817;">
+                                    النوع:
+                                    @if($e->cm_type == 0) غابة
+                                    @elseif($e->cm_type == 1) صحراء
+                                    @elseif($e->cm_type == 2) جبال
+                                    @endif
+                                </p>
+                                <p class="card-text" style="font-weight: bolder; color: #86b817;">
+                                    الفصل:
+                                    @if($e->cm_season == 0) الشتاء
+                                    @elseif($e->cm_season == 1) الخريف
+                                    @elseif($e->cm_season == 2) الربيع
+                                    @elseif($e->cm_season == 3) الصيف
+                                    @endif
+                                </p>
+                                <a href="{{url('/singelcamp', $e->id)}}" class="btn btn-primary" style="background-color:#86b817; color:#fff;">أظهر التفاصيل</a>
+                            </div>
+                        </div>
                     </div>
+                @endforeach
+            @else
+                <div class="alert alert-danger">
+                    "لايوجد بعد"
                 </div>
-            </div>
+            @endif
         </div>
     </div>
-    <!-- Booking Start -->
+</div>
+<!-- Campgrounds End -->
+
+
+
+
+
+
+<!-- Booking Start -->
+
+@include('frontend.layouts.reservationform')
+@include('frontend.layouts.modalReservation')
+<!-- Booking End -->
+
+
+
 
 
     <!-- Process Start -->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CampDoctorGuid;
 use App\Models\CampGround;
 use App\Models\Image;
 use Illuminate\Http\Request;
@@ -171,6 +172,15 @@ class CampGroundController extends Controller
         return view('campground.ratings', compact('campground'));
     }
 
+    public function showCampgrounds()
+    {
+
+        $campDoctorGuids = CampDoctorGuid::all();
+
+        $campgrounds = Campground::all();
+        return view('frontend.index', compact('campgrounds','campDoctorGuids'));
+    }
+
     public function showAllCamp(Request $request)
     {
     // الحصول على المستخدم المسجل حالياً
@@ -191,12 +201,12 @@ class CampGroundController extends Controller
 
         $campgrounds = $campgrounds->get();
 
-    // عرض النتائج
-    return view('frontend.campground.all', compact('campgrounds'));
-}
+            // عرض النتائج
+            return view('frontend.campground.all', compact('campgrounds'));
+        }
 
-// في حال عدم وجود المستخدم أو الزائر، إعادة توجيه أو عرض رسالة مناسبة
-return redirect()->route('home')->with('error', 'لم يتم العثور على معلومات الزائر.');/*
+        // في حال عدم وجود المستخدم أو الزائر، إعادة توجيه أو عرض رسالة مناسبة
+        return redirect()->route('home')->with('error', 'لم يتم العثور على معلومات الزائر.');/*
         $campgrounds = Campground::all();
         return view('frontend.campground.all', compact('campgrounds'));
         */

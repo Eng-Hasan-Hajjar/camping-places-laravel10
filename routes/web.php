@@ -24,9 +24,12 @@ Route::get('forest',[CampGroundController::class, 'forest'])->name('camp.forest'
 Route::get('desert',[CampGroundController::class, 'desert'])->name('camp.desert');
 Route::get('mountain',[CampGroundController::class, 'mountain'])->name('camp.mountain');
 Route::get('ratings', [RatingController::class, 'index'])->name('ratings.index');
-Route::get('/', function () {
-    return view('frontend.index');
-});
+
+Route::get('/',[CampGroundController::class, 'showCampgrounds']);
+
+
+
+
 // روابط CRUD الخاصة بـ CampDoctorGuid
 Route::resource('adminpanel/camp_doctor_guid', CampDoctorGuidController::class);
 Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
