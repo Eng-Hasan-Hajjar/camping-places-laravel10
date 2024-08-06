@@ -144,13 +144,13 @@
 
 
 
-
+@if (Auth::user())
 <!-- Booking Start -->
 
 @include('frontend.layouts.reservationform')
 @include('frontend.layouts.modalReservation')
 <!-- Booking End -->
-
+@endif
 
 
 

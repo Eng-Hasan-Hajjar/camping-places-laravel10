@@ -1,19 +1,11 @@
 <center>
-
-
 @if(count((array)$campgrounds) > 0)
-
-
-
-
     <div class="row" style="margin-top:20px" >
             @foreach( $campgrounds  as $key => $e)
-
                 @if($key % 2 == 0 && $key != 0)
                     <div class="clearfix"></div>
                 @endif
                 <div class="col-md-5"style="font-weight: 900;margin:20px;direction: rtl;border:solid ;border-color:#86b817;">
-
                     <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing"style="direction: rtl;border-color:#86b817;">
                         <div class="media col-sm-12"style="background:#fff"style="font-weight: bolder;">
                             <div class="col-sm-4"style="font-weight: bolder;">
@@ -23,14 +15,11 @@
                             <div class="media-body col-sm-8">
                                 <a href="#" target="_parent"></a>
                                 <h2 class="media-heading" style="font-weight: bolder;color:#86b817;margin-top:10px">  {{$e->name}}</h2>
-
                                 <hr>
                                 <p  style="font-weight: bolder;color:#86b817" >المدينة : {{$e->city}}</p>
                                 <hr>
                                 <p style="margin:10px; bolder;color:#86b817"> المنطقة:  {{$e->region}}</p>
                                 <hr>
-
-
                                 <p  style="font-weight: bolder;color:#86b817">النوع :@if($e->cm_type== 0) "غابة"
                                                     @elseif ($e->cm_type== 1) "صحراء"
                                                     @elseif ($e->cm_type== 2)  "جبال"

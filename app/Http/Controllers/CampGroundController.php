@@ -73,12 +73,11 @@ class CampGroundController extends Controller
 
             'google_image'  =>  $new_name_google,
             'forecast' => $request->forecast,
-
         );
 
         CampGround::create($form_data);
 
-        return redirect('/adminpanel/campground')->with('success', 'Data Added successfully.');
+        return redirect('/adminpanel/campground')->with('success', 'تم تحديث البيانات بنجاح ');
 
 
         $request->validate([
@@ -89,7 +88,7 @@ class CampGroundController extends Controller
         CampGround::create($request->all());
 
         return redirect()->route('backend.campGrounds.index')
-            ->with('success', 'backend.campGrounds. created successfully.');
+            ->with('success', 'تم الإنشاء بنجاح ');
     }
 
     /**

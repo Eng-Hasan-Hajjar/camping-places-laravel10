@@ -4,7 +4,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h2 class="text-center mb-4">احجز جولتك</h2>
+                        <h2 class="text-center mb-4 form-label text-white " >احجز رحلتك </h2>
                         <form method="POST" action="{{ route('reservations.store') }}">
                             @csrf
                             <div class="row g-4">
@@ -23,37 +23,25 @@
                                         <input type="text" name="user_id" class="form-control bg-light" id="user_id" value="{{ Auth::user()->id }}" disabled>
                                     </div>
                                 </div>
-      <!-- Camp Doctor Guid with Details Button -->
-      <div class="col-md-6">
-        <div class="form-group mb-4 d-flex align-items-center">
-            <label for="camp_doctor_guid_id" class="form-label me-2">مجموعة المكان والطبيب والدليل</label>
-            <div class="flex-grow-1">
-                <select name="camp_doctor_guid_id" class="form-select bg-light" id="camp_doctor_guid_id" required>
-                    @foreach($campDoctorGuids as $cdg)
-                        <option value="{{ $cdg->id }}">{{ $cdg->display_name }}</option>
-                    @endforeach
-                </select>
-                @error('camp_doctor_guid_id')
-                    <div class="text-danger mt-2">{{ $message }}</div>
-                @enderror
-            </div>
-            <button type="button" class="btn btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#detailsModal">عرض التفاصيل</button>
-        </div>
-    </div>
-                                <!-- Camp Doctor Guid -->
-                                <div class="col-md-6">
-                                    <div class="form-group mb-4">
-                                        <label for="camp_doctor_guid_id" class="form-label">مجموعة المكان والطبيب والدليل</label>
-                                        <select name="camp_doctor_guid_id" class="form-select bg-light" id="camp_doctor_guid_id" required>
-                                            @foreach($campDoctorGuids as $cdg)
-                                                <option value="{{ $cdg->id }}">{{ $cdg->display_name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('camp_doctor_guid_id')
-                                            <div class="text-danger mt-2">{{ $message }}</div>
-                                        @enderror
+
+                                <!-- Camp Doctor Guid with Details Button -->
+                                <div class="col-md-12">
+                                    <div class="form-group mb-4 d-flex align-items-center">
+                                        <label for="camp_doctor_guid_id" class="form-label me-2" style="margin-left:29%" >مجموعة المكان والطبيب والدليل: </label>
+                                        <div class="flex-grow-1">
+                                            <select name="camp_doctor_guid_id" class="form-select bg-light" id="camp_doctor_guid_id" required>
+                                                @foreach($campDoctorGuids as $cdg)
+                                                    <option value="{{ $cdg->id }}">{{ $cdg->display_name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('camp_doctor_guid_id')
+                                                <div class="text-danger mt-2">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <button type="button" class="btn btn-outline-light ms-2" data-bs-toggle="modal" data-bs-target="#detailsModal"> التفاصيل</button>
                                     </div>
                                 </div>
+
 
                                 <!-- Start Date -->
                                 <div class="col-md-6">
