@@ -65,14 +65,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-success">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-user-shield"></i> عدد المدراء</h5>
-                    <p class="card-text display-4">{{ $adminCount }}</p>
-                </div>
-            </div>
-        </div>
+     
 
         <div class="col-md-3 mb-4">
             <div class="card text-white bg-danger">

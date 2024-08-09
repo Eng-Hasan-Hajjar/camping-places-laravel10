@@ -15,6 +15,19 @@
 @section('content')
     <div class="container helementedit">
         <div class="card ">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
+
             <div class="card-header">تعديل الحجز</div>
 
             <div class="card-body">
@@ -27,7 +40,14 @@
                         <input type="text" name="user_id" class="form-control" id="user_id" value="{{ $reservation->user->name }}" disabled>
                     </div>
 
-                  
+                    <div class="form-group">
+                        <label for="camp_doctor_guid_id">مجموعة المكان والطبيب والدليل</label>
+                        <select name="camp_doctor_guid_id" class="form-control" id="camp_doctor_guid_id">
+                            @foreach($campDoctorGuid as $cdg)
+                                <option value="{{ $cdg->id }}">{{ $cdg->display_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <div class="form-group">
                         <label for="start_date">تاريخ البداية</label>

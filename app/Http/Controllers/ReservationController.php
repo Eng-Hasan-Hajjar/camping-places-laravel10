@@ -45,6 +45,8 @@ class ReservationController extends Controller
         //  'camp_ground_id.exists' => 'رقم المكان غير صالح',
             'start_date.required' => 'حقل تاريخ البداية مطلوب',
             'start_date.date' => 'تاريخ البداية غير صالح',
+         //   'start_date.after_or_equal' => 'يجب أن يكون تاريخ البداية بعد تاريخ الإن',
+
             'end_date.required' => 'حقل تاريخ الانتهاء مطلوب',
             'end_date.date' => 'تاريخ الانتهاء غير صالح',
             'end_date.after_or_equal' => 'يجب أن يكون تاريخ الانتهاء بعد تاريخ البداية',
@@ -53,10 +55,26 @@ class ReservationController extends Controller
         $request->validate([
             'camp_doctor_guid_id' => 'required|exists:camp_doctor_guids,id',
             //'camp_ground_id' => 'required|exists:camp_grounds,id',
-            'start_date' => 'required|date',
+            'start_date' => 'required|date|after_or_equal:now',
             'end_date' => 'required|date|after_or_equal:start_date',
 
         ], $messages);
+                    // تحقق من أن المجموعة غير محجوزة بالفعل في التواريخ المحددة
+                    $existingReservation = Reservation::where('camp_doctor_guid_id', $request->camp_doctor_guid_id)
+                    ->where(function ($query) use ($request) {
+                        $query->whereBetween('start_date', [$request->start_date, $request->end_date])
+                            ->orWhereBetween('end_date', [$request->start_date, $request->end_date])
+                            ->orWhere(function ($query) use ($request) {
+                                $query->where('start_date', '<=', $request->start_date)
+                                    ->where('end_date', '>=', $request->end_date);
+                            });
+                    })
+                    ->exists();
+
+                    if ($existingReservation) {
+                    return redirect()->back()->with('error', 'المجموعة محجوزة بالفعل في هذه الفترة.');
+                    }
+
 
         // إنشاء الحجز فقط في حالة صحة البيانات
         Reservation::create([
@@ -90,42 +108,75 @@ class ReservationController extends Controller
      // عرض النموذج لتعديل حجز معين
      public function edit(Reservation $reservation)
      {
-        $campgrounds = CampGround::all();
-         return view('reservations.edit', compact('reservation','campgrounds'));
+      //  $campgrounds = CampGround::all();
+      $campDoctorGuid = CampDoctorGuid::all();
+         return view('reservations.edit', compact('reservation','campDoctorGuid'));
      }
 
      // تحديث بيانات الحجز في قاعدة البيانات
      public function update(Request $request, Reservation $reservation)
      {
         $messages = [
+            'camp_doctor_guid_id.required' => 'حقل رقم مجموعة المكان والطبيب والدليل مطلوب',
+            'camp_doctor_guid_id.exists' => 'رقم مجموعة المكان والطبيب والدليل غير صالح',
+
             'user_id.required' => 'حقل رقم المستخدم مطلوب',
             'user_id.exists' => 'رقم المستخدم غير صالح',
-            'camp_ground_id.required' => 'حقل رقم المكان مطلوب',
-            'camp_ground_id.exists' => 'رقم المكان غير صالح',
+        //  'camp_ground_id.required' => 'حقل رقم المكان مطلوب',
+        //  'camp_ground_id.exists' => 'رقم المكان غير صالح',
             'start_date.required' => 'حقل تاريخ البداية مطلوب',
             'start_date.date' => 'تاريخ البداية غير صالح',
+         //   'start_date.after_or_equal' => 'يجب أن يكون تاريخ البداية بعد تاريخ الإن',
+
             'end_date.required' => 'حقل تاريخ الانتهاء مطلوب',
             'end_date.date' => 'تاريخ الانتهاء غير صالح',
             'end_date.after_or_equal' => 'يجب أن يكون تاريخ الانتهاء بعد تاريخ البداية',
         ];
-
+        // dd($request->all());
         $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'camp_ground_id' => 'required|exists:camp_grounds,id',
-            'start_date' => 'required|date',
+            'camp_doctor_guid_id' => 'required|exists:camp_doctor_guids,id',
+            //'camp_ground_id' => 'required|exists:camp_grounds,id',
+            'start_date' => 'required|date|after_or_equal:now',
             'end_date' => 'required|date|after_or_equal:start_date',
 
-
         ], $messages);
+                    // تحقق من أن المجموعة غير محجوزة بالفعل في التواريخ المحددة
+                    $existingReservation = Reservation::where('camp_doctor_guid_id', $request->camp_doctor_guid_id)
+                    ->where(function ($query) use ($request) {
+                        $query->whereBetween('start_date', [$request->start_date, $request->end_date])
+                            ->orWhereBetween('end_date', [$request->start_date, $request->end_date])
+                            ->orWhere(function ($query) use ($request) {
+                                $query->where('start_date', '<=', $request->start_date)
+                                    ->where('end_date', '>=', $request->end_date);
+                            });
+                    })
+                    ->exists();
+
+                    if ($existingReservation) {
+                    return redirect()->back()->with('error', 'المجموعة محجوزة بالفعل في هذه الفترة.');
+                    }
+
 
 
          $reservation->update([
-             'user_id' => $request->user_id,
-             'camp_ground_id' => $request->camp_ground_id,
-             'start_date' => $request->start_date,
-             'end_date' => $request->end_date,
-         ]);
+            'camp_doctor_guid_id' => $request->camp_doctor_guid_id,
+           'user_id' => Auth::id(), // استخدام معرف المستخدم الحالي
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+         //    'user_id' => $request->user_id,
 
+         ]);
+         $user = auth()->user();
+         if ($user) {
+         // تحقق من دور المستخدم
+             if ($user->role === 'admin') {
+                 // إذا كان المستخدم مديرًا، قم بإعادة توجيهه إلى لوحة التحكم
+                 return redirect('/adminpanel/reservations')->with('success', 'تم إضافة الحجز بنجاح.');
+             } else {
+                 // إذا كان المستخدم زائرًا، قم بعرض رسالة وابقائه في نفس الصفحة
+                 return back()->with('success', 'تم تسجيل الحجز بنجاح. سنقوم بمراجعة طلبك.');
+             }
+         }
          return redirect()->route('reservations.index')->with('success', 'تم تحديث الحجز بنجاح.');
      }
 

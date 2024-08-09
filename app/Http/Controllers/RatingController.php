@@ -29,13 +29,13 @@ class RatingController extends Controller
         $existingRating = Rating::where('user_id', auth()->id())
         ->where('camp_ground_id', $request->camp_ground_id)
         ->first();
-
+/*
         if ($existingRating) {
           //  dd($request->campground_id);
             return redirect()->back()
                 ->with('error', 'لا يمكنك تقديم تقييم أكثر من مرة لنفس المخيم.');
         }
-
+*/
         Rating::create([
             'user_id' => Auth::id(),
             'camp_ground_id' => $request->camp_ground_id,

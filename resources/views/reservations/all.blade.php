@@ -12,8 +12,24 @@
     {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
 @endsection
 @section('content')
+
+
+
+
     <div class="container hcontainer">
         <div class="card hcard helement hcard-body">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
             <div class="card-header  "><p  class="float-right">جميع الحجوزات</p></div>
             <div class="card-header">
                 @if(Auth::user()->can('isVisitor') )

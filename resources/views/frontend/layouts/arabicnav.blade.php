@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0" style="direction: rtl;">
     <a href="" class="navbar-brand p-0">
-        <h3 class="text-primary m-0"><i class="fa fa-map-marker-alt me-3"></i>  الليل المضيء         </h3>
+        <h3 class="text-primary m-0" style="background-color: rgb(255, 14, 14)"><i class="fa fa-map-marker-alt me-3" style="background-color: rgb(255, 14, 14)"></i>  الليل المضيء         </h3>
         <!-- <img src="img/logo.png" alt="Logo"> -->
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

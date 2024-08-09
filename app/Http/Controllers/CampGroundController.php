@@ -21,6 +21,7 @@ class CampGroundController extends Controller
     public function index()
     {
         $campGrounds = CampGround::all();
+
         return view('backend.campGrounds.index', compact('campGrounds'));
     }
 
@@ -177,6 +178,7 @@ class CampGroundController extends Controller
         $campDoctorGuids = CampDoctorGuid::all();
 
         $campgrounds = Campground::all();
+       // dd( $campgrounds);
         return view('frontend.index', compact('campgrounds','campDoctorGuids'));
     }
 
@@ -205,10 +207,12 @@ class CampGroundController extends Controller
         }
 
         // في حال عدم وجود المستخدم أو الزائر، إعادة توجيه أو عرض رسالة مناسبة
-        return redirect()->route('home')->with('error', 'لم يتم العثور على معلومات الزائر.');/*
+   //     return redirect()->route('home')->with('error', 'لم يتم العثور على معلومات الزائر.');
         $campgrounds = Campground::all();
+      //  dd( $campgrounds);
+
         return view('frontend.campground.all', compact('campgrounds'));
-        */
+
     }
     public function showSingle($id){
         $campinfo=Campground::findOrFail($id);
@@ -217,21 +221,96 @@ class CampGroundController extends Controller
       }
 
       public function forest(){
-        $campgrounds = Campground::where('cm_type', '0')->get();
 
-        return view('frontend.campground.all', compact('campgrounds'));
+            // الحصول على المستخدم المسجل حالياً
+      $user = auth()->user();
+
+      // التحقق من وجود المستخدم والزائر
+      if ($user && $user->visitor) {
+          // الحصول على معلومات الزائر
+          $visitor = $user->visitor;
+
+          // البدء باستعلام الأماكن
+          $campgrounds = CampGround::query();
+
+          // تصفية الأماكن بناءً على فوبيا الزائر
+          $campgrounds = Campground::where('cm_type', '0')->withoutMountain($visitor->is_phobia_hights)
+          ->withoutForest($visitor->is_phobia_dark)
+          ->withoutDesert($visitor->is_phobia_open_space)->get();
+
+
+        //  $campgrounds = $campgrounds->get();
+
+              // عرض النتائج
+              return view('frontend.campground.all', compact('campgrounds'));
+          }
+
+     //   $campgrounds = Campground::where('cm_type', '0')->get();
+
+       // return view('frontend.campground.all', compact('campgrounds'));
+       return redirect()->route('register')
+       ->with('success', 'أنشئ حساب رجاءا');
 
       }
       public function desert(){
-            $campgrounds = Campground::where('cm_type', '1')->get();
 
-            return view('frontend.campground.all', compact('campgrounds'));
+            // الحصول على المستخدم المسجل حالياً
+      $user = auth()->user();
+
+      // التحقق من وجود المستخدم والزائر
+      if ($user && $user->visitor) {
+          // الحصول على معلومات الزائر
+          $visitor = $user->visitor;
+
+          // البدء باستعلام الأماكن
+          $campgrounds = CampGround::query();
+
+          // تصفية الأماكن بناءً على فوبيا الزائر
+          $campgrounds = Campground::where('cm_type', '1')->withoutMountain($visitor->is_phobia_hights)
+          ->withoutForest($visitor->is_phobia_dark)
+          ->withoutDesert($visitor->is_phobia_open_space)->get();
+
+
+        //  $campgrounds = $campgrounds->get();
+
+              // عرض النتائج
+              return view('frontend.campground.all', compact('campgrounds'));
+          }
+
+           // $campgrounds = Campground::where('cm_type', '1')->get();
+
+            return redirect()->route('register')
+            ->with('success', 'أنشئ حساب رجاءا');
 
           }
           public function mountain(){
-                $campgrounds = Campground::where('cm_type', '2')->get();
 
-                return view('frontend.campground.all', compact('campgrounds'));
+            // الحصول على المستخدم المسجل حالياً
+      $user = auth()->user();
+
+      // التحقق من وجود المستخدم والزائر
+      if ($user && $user->visitor) {
+          // الحصول على معلومات الزائر
+          $visitor = $user->visitor;
+
+          // البدء باستعلام الأماكن
+          $campgrounds = CampGround::query();
+
+          // تصفية الأماكن بناءً على فوبيا الزائر
+          $campgrounds = Campground::where('cm_type', '2')->withoutMountain($visitor->is_phobia_hights)
+          ->withoutForest($visitor->is_phobia_dark)
+          ->withoutDesert($visitor->is_phobia_open_space)->get();
+
+
+        //  $campgrounds = $campgrounds->get();
+
+              // عرض النتائج
+              return view('frontend.campground.all', compact('campgrounds'));
+          }
+
+
+          return redirect()->route('register')
+          ->with('success', 'أنشئ حساب رجاءا');
 
               }
 
