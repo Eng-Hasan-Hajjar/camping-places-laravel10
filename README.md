@@ -6,58 +6,189 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/الأدلة.PNG" alt="Build Status">
 
 </p>
 <p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/rating.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/register arab.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/أثناء الحذف يتم ارسال رسالة هل متأكد من الحذف .PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/أماكن التخييم في الموقع.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/إضافة طبيب.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/استكمال المعلومات 1.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/استكمال المعلومات الزائر.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/استكمال المعلومات بتصميم جديد .PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/اضافة حجز.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/اظهار كل العأماكن داخل الموقع.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/الأدلة السياحيين التعديل .PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/الأدلة.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/الأماكن من طرف الزائر.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/التفاصيل للأماكن بالعربي.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/التفاصيل لمعلومات عن الطبيب.PNG" alt="Build Status">
 
 </p><p align="center">
-<img src="interfaces" alt="Build Status">
+<img src="interfaces/التفاصيل لمكان التخييم.PNG" alt="Build Status">
 
 </p>
+<p align="center">
+<img src="interfaces/التقييم للموقع.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/التقييمات.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/الزائرين.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/الغابات فلترة.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/المجموعات التي يمكن حجزها.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/الواجهة الرئيسية للوحة التحكم للمدير.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/الواجهة الرئيسية.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/انشاء أماكن للتخييم.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/انشاء الأماكن.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/انشاء دليل سياحي.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/انشاء مجموعة الرحلة.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/انشاء معلومات الزائر.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/تسجيل الدخول عربي.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تسجيل الدخول.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تعديل الطبيب.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/تعديل المعلومات الزائر .PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تعديل المكان .PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تعديل معلومات الزائر.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/تغيير لون الخلفية .PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تعديل معلومات الطبيب.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تفاصيل الزائر.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/تفاصيل الطبيب.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تفاصيل المعلومات بعد الاستكمال ومراجعتها.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/تفاصيل الموقع في الموقع.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/تقييم الموقع التخييم أثناء عرض التفاصيل.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/جميع االأطباء.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/جميع الأطباء بالعربي.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/جميع الأماكن .PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/رسالة أنه لايمكن التقييم أكثر من مرة للمستخدم الواحد.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/فلترة الصحراء داخل الموقع.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/كمالة ادخال معلوامت المكان 2.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/كمالة التعديل.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/واجهة المجموعات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/واجهة الحجز في الصفحة الرئيسية.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/نظام حجز انشاء.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/لوحة التحكم.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+<img src="interfaces/لوحة التحكم للمدير.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/لوحة التحكم الخاصة بالزائر.PNG" alt="Build Status">
+
+</p><p align="center">
+<img src="interfaces/لوحة التحكم الخاصة (الواجهة الرئيسية ) بالمدير.PNG" alt="Build Status">
+
+</p>
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
